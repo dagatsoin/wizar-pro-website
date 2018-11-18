@@ -1,0 +1,52 @@
+{
+  "name": "wizar-pro-website",
+  "description": "The web site of Wizar for the tourisme profesionnal sector",
+  "version": "0.0.1",
+  "author": "Wizar Pro Web Site <daniel.neveux@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.0.19",
+    "gatsby-image": "^2.0.15",
+    "gatsby-plugin-manifest": "^2.0.5",
+    "gatsby-plugin-netlify-cms": "^3.0.7",
+    "gatsby-plugin-offline": "^2.0.11",
+    "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-sharp": "^2.0.7",
+    "gatsby-plugin-typescript": "^2.0.1",
+    "gatsby-source-filesystem": "^2.0.4",
+    "gatsby-source-wordpress": "^3.0.13",
+    "gatsby-transformer-sharp": "^2.1.4",
+    "jss": "^9.8.7",
+    "netlify-cms": "^2.2.0",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
+    "react-helmet": "^5.2.0",
+    "react-jss": "^8.6.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "node_modules/typescript/bin/tsc --noEmit",
+    "lint": "tslint --project ."
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.6",
+    "@types/react": "^16.7.3",
+    "@types/react-dom": "^16.0.9",
+    "prettier": "^1.14.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/dagatsoin/wizar-pro-website"
+  }
+}
