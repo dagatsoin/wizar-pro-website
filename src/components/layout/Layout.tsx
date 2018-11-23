@@ -1,9 +1,9 @@
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import Header from './Header'
-import './layout.css'
+import { Header } from '../header'
+import styles from './style'
 
 export type Props = {
   children: React.ReactNode
@@ -16,12 +16,13 @@ type Data = {
       title: string
       description: string
       keywords: string
+      brandLogoUrl: string
     }
   }
 }
 
 const Layout = ({ children, data }: Props) => (
-  <>
+  <div style={styles.root}>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -31,18 +32,9 @@ const Layout = ({ children, data }: Props) => (
     >
       <html lang="en" />
     </Helmet>
-    <Header siteTitle="Wizar" />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
-      {children}
-    </div>
-  </>
+    <Header brandLogoUrl={withPrefix(`./images/${data.site.siteMetadata.brandLogoUrl}`)}/>
+    {children}
+  </div>
 )
 
 export default props => (
@@ -53,6 +45,7 @@ export default props => (
           siteMetadata {
             title
             description
+            brandLogoUrl
           }
         }
       }

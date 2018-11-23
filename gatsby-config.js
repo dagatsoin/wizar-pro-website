@@ -1,8 +1,11 @@
+const uiTheme = require('./src/theme.ts').default
+
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://pro.wizar.world',
     title: 'Wizar',
-    description: 'Parcours touristiques sous forme d\'un jeu de rôle',
+    description: "Parcours touristiques sous forme d'un jeu de rôle",
+    brandLogoUrl: 'logo.png'
   },
   plugins: [
     {
@@ -62,10 +65,16 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        policy: [{ userAgent: '*', disallow: '/' }]
-      }
+        policy: [{ userAgent: '*', disallow: '/' }],
+      },
     },
     'gatsby-transformer-sharp',
+    {
+      resolve: `@wapps/gatsby-plugin-material-ui`,
+      options: {
+        theme: uiTheme,
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -73,7 +82,7 @@ module.exports = {
         // Exclude specific pages or groups of pages using glob parameters
         // See: https://github.com/isaacs/minimatch
         // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        exclude: ["/module/*"],
+        exclude: ['/module/*'],
         query: `
           {
             site {
@@ -89,8 +98,8 @@ module.exports = {
                 }
               }
             }
-        }`
-      }
+        }`,
+      },
     },
     `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality

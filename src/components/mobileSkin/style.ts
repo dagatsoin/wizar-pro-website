@@ -1,7 +1,5 @@
 export const style = {
     root: {
-        background: {
-
-        }
+        background: 'url(./androidSkin.png)'
     }
 }

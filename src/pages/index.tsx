@@ -3,6 +3,14 @@ import React from 'react'
 
 import { HeroShot, Layout } from '../components'
 
+const theme = require('../theme').default
+
+const style: {[key in string]: React.CSSProperties} = {
+  heroShot: {
+    paddingTop: `${theme.spacing.unit * 8}px`
+  }
+}
+
 type Data = {
   site: {
     siteMetadata: {
@@ -37,9 +45,12 @@ const Home = ({ data }: { data: Data }) => {
 
   return (
     <Layout>
+      <HeroShot
+        style={style.heroShot}
+        backgroundImageURL="./images/heroShot.jpg"
+      />
       <div dangerouslySetInnerHTML={{__html: sections[0].content}}/>
       {data.site.siteMetadata.title}
-      <HeroShot backgroundImageURL="./hero.jpg" />
     </Layout>
   )
 }
@@ -70,18 +81,4 @@ export const query = graphql`
     }
   }
 `
-/*
-export const pageQuery = graphql`
-  query($title: String!) {
-    markdownRemark(frontmatter: { title: { eq: $title } }) {
-      html
-      frontmatter {
-        title
-        image
-        imagePosition
-        backgroundImage
-      }
-    }
-  }
-`*/
 export default Home

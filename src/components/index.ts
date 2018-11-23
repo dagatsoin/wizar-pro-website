@@ -1,5 +1,5 @@
-export { default as Header } from './Header'
-export { default as Layout } from './Layout'
-export { default as HeroShot } from './HeroShot'
+export * from './layout'
+export * from './header'
+export * from './heroShot'
 export * from './mobileSkin'
 export * from './content'
