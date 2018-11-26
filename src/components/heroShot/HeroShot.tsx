@@ -1,10 +1,11 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import styles from "./styles.module.css"
 
-import { MobileSkin } from '../'
-import styles from './style'
-import { withPrefix } from 'gatsby'
+import demo from '../../assets/demo.png'
+//import { MobileSkin } from '../'
+import { withPrefix, Link } from 'gatsby'
 
 type Props = {
   backgroundImageURL: string
@@ -13,18 +14,18 @@ type Props = {
 
 const HeroShot = ({ backgroundImageURL, style }: Props) => (
   <div
+    className={styles.root}
     style={{
       ...style,
-      ...styles.root,
       backgroundImage: `url(${withPrefix(backgroundImageURL)})`,
     }}
   >
-    <div style={styles.content}>
+    <div className={styles.content}>
       <Typography
         component="h2"
         variant="h4"
         gutterBottom
-        style={styles.headers}
+        className={styles.headers}
       >
         Le tourisme dont vous êtes le héro.
       </Typography>
@@ -33,19 +34,21 @@ const HeroShot = ({ backgroundImageURL, style }: Props) => (
         component="h3"
         variant="h5"
         gutterBottom
-        style={styles.headers}
+        className={styles.headers}
       >
         Parcours touristiques sous forme d'un jeu de rôle géolocalisé.
       </Typography>
-      <Button variant="contained" color="primary">
-        Demander une démo
-      </Button>
+      <Link to="/askDemo/" className={styles.cta}>
+        <Button variant="contained" color="primary">
+          Demander une démo
+        </Button>
+      </Link>
     </div>
 
-    <MobileSkin className={styles.mobileSkin}>
-      {/* <video src="./demo.mp4" /> */}
-      <img src="./screenShot.png" alt="demo" />
-    </MobileSkin>
+    {/* <MobileSkin className={styles.mobileSkin}>
+      <video src="./demo.mp4" />
+    </MobileSkin> */}
+    <img src={demo} className={styles.mobile} alt="demo" />
   </div>
 )
 

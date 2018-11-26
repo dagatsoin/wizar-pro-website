@@ -2,6 +2,7 @@ import { graphql, StaticQuery, withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
+import { Footer } from '..'
 import { Header } from '../header'
 import styles from './style'
 
@@ -32,8 +33,13 @@ const Layout = ({ children, data }: Props) => (
     >
       <html lang="en" />
     </Helmet>
-    <Header brandLogoUrl={withPrefix(`./images/${data.site.siteMetadata.brandLogoUrl}`)}/>
+    <Header
+      brandLogoUrl={withPrefix(
+        `./images/${data.site.siteMetadata.brandLogoUrl}`
+      )}
+    />
     {children}
+    <Footer/>
   </div>
 )
 

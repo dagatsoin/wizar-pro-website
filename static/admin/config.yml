@@ -17,6 +17,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: Image, name: image, widget: image}
       - {label: "Image position", name: "imagePosition", widget: "select", options: ["left", "right"]}
+      - {label: "Contrast text", name: "contrastText", widget: "boolean", default: true}
       - {label: "Text", name: "body", widget: "markdown"}
       - {label: "Background Image", name: backgroundImage, widget: image}
 
