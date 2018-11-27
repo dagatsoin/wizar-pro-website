@@ -1,9 +1,9 @@
 ---
 title: Bla
-image: /static/images/heroshot.jpg
+image: /./images/ibrahim-rifath-1152735-unsplash.jpg
 imagePosition: left
 contrastText: true
-backgroundImage: /images/jajang-permana-982099-unsplash.jpg
+backgroundImage: /./images/jajang-permana-982099-unsplash.jpg
 ---
 ojihzdùi 
 
