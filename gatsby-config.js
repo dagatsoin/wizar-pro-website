@@ -5,25 +5,21 @@ module.exports = {
     siteUrl: 'https://pro.wizar.world',
     title: 'Wizar',
     description: "Parcours touristiques sous forme d'un jeu de rôle",
-    brandLogoUrl: 'logo.png'
+    brandLogoUrl: 'logo.png',
   },
   plugins: [
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        /**
-         * One convention is to place your Netlify CMS customization code in a
-         * `src/cms` directory.
-         */
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/static/images`,
         name: 'uploads',
+      },
+    },
+    {
+      resolve: `gatsby-plugin-netlify-cms-paths`,
+      options: {
+        cmsConfig: `/static/admin/config.yml`,
       },
     },
     {
@@ -45,9 +41,9 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-relative-images',
+            resolve: `gatsby-plugin-netlify-cms-paths`,
             options: {
-              name: 'uploads',
+              cmsConfig: `/static/admin/config.yml`,
             },
           },
           {
@@ -101,6 +97,7 @@ module.exports = {
         }`,
       },
     },
+    'gatsby-plugin-netlify-cms',
     `gatsby-plugin-typescript`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline

@@ -5,6 +5,24 @@ import React from 'react'
 import { HeroShot, Layout } from '../components'
 import { style } from './_home.style'
 
+type Fluid = {
+  fluid: {
+    src: string
+  }
+}
+
+type Fixed = {
+  fixed: {
+    src: string
+  }
+}
+
+type Image<T> =
+  | {
+      childImageSharp: T
+    }
+  | string
+
 type Data = {
   site: {
     siteMetadata: {
@@ -21,9 +39,9 @@ type Data = {
         frontmatter: {
           contrastText: boolean
           title: string
-          image: string
+          image: Image<Fixed>
           imagePosition: string
-          backgroundImage: string
+          backgroundImage: Image<Fluid>
         }
       }
     }>
@@ -36,7 +54,7 @@ const Home = ({ data }: { data: Data }) => {
     .map(e => ({
       contrastText: e.node.frontmatter.contrastText,
       title: e.node.frontmatter.title,
-      imageUrl: e.node.frontmatter.image,
+      image: e.node.frontmatter.image,
       imagePosition: e.node.frontmatter.imagePosition,
       backgroundImage: e.node.frontmatter.backgroundImage,
       content: e.node.html,
@@ -51,7 +69,7 @@ const Home = ({ data }: { data: Data }) => {
       {sections.map(
         ({
           title,
-          imageUrl,
+          image,
           imagePosition,
           backgroundImage,
           content,
@@ -61,7 +79,11 @@ const Home = ({ data }: { data: Data }) => {
             key={title}
             style={{
               ...style.sectionRoot,
-              backgroundImage: `url(${backgroundImage})`,
+              backgroundImage: `url(${
+                typeof backgroundImage === 'string'
+                  ? backgroundImage
+                  : backgroundImage.childImageSharp.fluid.src
+              })`,
             }}
           >
             <div style={style.sectionContainer}>
@@ -82,7 +104,14 @@ const Home = ({ data }: { data: Data }) => {
                     imagePosition === 'left' ? 'row' : 'row-reverse',
                 }}
               >
-                <img src={imageUrl} alt={title} />
+                <img
+                  src={
+                    typeof image === 'string'
+                      ? image
+                      : image.childImageSharp.fixed.src
+                  }
+                  alt={title}
+                />
                 <div
                   className={`markdown ${
                     contrastText ? 'contrast' : undefined
@@ -117,9 +146,21 @@ export const query = graphql`
           frontmatter {
             title
             contrastText
-            image
+            image {
+              childImageSharp {
+                fixed(width: 300) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
             imagePosition
-            backgroundImage
+            backgroundImage {
+              childImageSharp {
+                fluid(maxWidth: 2048) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }
