@@ -1,6 +1,6 @@
 ---
 title: Bla
-image: /images/ibrahim-rifath-1152735-unsplash.jpg
+image: /static/images/heroshot.jpg
 imagePosition: left
 contrastText: true
 backgroundImage: /images/jajang-permana-982099-unsplash.jpg
