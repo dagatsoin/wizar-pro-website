@@ -2,26 +2,9 @@ import Typography from '@material-ui/core/Typography'
 import { graphql } from 'gatsby'
 import React from 'react'
 
+import { Fixed, Fluid, Image } from 'src/types/image'
 import { HeroShot, Layout } from '../components'
 import { style } from './_home.style'
-
-type Fluid = {
-  fluid: {
-    src: string
-  }
-}
-
-type Fixed = {
-  fixed: {
-    src: string
-  }
-}
-
-type Image<T> =
-  | {
-      childImageSharp: T
-    }
-  | string
 
 type Data = {
   site: {
@@ -62,10 +45,7 @@ const Home = ({ data }: { data: Data }) => {
 
   return (
     <Layout>
-      <HeroShot
-        style={style.heroShot}
-        backgroundImageURL="./images/heroShot.jpg"
-      />
+      <HeroShot style={style.heroShot}/>
       {sections.map(
         ({
           title,
