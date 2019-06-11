@@ -1,21 +1,21 @@
-import { Grid, Typography } from '@material-ui/core'
+import { Text, View } from '@sproutch/ui'
 import React from 'react'
 
 import style from './style'
 
 export default () => (
   <div style={style.root}>
-    <Grid container spacing={24}>
-      <Grid item xs={6}>
+    <View>
+      <View>
         <div style={{ textAlign: 'center' }}>
-          <Typography>
+          <Text>
             &copy; 2018 Warfog &#8212; All rights reserved.
-          </Typography>
+          </Text>
         </div>
-      </Grid>
-      <Grid item xs={6}>
+      </View>
+      <View>
         <div style={{ textAlign: 'center' }}>
-          <Typography>
+          <Text>
             <a href="mailto:contact@warfog.gg">E-Mail</a> &nbsp;/&nbsp;{' '}
             <a href="https://http://facebook.com/wizar.game" target="_blank">
               Facebook
@@ -28,9 +28,9 @@ export default () => (
             <a href="https://www.instagram.com/wizargame/" target="_blank">
               Instagram
             </a>
-          </Typography>
+          </Text>
         </div>
-      </Grid>
-    </Grid>
+      </View>
+    </View>
   </div>
 )

@@ -3,5 +3,13 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+const React = require('react')
+const ThemeProvider = require('./src/themeProvider').default
 
-import "./src/global.css"
+exports.wrapRootElement = ({ element }) => {
+  return (
+    <ThemeProvider>
+      {element}
+    </ThemeProvider>
+  )
+}

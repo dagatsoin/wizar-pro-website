@@ -1,4 +1,4 @@
-import Typography from '@material-ui/core/Typography'
+import { Text } from '@sproutch/ui'
 import { graphql } from 'gatsby'
 import React from 'react'
 
@@ -67,16 +67,9 @@ const Home = ({ data }: { data: Data }) => {
             }}
           >
             <div style={style.sectionContainer}>
-              <Typography
-                component="h2"
-                variant="h2"
-                style={{
-                  ...style.sectionTitle,
-                  color: contrastText ? 'white' : undefined,
-                }}
-              >
+              <Text>
                 {title}
-              </Typography>
+              </Text>
               <div
                 style={{
                   ...style.sectionContent,

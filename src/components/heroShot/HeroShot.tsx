@@ -1,4 +1,4 @@
-import Typography from '@material-ui/core/Typography'
+import { Text } from '@sproutch/ui'
 import { graphql, Link, StaticQuery, withPrefix } from 'gatsby'
 import Img from "gatsby-image"
 import React from 'react'
@@ -28,25 +28,15 @@ const HeroShot = ({
   >
     <Img className={styles.backgroundImage} fluid={backgroundImage.childImageSharp.fluid} />
     <div className={styles.content}>
-      <Typography
-        component="h2"
-        variant="h4"
-        gutterBottom
-        className={styles.headers}
-      >
+      <Text>
         Le tourisme dont vous êtes le héro.
-      </Typography>
+      </Text>
 
-      <Typography
-        component="h3"
-        variant="h5"
-        gutterBottom
-        className={styles.headers}
-      >
+      <Text>
         Parcours touristiques sous forme d'un jeu de rôle géolocalisé.
-      </Typography>
+      </Text>
       <Link to="/askDemo/" className={styles.link}>
-        <Cta>Demander une démo</Cta>
+        <Cta label="Demander une démo"/>
       </Link>
     </div>
     <img src={demo} className={styles.mobile} alt="demo" />

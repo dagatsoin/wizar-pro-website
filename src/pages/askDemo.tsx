@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Button, Grid, TextField } from '@material-ui/core'
+import { Button, View } from '@sproutch/ui'
 import { Layout } from '../../src/components'
 import style from './_askDemo.style'
 
@@ -18,7 +18,7 @@ class AskDemoForm extends React.Component {
   public render() {
     return (
       <Layout>
-        <Grid container justify="center">
+        <View>
           <form
             noValidate
             onSubmit={this.handleSubmit}
@@ -29,21 +29,11 @@ class AskDemoForm extends React.Component {
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
-            <TextField
-              id="email"
-              name="email"
-              label="Email"
-              type="email"
-              style={style.textField}
-              value={this.state.email}
-              onChange={this.handleChange}
-              margin="normal"
-            />
-            <Button type="submit" color="primary" variant="contained">
+            <Button>
               Envoyer
             </Button>
           </form>
-        </Grid>
+        </View>
       </Layout>
     )
   }

@@ -1,5 +1,3 @@
-const uiTheme = require('./src/theme.ts').default
-
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://pro.wizar.world',
@@ -65,12 +63,7 @@ module.exports = {
       },
     },
     'gatsby-transformer-sharp',
-    {
-      resolve: `@wapps/gatsby-plugin-material-ui`,
-      options: {
-        theme: uiTheme,
-      },
-    },
+
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-sitemap`,
@@ -98,7 +91,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
-    `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        //jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',

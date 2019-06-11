@@ -1,4 +1,4 @@
-export * from './button'
+export * from './cta'
 export * from './footer'
 export * from './layout'
 export * from './header'
