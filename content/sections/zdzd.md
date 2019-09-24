@@ -3,10 +3,10 @@ layout: hero
 cta:
   label: dzdz
   palette: secondary
-title: zdzd
+title: zdzdfefef
 image:
-  hiddenHeaderContent: '2'
-  hiddenHeaderLevel: '2'
+  hiddenHeaderContent: feefef
+  hiddenHeaderLevel: '4'
   src: ''
 imagePosition: left
 contrastText: true
