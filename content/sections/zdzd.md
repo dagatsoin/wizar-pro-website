@@ -7,7 +7,7 @@ title: zdzdfefef
 image:
   hiddenHeaderContent: feefef
   hiddenHeaderLevel: '4'
-  src: ''
+  src: /images/heroshot.jpg
 imagePosition: left
 contrastText: true
 backgroundImage: /images/heroshot.jpg
