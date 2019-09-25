@@ -17,12 +17,12 @@ function wrapInHeader(level: string, children: React.ReactNode) {
   }
 }
 
-function renderImage(src: string) {
-  return <RX.Image source={src}/>
+function renderImage(src: string, title?: string) {
+  return <img src={src} title={title}/>
 }
 
 export default function({hiddenHeaderContent, hiddenHeaderLevel, src}: Props) {
   return hiddenHeaderContent
-    ? wrapInHeader(hiddenHeaderLevel || '1', renderImage(src))
-    : renderImage(src)
+    ? wrapInHeader(hiddenHeaderLevel || '1', renderImage(src, hiddenHeaderContent))
+    : renderImage(src, hiddenHeaderContent)
 }

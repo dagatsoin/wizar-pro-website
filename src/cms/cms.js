@@ -18,7 +18,7 @@ import CMS from "netlify-cms"
   // Custom Widgets
 import { CTAControl } from "./CTAControl"
 import { Cta } from "../components/cta"
-import { imageControlWithCMS } from "./ImageControl"
+import { ImageControl } from "./ImageControl"
 import { Image } from "../components/image"
 // import { boundedImageControlMaker, boundedImagePreviewMaker } from './withCMS'
 //import { withGlobalDecorator } from './withGlobalDecorator'
@@ -33,4 +33,4 @@ import { Image } from "../components/image"
  * Register the imported widget:
  */
 CMS.registerWidget("cta", CTAControl, Cta)
-CMS.registerWidget("imageInHeader", imageControlWithCMS(CMS), Image)
+CMS.registerWidget("imageInHeader", ImageControl, Image)
