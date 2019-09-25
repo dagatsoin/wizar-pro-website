@@ -1,9 +1,15 @@
 ---
 title: Bla
-image: /images/ibrahim-rifath-1152735-unsplash.jpg
+layout: hero
+cta:
+  label: azdazd
+  palette: primary
+image:
+  hiddenHeaderContent: le tourisme dont vous êtes le héros.
+  src: /images/heroshot.jpg
 imagePosition: left
 contrastText: true
-backgroundImage: /images/jajang-permana-982099-unsplash.jpg
+backgroundImage: /images/ibrahim-rifath-1152735-unsplash.jpg
 ---
 ojihzdùi 
 
