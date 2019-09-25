@@ -120,9 +120,12 @@ export const query = graphql`
             title
             contrastText
             image {
-              childImageSharp {
-                fixed(width: 300) {
-                  ...GatsbyImageSharpFixed
+              hiddenHeaderContent
+              src {
+                childImageSharp {
+                  fixed(width: 300) {
+                    ...GatsbyImageSharpFixed
+                  }
                 }
               }
             }
