@@ -1,15 +1,18 @@
+import { Map } from 'immutable'
 import CMS from 'netlify-cms'
 import React, { Component } from 'react'
 
 import { NetlifyControlWidgetProps } from './props'
 
-export type Value = {
+export type Image = {
   src: string
   hiddenHeaderContent?: string
   hiddenHeaderLevel?: string
 }
 
-type Props = NetlifyControlWidgetProps<any, Map<keyof Value, string>>
+type Value = Map<keyof Image, string>
+
+type Props = NetlifyControlWidgetProps<any, Value>
 
 interface CMS {
   getWidget(
@@ -23,15 +26,7 @@ const DefaultImageControl = CMS.getWidget('image').control
 
 export class ImageControl extends Component<Props> {
   private get value(): Value {
-    return this.props.value
-      ? {
-        src: this.props.value.get('src') || '',
-        hiddenHeaderContent: this.props.value.get('hiddenHeaderContent'),
-        hiddenHeaderLevel: this.props.value.get('hiddenHeaderLevel')
-      }
-      : {
-        src: ''
-      }
+    return this.props.value || Map({ src: ''})
   }
 
   public render() {
@@ -52,18 +47,18 @@ export class ImageControl extends Component<Props> {
           onClearMediaControl={this.props.onClearMediaControl}
           onRemoveMediaControl={this.props.onRemoveMediaControl}
           classNameWrapper={classNameWrapper}
-          value={this.value.src}
+          value={this.value.get('src')}
         />
         <input
           className={classNameWrapper}
           onChange={this.onHiddenHeaderContentChange}
-          value={this.value.hiddenHeaderContent}
+          value={this.value.get('hiddenHeaderContent')}
           placeholder={'Hidden Hn content'}
         />
         <select
           className={classNameWrapper}
           onChange={this.onHiddenHeaderLevelChange}
-          value={this.value.hiddenHeaderLevel}
+          value={this.value.get('hiddenHeaderLevel')}
         >
           <option value={'1'}>1</option>
           <option value={'2'}>2</option>
@@ -81,7 +76,7 @@ export class ImageControl extends Component<Props> {
   ) => {
     console.log(e.currentTarget.value)
     this.props.onChange(
-      this.props.value.set('hiddenHeaderLevel', e.currentTarget.value)
+      this.value.set('hiddenHeaderLevel', e.currentTarget.value)
     )
   }
 
@@ -90,12 +85,12 @@ export class ImageControl extends Component<Props> {
   ) => {
     console.log(e.currentTarget.value)
     this.props.onChange(
-      this.props.value.set('hiddenHeaderContent', e.currentTarget.value)
+      this.value.set('hiddenHeaderContent', e.currentTarget.value)
     )
   }
 
   private onURIChange = (src: string) => {
     console.log(src)
-    this.props.onChange(this.props.value.set('src', src))
+    this.props.onChange(this.value.set('src', src))
   }
 }
