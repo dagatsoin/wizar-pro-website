@@ -22,7 +22,11 @@ type Data = {
         frontmatter: {
           contrastText: boolean
           title: string
-          image: Image<Fixed>
+          image: {
+            src: Image<Fixed>
+            hiddenHeaderContent?: string
+            hiddenHeaderLevel?: string
+          }
           imagePosition: string
           backgroundImage: Image<Fluid>
         }
@@ -81,7 +85,7 @@ const Home = ({ data }: { data: Data }) => {
                   src={
                     typeof image === 'string'
                       ? image
-                      : image.childImageSharp.fixed.src
+                      : image.src.childImageSharp.fixed.src
                   }
                   alt={title}
                 />
