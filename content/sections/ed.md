@@ -5,7 +5,7 @@ cta:
   palette: primary
 title: ed
 image:
-  hiddenHeaderContent: ddddez
+  hiddenHeaderContent: le tourisme dont vous êtes le héros
   src: /images/heroshot.jpg
 imagePosition: left
 contrastText: true
