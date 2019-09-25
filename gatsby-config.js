@@ -1,3 +1,7 @@
+require('ts-node').register({compilerOptions: {
+  module: 'commonjs',
+  target: 'es2017',
+},})
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://pro.wizar.world',
@@ -6,6 +10,14 @@ module.exports = {
     brandLogoUrl: 'logo.png',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        //jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -90,13 +102,10 @@ module.exports = {
         }`,
       },
     },
-    'gatsby-plugin-netlify-cms',
     {
-      resolve: `gatsby-plugin-typescript`,
+      resolve: `gatsby-plugin-netlify-cms`,
       options: {
-        isTSX: true, // defaults to false
-        //jsxPragma: `jsx`, // defaults to "React"
-        allExtensions: true, // defaults to false
+        modulePath: `${__dirname}/src/cms/cms.js`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

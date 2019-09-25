@@ -14,8 +14,10 @@ collections:
     folder: "content/sections"
     create: true
     fields:
+      - {label: "Layout", name: "layout", widget: "select", options: ["hero", "left", "right", "vertical"]}
+      - {label: "CTA", name: "cta", widget: cta}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: Image, name: image, widget: image}
+      - {label: Image, name: image, widget: imageInHeader}
       - {label: "Image position", name: "imagePosition", widget: "select", options: ["left", "right"]}
       - {label: "Contrast text", name: "contrastText", widget: "boolean", default: true}
       - {label: "Text", name: "body", widget: "markdown"}

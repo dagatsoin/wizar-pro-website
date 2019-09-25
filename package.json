@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "author": "Wizar Pro Web Site <daniel.neveux@gmail.com>",
   "dependencies": {
-    "@sproutch/ui": "dagatsoin/sproutch#c941da9d61deadc9f9c1631ada16a899bfa27084",
+    "@sproutch/ui": "^0.0.4-beta.2",
     "gatsby": "^2.9.0",
     "gatsby-image": "^2.1.3",
     "gatsby-plugin-google-fonts": "0.0.4",
-    "gatsby-plugin-netlify-cms": "^3.0.18",
+    "gatsby-plugin-netlify-cms": "^4.0.1",
     "gatsby-plugin-netlify-cms-paths": "^1.2.1",
     "gatsby-plugin-offline": "^2.1.1",
     "gatsby-plugin-react-helmet": "^3.0.12",
@@ -24,15 +24,17 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "reactxp": "dagatsoin/reactxp.git#8e6ad828b7477a8bf963ebfd7b52646ceba7a5ee"
+    "reactxp": "^2.0.0-rc.1"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
+    "clean": "gatsby clean",
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "develop": "npm run clean && gatsby develop",
     "start": "npm run develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -40,6 +42,7 @@
     "lint": "tslint --project ."
   },
   "devDependencies": {
+    "@types/immutable": "^3.8.7",
     "@types/node": "^10.14.8",
     "@types/react": "^16.8.19",
     "@types/react-dom": "^16.8.4",

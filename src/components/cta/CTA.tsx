@@ -1,10 +1,9 @@
 import { Button } from "@sproutch/ui"
 import React from 'react'
 
-export type CTAProps = {
-  label: string
-}
+import { Value as CTAProps } from '../../cms/CTAControl'
 
-export default ({ label }: CTAProps) => (
-  <Button variant="contained" palette="primary" label={label}/>
-)
+export default ({ label, palette }: CTAProps) => {
+  return (
+  <Button variant="contained" palette={palette} label={label}/>
+)}

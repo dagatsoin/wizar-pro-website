@@ -3,7 +3,7 @@
  * extension registration methods, such as `registerWidget` and
  * `registerPreviewTemplate`.
  */
-// import CMS from "netlify-cms"
+import CMS from "netlify-cms"
 
 /**
  * Any imported styles will automatically be applied to the editor preview
@@ -15,14 +15,22 @@
 // import "styles.scss"
 // import "../other-styles.css"
 
+  // Custom Widgets
+import { CTAControl } from "./CTAControl"
+import { Cta } from "../components/cta"
+import { imageControlWithCMS } from "./ImageControl"
+import { Image } from "../components/image"
+// import { boundedImageControlMaker, boundedImagePreviewMaker } from './withCMS'
+//import { withGlobalDecorator } from './withGlobalDecorator'
+//import { SectionPreview } from './SectionPreview'
+
 /**
- * Let's say you've created widget and preview components for a custom image
- * gallery widget in separate files:
+ * Register a template for add global decorators
  */
-// import ImageGalleryWidget from "./image-gallery-widget.js"
-// import ImageGalleryPreview from "./image-gallery-preview.js"
+//CMS.registerPreviewTemplate("sections", withGlobalDecorator(SectionPreview))
 
 /**
  * Register the imported widget:
  */
-// CMS.registerWidget(`image-gallery`, ImageGalleryWidget, ImageGalleryPreview)
+CMS.registerWidget("cta", CTAControl, Cta)
+CMS.registerWidget("imageInHeader", imageControlWithCMS(CMS), Image)
