@@ -14,14 +14,14 @@ collections:
     folder: "content/sections"
     create: true
     fields:
-      - {label: "Layout", name: "layout", widget: "select", options: ["hero", "left", "right", "vertical"]}
-      - {label: "CTA", name: "cta", widget: cta}
+      - {label: "Layout", name: "layout", widget: "select", options: ["hero", "left", "right", "vertical"], default: "left"}
+      - {label: "CTA", name: "cta", widget: cta, required: false}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: Image, name: image, widget: imageInHeader}
-      - {label: "Image position", name: "imagePosition", widget: "select", options: ["left", "right"]}
-      - {label: "Contrast text", name: "contrastText", widget: "boolean", default: true}
-      - {label: "Text", name: "body", widget: "markdown"}
-      - {label: "Background Image", name: backgroundImage, widget: image}
+      - {label: Image, name: image, widget: imageInHeader, required: false}
+      - {label: "Image position", name: "imagePosition", widget: "select", options: ["left", "right"], default: "left"}
+      - {label: "Contrast text", name: "contrastText", widget: "boolean", default: false}
+      - {label: "Text", name: "body", widget: "markdown", required: false}
+      - {label: "Background Image", name: backgroundImage, widget: image, required: false}
 
   - name: "pages"
     label: "Pages"
