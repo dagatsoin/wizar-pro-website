@@ -1,7 +1,7 @@
 ---
 layout: left
 cta:
-  label: zdzdd
+  label: zdzddrt
   palette: secondary
 title: test
 image:
