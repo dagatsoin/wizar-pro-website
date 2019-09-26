@@ -1,8 +1,5 @@
 ---
 layout: hero
-cta:
-  label: Demander une démo
-  palette: primary
 title: Wizar
 image:
   hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
