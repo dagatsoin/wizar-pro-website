@@ -1,9 +1,8 @@
 import React from 'react'
-import * as RX from 'reactxp'
 
-import { Value } from '../../cms/ImageControl'
+import { Image } from '../../cms/ImageControl'
 
-type Props = Value
+type Props = Image
 
 function wrapInHeader(level: string, children: React.ReactNode) {
   switch (level) {

@@ -2,13 +2,23 @@ import { Collection, Map } from 'immutable'
 
 export type NetlifyWidgetProps<T> = {
   readonly value: T
-  readonly forId: string
   readonly field: Map<string, string>
   readonly forID: string
   readonly classNameWrapper: string
 }
 
+export type NetlifyPreviewWidgetProps<A, T> = {
+  value: T, // Current preview value
+  field: Map<string, any>, // Immutable map of current field configuration
+  metadata: Map<string, string>, // Immutable map of any available metadata for the current field
+  entry: Map<string, any>, // Immutable Map of all entry data
+  fieldsMetaData: Map<string, string> // Immutable map of metadata from all fields.
+  getAsset(path: string): A, // Function for retrieving an asset url for image/file fields
+}
+
 export type NetlifyControlWidgetProps<A, T> = NetlifyWidgetProps<T> & {
+  value: T
+  forID: string
   field: Map<string, any>,
   mediaPaths: Map<string, any>,
   classNameWrapper: string,
