@@ -11,10 +11,8 @@ export type Image = {
   hiddenHeaderLevel?: string
 }
 
-type Value = Map<keyof Image, string>
-
-type ControlProps = NetlifyControlWidgetProps<any, Value>
-type PreviewProps = NetlifyPreviewWidgetProps<any, Value>
+type ControlProps = NetlifyControlWidgetProps<any, Image | Map<keyof Image, string>>
+type PreviewProps = NetlifyPreviewWidgetProps<any, Image>
 
 interface CMS {
   getWidget(
@@ -27,8 +25,23 @@ interface CMS {
 const DefaultImageControl = CMS.getWidget('image').control
 
 export class ImageControl extends Component<ControlProps> {
-  private get value(): Value {
-    return this.props.value || Map({ src: ''})
+  get value(): Image {
+    if (this.props.value) {
+      if (Map.isMap(this.props.value)) {
+        const value = this.props.value as Map<keyof Image, string>
+        return {
+          src: value.get('src'),
+          hiddenHeaderContent: value.get('hiddenHeaderContent'),
+          hiddenHeaderLevel: value.get('hiddenHeaderLevel'),
+        }
+      } else {
+        return this.props.value as Image
+      }
+    } else {
+      return {
+        src: '',
+      }
+    }
   }
 
   /**
@@ -56,18 +69,18 @@ export class ImageControl extends Component<ControlProps> {
           onClearMediaControl={this.props.onClearMediaControl}
           onRemoveMediaControl={this.props.onRemoveMediaControl}
           classNameWrapper={classNameWrapper}
-          value={this.value.get('src')}
+          value={this.value.src}
         />
         <input
           className={classNameWrapper}
           onChange={this.onHiddenHeaderContentChange}
-          value={this.value.get('hiddenHeaderContent')}
+          value={this.value.hiddenHeaderContent}
           placeholder={'Hidden Hn content'}
         />
         <select
           className={classNameWrapper}
           onChange={this.onHiddenHeaderLevelChange}
-          value={this.value.get('hiddenHeaderLevel')}
+          value={this.value.hiddenHeaderLevel}
         >
           <option value={'1'}>1</option>
           <option value={'2'}>2</option>
@@ -83,30 +96,32 @@ export class ImageControl extends Component<ControlProps> {
   private onHiddenHeaderLevelChange = (
     e: React.FormEvent<HTMLSelectElement>
   ) => {
-    console.log(e.currentTarget.value)
-    this.props.onChange(
-      this.value.set('hiddenHeaderLevel', e.currentTarget.value)
-    )
+    this.props.onChange({
+      ...this.value,
+      hiddenHeaderLevel: e.currentTarget.value,
+    })
   }
 
   private onHiddenHeaderContentChange = (
     e: React.FormEvent<HTMLInputElement>
   ) => {
-    console.log(e.currentTarget.value)
-    this.props.onChange(
-      this.value.set('hiddenHeaderContent', e.currentTarget.value)
-    )
+    this.props.onChange({
+      ...this.value,
+      hiddenHeaderContent: e.currentTarget.value,
+    })
   }
 
   private onURIChange = (src: string) => {
-    console.log(src)
-    this.props.onChange(this.value.set('src', src))
+    this.props.onChange({
+      ...this.value,
+      src,
+    })
   }
 }
 
 export function ImagePreview(props: PreviewProps) {
-  console.log(props, props.value)
-  /*const value = props.value.toObject()
-  console.log(value)*/
-  return <></>
+  const fieldName = props.field.get('name')
+  // todo what if it is a nested field
+  const value = props.value || props.entry.getIn(['data', fieldName]).toJS()
+  return <Image {...value}/>
 }

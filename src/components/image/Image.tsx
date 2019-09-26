@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Image } from '../../cms/ImageControl'
+import { Image } from '../../cms/ImageWidget'
 
 type Props = Image
 
