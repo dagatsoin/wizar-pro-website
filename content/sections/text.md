@@ -1,9 +1,11 @@
 ---
 layout: left
 cta:
-  label: test
+  label: ''
   palette: secondary
 title: 'text '
+image:
+  src: /images/logo.png
 imagePosition: left
 contrastText: false
 ---
