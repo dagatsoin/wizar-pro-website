@@ -1,9 +1,8 @@
 import { Button } from "@sproutch/ui"
 import React from 'react'
+import { CTA } from 'src/types/widget'
 
-import { Value as CTAProps } from '../../cms/CTAWidget'
-
-export default ({ label, palette }: CTAProps) => {
+export default ({ label, palette }: CTA) => {
   return (
   <Button variant="contained" palette={palette} label={label}/>
 )}
