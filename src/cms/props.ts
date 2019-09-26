@@ -22,7 +22,7 @@ export type NetlifyControlWidgetProps<A, T> = NetlifyWidgetProps<T> & {
   field: Map<string, any>,
   mediaPaths: Map<string, any>,
   classNameWrapper: string,
-  onChange(value: T): void
+  onChange(value?: T): void
   getAsset(path: string): A
   onAddAsset(asset: A): void
   onRemoveAsset(asset: A): void

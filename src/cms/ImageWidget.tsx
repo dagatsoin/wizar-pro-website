@@ -68,12 +68,14 @@ export class ImageControl extends Component<ControlProps> {
         />
         <input
           className={classNameWrapper}
+          disabled={!this.value.src.length}
           onChange={this.onHiddenHeaderContentChange}
           value={this.value.hiddenHeaderContent}
           placeholder={'Hidden Hn content'}
         />
         <select
           className={classNameWrapper}
+          disabled={!this.value.src.length}
           onChange={this.onHiddenHeaderLevelChange}
           value={this.value.hiddenHeaderLevel}
         >
@@ -107,10 +109,12 @@ export class ImageControl extends Component<ControlProps> {
   }
 
   private onURIChange = (src: string) => {
-    this.props.onChange({
-      ...this.value,
-      src,
-    })
+    this.props.onChange(src.length
+      ? {
+        ...this.value,
+        src,
+      }
+      : undefined)
   }
 }
 

@@ -60,10 +60,13 @@ export class CTAControl extends Component<ControlProps> {
   }
 
   private onLabelChange = (e: React.FormEvent<HTMLInputElement>) => {
-    this.props.onChange({
-      ...this.value,
-      label: e.currentTarget.value,
-    })
+    this.props.onChange(e.currentTarget.value
+      ? {
+        ...this.value,
+        label: e.currentTarget.value,
+      }
+      : undefined
+    )
   }
 }
 
