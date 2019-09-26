@@ -1,7 +1,7 @@
 ---
 layout: left
 cta:
-  label: d
+  label: ''
   palette: secondary
 title: 'text '
 image:
