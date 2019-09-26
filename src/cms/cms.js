@@ -25,7 +25,7 @@ import { ImageControl, ImagePreview } from "./ImageWidget"
 /**
  * Register a template for add global decorators
  */
-//CMS.registerPreviewTemplate("sections", withGlobalDecorator(SectionPreview))
+//CMS.registerPreviewTemplate("modules", withGlobalDecorator(SectionPreview))
 
 /**
  * Register the imported widget:

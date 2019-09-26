@@ -9,9 +9,9 @@ media_folder: "static/images" # Media files will be stored in the repo under sta
 public_folder: "/images" # The src attribute for uploaded media will begin with /images
 
 collections:
-  - name: "sections"
-    label: "Sections"
-    folder: "content/sections"
+  - name: "modules"
+    label: "Modules"
+    folder: "content/modules"
     create: true
     fields:
       - {label: "Layout", name: layout, widget: "select", options: ["hero", "left", "right", "vertical"], default: "left"}
