@@ -2,14 +2,9 @@ import { Map } from 'immutable'
 import CMS from 'netlify-cms'
 import React, { Component } from 'react'
 
-import { Image } from '../../src/components/image'
+import { Image as ImageComp } from '../components/image'
+import { Image } from '../types/widget'
 import { NetlifyControlWidgetProps, NetlifyPreviewWidgetProps } from './props'
-
-export type Image = {
-  src: string
-  hiddenHeaderContent?: string
-  hiddenHeaderLevel?: string
-}
 
 type ControlProps = NetlifyControlWidgetProps<any, Image | Map<keyof Image, string>>
 type PreviewProps = NetlifyPreviewWidgetProps<any, Image>
@@ -123,5 +118,5 @@ export function ImagePreview(props: PreviewProps) {
   const fieldName = props.field.get('name')
   // todo what if it is a nested field
   const value = props.value || props.entry.getIn(['data', fieldName]).toJS()
-  return <Image {...value}/>
+  return <ImageComp {...value}/>
 }

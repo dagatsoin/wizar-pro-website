@@ -2,12 +2,8 @@ import { Map } from 'immutable'
 import React, { Component } from 'react'
 
 import { Cta } from '../components/cta'
+import { CTA } from '../types/widget'
 import { NetlifyControlWidgetProps, NetlifyPreviewWidgetProps } from './props'
-
-export type CTA = {
-  palette: 'primary' | 'secondary'
-  label: string
-}
 
 type ControlProps = NetlifyControlWidgetProps<undefined, CTA | Map<keyof CTA, string>>
 type PreviewProps = NetlifyPreviewWidgetProps<undefined, CTA>

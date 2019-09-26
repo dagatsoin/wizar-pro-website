@@ -2,7 +2,7 @@ import { Text } from '@sproutch/ui'
 import { graphql } from 'gatsby'
 import React from 'react'
 
-import { Fixed, Fluid, Image } from 'src/types/image'
+import { SectionType } from 'src/types/section'
 import { HeroShot, Layout } from '../components'
 import { style } from './_home.style'
 
@@ -19,17 +19,7 @@ type Data = {
       node: {
         html: string
         fileAbsolutePath: string
-        frontmatter: {
-          contrastText: boolean
-          title: string
-          image: {
-            src: Image<Fixed>
-            hiddenHeaderContent?: string
-            hiddenHeaderLevel?: string
-          }
-          imagePosition: string
-          backgroundImage: Image<Fluid>
-        }
+        frontmatter: SectionType
       }
     }>
   }
@@ -63,11 +53,13 @@ const Home = ({ data }: { data: Data }) => {
             key={title}
             style={{
               ...style.sectionRoot,
-              backgroundImage: `url(${
-                typeof backgroundImage === 'string'
-                  ? backgroundImage
-                  : backgroundImage.childImageSharp.fluid.src
-              })`,
+              backgroundImage: backgroundImage ?
+                `url(${
+                  typeof backgroundImage === 'string'
+                    ? backgroundImage
+                    : backgroundImage.childImageSharp.fluid.src
+                })`
+                : undefined
             }}
           >
             <div style={style.sectionContainer}>
@@ -81,14 +73,14 @@ const Home = ({ data }: { data: Data }) => {
                     imagePosition === 'left' ? 'row' : 'row-reverse',
                 }}
               >
-                <img
+                {image && <img
                   src={
                     typeof image === 'string'
                       ? image
                       : image.src.childImageSharp.fixed.src
                   }
                   alt={title}
-                />
+                />}
                 <div
                   className={`markdown ${
                     contrastText ? 'contrast' : undefined
@@ -121,7 +113,13 @@ export const query = graphql`
           fileAbsolutePath
           html
           frontmatter {
+            layout
+            cta {
+              label
+              palette
+            }
             title
+            imagePosition
             contrastText
             image {
               hiddenHeaderContent
@@ -133,7 +131,6 @@ export const query = graphql`
                 }
               }
             }
-            imagePosition
             backgroundImage {
               childImageSharp {
                 fluid(maxWidth: 2048) {
