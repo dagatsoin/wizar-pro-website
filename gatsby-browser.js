@@ -3,10 +3,12 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-const React = require('react')
-const ThemeProvider = require('./src/themeProvider').default
+import 'typeface-roboto'
+import React from 'react'
+import { Provider as ThemeProvider } from './src/ThemeContext'
+import './src/reset.css'
 
-exports.wrapRootElement = ({ element }) => {
+export function wrapRootElement({ element }) {
   return (
     <ThemeProvider>
       {element}

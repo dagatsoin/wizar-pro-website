@@ -1,6 +1,3 @@
-export default {
-  root: {
-    margin: '0 auto',
-    paddingTop: 0,
-  },
-}
+import { Styles } from '@sproutch/ui'
+
+export const root = Styles.createViewStyle({})

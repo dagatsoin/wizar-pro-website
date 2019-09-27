@@ -2,11 +2,9 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import { Attributes } from 'src/types/module'
-import { HeroShot, Layout } from '../components'
-import { Module } from '../components/module/Module'
-import { style } from './_home.style'
+import { Module, Layout } from '../components'
 
-type Data = {
+type GatsbyModuleData = {
   site: {
     siteMetadata: {
       title: string
@@ -17,27 +15,26 @@ type Data = {
   allMarkdownRemark: {
     edges: Array<{
       node: {
-        html: string
+        rawMarkdownBody: string
         fileAbsolutePath: string
-        attributes: Attributes
+        frontmatter: Attributes
       }
     }>
   }
 }
 
-const Home = ({ data }: { data: Data }) => {
+const Home = ({ data }: { data: GatsbyModuleData }) => {
   const modules = data.allMarkdownRemark.edges
     .filter(edge => edge.node.fileAbsolutePath.indexOf('/modules/') > 0)
     .map(e => ({
-      attributes: e.node.attributes,
+      attributes: e.node.frontmatter,
       key: e.node.fileAbsolutePath,
-      html: e.node.html,
+      markdown: e.node.rawMarkdownBody,
     }))
 
   return (
     <Layout>
-      <HeroShot style={style.heroShot} />
-      {modules.map(({attributes, html, key}) => <Module key={key} {...attributes} html={html}/>)}
+      {modules.map(({attributes, markdown, key}) => <Module key={key} {...attributes} markdown={markdown}/>)}
     </Layout>
   )
 }
@@ -57,7 +54,7 @@ export const query = graphql`
       edges {
         node {
           fileAbsolutePath
-          html
+          rawMarkdownBody
           frontmatter {
             layout
             cta {
@@ -65,7 +62,7 @@ export const query = graphql`
               palette
             }
             title
-            imagePosition
+            imageFirst
             contrastText
             image {
               hiddenHeaderContent

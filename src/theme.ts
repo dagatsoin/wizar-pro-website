@@ -22,15 +22,15 @@ const palette: Partial<Palette> = {
     primary: 'rgba(159, 155, 143, 1)',
     secondary: 'rgba(159, 155, 143, 0.7)',
     disabled: 'rgba(159, 155, 143, 0.5)',
-    hint: 'rgba(159, 155, 143, 0.5)'
+    hint: 'rgba(159, 155, 143, 0.5)',
   },
   background: {
-    statusBar: colors.black,
-    appBar: '#211f1e',
-    default: '#38312A',
-    paper: '#4a433a'
+    statusBar: colors.grey[300],
+    appBar: colors.grey[100],
+    default: colors.grey[50],
+    paper: colors.white
   },
-  divider: 'rgba(255, 255, 255, 0.12)',
+  divider: colors.grey[300],
   modifier: {
     active: 'rgba(0, 0, 0, 0.54)',
     hover: 'rgba(0, 0, 0, 0.08)',
@@ -51,7 +51,7 @@ const spacing = 8
 export default getTheme<WizarBusiness, Overrides>({
   palette,
   typography: {
-    fontFamily: 'LibreBaskerville-Regular',
+    fontFamily: 'Roboto',
   },
   shape,
   spacing,
@@ -86,6 +86,9 @@ export default getTheme<WizarBusiness, Overrides>({
     shadow: {
       primary: '#d46400',
       secondary: '#6a00f7'
+    },
+    text: {
+      contrast: '#fff'
     }
   }
 })
@@ -120,5 +123,8 @@ type WizarBusiness = {
   shadow: {
     primary: string
     secondary: string
+  },
+  text: {
+    contrast: string
   }
 }

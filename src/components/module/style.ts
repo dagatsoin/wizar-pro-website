@@ -1,29 +1,40 @@
-import React from 'react'
+import { Styles } from '@sproutch/ui'
+import { Layout } from '../../types/module'
 
-export const theme = require('../../theme').default
+export const root = Styles.createViewStyle({
+  flex: 1,
+})
 
-export const style: {
-  [key in string]: React.CSSProperties;
-} = {
-  heroShot: {
-    paddingTop: `${theme.spacing.unit * 8}px`,
-  },
-  root: {
-    backgroundSize: 'cover'
-  },
-  container: {
-    display: 'flex',
-    margin: '0 auto',
-    padding: '64px 0',
-    flexDirection: 'column',
-    maxWidth: '740px'
-  },
-  title: {
-    color: 'white'
-  },
-  content: {
-    display: 'flex',
-    justifyContent: 'space-between'
-  },
-  image: {},
+export const hero = {
+  root: Styles.createViewStyle({
+    paddingTop: 120,
+  }),
+  content: Styles.createViewStyle({
+    overflow: 'visible'
+  }),
+  image: Styles.createViewStyle({
+    marginLeft: 42
+  })
+}
+
+export function contentWrapper(layout: Layout, imageFirst: boolean) {
+  function getFlexDirection() {
+    switch (layout) {
+      case 'hero':
+      case 'horizontal':
+        return imageFirst ? 'row-reverse' : 'row'
+      case 'vertical':
+      default:
+        return imageFirst ? 'column-reverse' : 'column'
+    }
+  }
+  return Styles.createViewStyle(
+    {
+      flex: 1,
+      flexDirection: getFlexDirection(),
+      alignSelf: 'center',
+      alignItems: 'center',
+    },
+    false
+  )
 }

@@ -24,7 +24,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "reactxp": "^2.0.0-rc.1"
+    "react-markdown": "^4.2.2",
+    "reactxp": "^2.0.0-rc.1",
+    "typeface-roboto": "0.0.75"
   },
   "keywords": [
     "gatsby"

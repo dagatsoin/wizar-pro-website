@@ -1,15 +1,17 @@
+import { FixedObject, FluidObject } from 'gatsby-image'
+
 export type Fluid = {
-  fluid: {
-    src: string
-  }
+  fluid: FluidObject
 }
 
 export type Fixed = {
-  fixed: {
-    src: string
-  }
+  fixed: FixedObject
 }
 
-export type Image<T> = {
+export type GatsbyImage<T extends Fixed | Fluid> = {
   childImageSharp: T
+}
+
+export function isFluid(childImageSharp: Fluid | Fixed): childImageSharp is Fluid {
+  return (childImageSharp as any).fluid !== undefined
 }
