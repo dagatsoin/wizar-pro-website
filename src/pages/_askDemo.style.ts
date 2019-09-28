@@ -20,7 +20,6 @@ export default function(
     root: Styles.createViewStyle(
       {
         height: 400,
-        
         justifyContent: 'center',
         alignItems: 'center',
       },
@@ -30,7 +29,8 @@ export default function(
       root: Styles.createViewStyle(
         {maxWidth: 400,
           borderRadius: theme.shape.borderRadius,
-          padding: 48,
+          margin: 24,
+          padding: 24,
         },
         false
       ),
