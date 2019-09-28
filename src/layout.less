@@ -1,0 +1,42 @@
+// Add one of the .hidden-* classes to hide the element from screen in a specific width range
+/* Phone landscape and bigger */
+@media (min-width: @breakpoint-small) {
+  .hidden_s { display: none !important; }
+}
+
+/* Tablet landscape and bigger */
+@media (min-width: @breakpoint-medium) {
+  .hidden_m { display: none !important; }
+}
+
+/* Desktop and bigger */
+@media (min-width: @breakpoint-large) {
+  .hidden_l { display: none !important; }
+}
+
+
+// Add one of the .visible-* classes to show the element from screen in a specific width range
+// Only affects device widths of 479px and smaller.
+/* Phone portrait and smaller */
+// @media (max-width: @breakpoint-xsmall-max) {
+//   .visible_xs { display: none !important; }
+// }
+
+@media (min-width: @breakpoint-xsmall-max) {
+  .visible_s { display: none !important; }
+}
+
+/* Phone landscape and smaller */
+@media (max-width: @breakpoint-small-max) {
+  .visible_m { display: none !important; }
+}
+
+/* Tablet landscape and smaller */
+@media (max-width: @breakpoint-medium-max) {
+  .visible_l { display: none !important; }
+}
+
+/* Desktop and smaller */
+@media (max-width: @breakpoint-large-max) {
+  .visible_xl { display: none !important; }
+}

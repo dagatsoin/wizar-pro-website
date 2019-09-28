@@ -10,6 +10,7 @@ module.exports = {
     brandLogoUrl: 'header_logo.png',
   },
   plugins: [
+    `gatsby-plugin-less`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

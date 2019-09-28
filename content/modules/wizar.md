@@ -11,4 +11,4 @@ imageFirst: false
 contrastText: true
 backgroundImage: /images/heroshot_bg.jpg
 ---
-### Parcours touristiques sous forme d'un jeu de rôle géolocalisé.
+### Jeu touristique géolocalisé.

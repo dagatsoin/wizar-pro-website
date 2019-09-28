@@ -1,0 +1,55 @@
+@import '../../layout';
+@import '../../variables';
+
+.hero {
+  padding-top: 80px;
+  .contentWrapper {
+    flex-direction: column;
+    &.imageFirst {
+      flex-direction: column-reverse;
+    }
+  }
+  .content {
+    overflow: visible;
+    padding: 60px 20px;
+    align-self: center;
+    h2, h3 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px
+    }
+    h3 {
+      font-size: 18px
+    }
+    .min-large({
+      
+      h2, h3 {
+        text-align: left;
+      }
+      h2 {
+        font-size: 34px
+      }
+      h3 {
+        font-size: 24px
+      }
+    })
+  }
+  .image {
+    align-items: center;
+    margin-top: 60px;
+    .min-medium({
+      margin-top: 0;
+      margin-left: 42px;
+    })
+  }
+  .min-medium({
+    padding-top: 120px;
+    .contentWrapper {
+      flex-direction: row;
+      &.imageFirst {
+        flex-direction: row-reverse;
+      }
+    }
+  });
+}

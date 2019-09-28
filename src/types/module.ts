@@ -21,4 +21,5 @@ export type Attributes = Omit<NetlifyModule, 'body'> & {
 
 export type ImageAttribute = ImageWidgetValue | ImageWidgetValue & { src: GatsbyImage<Fluid | Fixed> }
 
-export type BackgroundImageAttribute = GatsbyImage<Fluid> | string
+export type BackgroundImageAttribute = (GatsbyImage<Fluid> & {original: {
+  src: string}}) | string

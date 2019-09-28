@@ -1,9 +1,9 @@
-import { View } from '@sproutch/ui'
 import { navigate } from 'gatsby'
 import React from 'react'
 
-import { BackgroundImage, Cta, Image, Markdown, Title } from '~/components'
+import { BackgroundImage, Cta, Image, Markdown, Title, View } from '~/components'
 import { Attributes } from '~/types/module'
+import layoutStyle from '../layout.module.less'
 import * as styles from '../style'
 
 type Props = { markdown: string } & Attributes
@@ -18,17 +18,64 @@ export default function({
   image,
   markdown,
 }: Props): JSX.Element {
+  console.log(backgroundImage)
   return (
-    <View style={[styles.root, styles.hero.root]}>
-      {backgroundImage && <BackgroundImage src={backgroundImage} />}
-      <View style={styles.contentWrapper(layout, imageFirst)}>
-        <View style={styles.hero.content}>
-          <Title.h2
-            contrast={contrastText}
-            style={{ overflow: 'visible', marginVertical: 0, fontSize: 34 }}
+    <View className={`${layoutStyle.hero} ${layoutStyle.root}`}>
+      {backgroundImage && (
+        <>
+          <View
+            style={{
+              position: 'absolute',
+              height: '100vh',
+              top: 0,
+              right: 0,
+              left: 0,
+            }}
+            className={`
+              ${layoutStyle.hidden_l}
+            `}
           >
-            {title}
-          </Title.h2>
+            <BackgroundImage src={(backgroundImage as any).childImageSharp.original.src} />
+          </View>
+          <View
+            style={{
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+            }}
+            className={`
+              ${layoutStyle.visible_l}
+            `}
+          >
+            <BackgroundImage src={backgroundImage} />
+          </View>
+        </>
+      )}
+      <View
+        className={`
+          ${layoutStyle.contentWrapper}
+          ${imageFirst ? layoutStyle.imageFirst : ''}
+        `}
+      >
+        <View className={layoutStyle.content}>
+          <View className={layoutStyle.hidden_l}>
+            <Title.h2
+              contrast={contrastText}
+              style={{ overflow: 'visible', marginVertical: 0, fontSize: 24 }}
+            >
+              {title}
+            </Title.h2>
+          </View>
+          <View className={layoutStyle.visible_l}>
+            <Title.h2
+              contrast={contrastText}
+              style={{ overflow: 'visible', marginVertical: 0, fontSize: 34 }}
+            >
+              {title}
+            </Title.h2>
+          </View>
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (
             <Cta
@@ -39,8 +86,8 @@ export default function({
           )}
         </View>
         {image && (
-          <View style={styles.hero.image}>
-            <Image {...image} />}
+          <View className={layoutStyle.image}>
+            <Image {...image} />
           </View>
         )}
       </View>

@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import { Attributes } from 'src/types/module'
-import { Module, Layout } from '../components'
+import { Layout, Module } from '../components'
 
 type GatsbyModuleData = {
   site: {
@@ -76,6 +76,9 @@ export const query = graphql`
             }
             backgroundImage {
               childImageSharp {
+                original {
+                  src
+                }
                 fluid(maxWidth: 2048) {
                   ...GatsbyImageSharpFluid
                 }
