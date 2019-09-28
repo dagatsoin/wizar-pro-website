@@ -7,9 +7,10 @@ module.exports = {
     siteUrl: 'https://pro.wizar.world',
     title: 'Wizar',
     description: "Parcours touristiques sous forme d'un jeu de rôle",
-    brandLogoUrl: 'logo.png',
+    brandLogoUrl: 'header_logo.png',
   },
   plugins: [
+    `gatsby-plugin-less`,
     {
       resolve: `gatsby-plugin-typescript`,
       options: {

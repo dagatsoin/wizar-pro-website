@@ -1,10 +1,11 @@
+import { View } from '@sproutch/ui'
 import { graphql, StaticQuery, withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
 import { Footer } from '..'
 import { Header } from '../header'
-import styles from './style'
+import * as style from './style'
 
 export type Props = {
   children: React.ReactNode
@@ -23,7 +24,7 @@ type Data = {
 }
 
 const Layout = ({ children, data }: Props) => (
-  <div style={styles.root}>
+  <View style={style.root}>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -40,7 +41,7 @@ const Layout = ({ children, data }: Props) => (
     />
     {children}
     <Footer/>
-  </div>
+  </View>
 )
 
 export default props => (

@@ -1,18 +1,25 @@
-import { Fixed, Fluid, Image } from './image'
+import { Fixed, Fluid, GatsbyImage } from './image'
 import { CTA, Image as ImageWidgetValue } from './widget'
 
-export type Module = {
-  layout: string
+export type NetlifyModule = {
+  layout: Layout
   cta?: CTA
   title: string
-  imagePosition: string
+  imageFirst: boolean
   contrastText: boolean
   body: string
   backgroundImage?: string
   image?: ImageWidgetValue
 }
 
-export type Attributes = Omit<Module, 'body'> & {
-  image?: ImageWidgetValue & { src: Image<Fixed> }
-  backgroundImage?: Image<Fluid>
+export type Layout = 'hero' | 'horizontal' | 'vertical'
+
+export type Attributes = Omit<NetlifyModule, 'body'> & {
+  image?: ImageAttribute
+  backgroundImage?: BackgroundImageAttribute
 }
+
+export type ImageAttribute = ImageWidgetValue | ImageWidgetValue & { src: GatsbyImage<Fluid | Fixed> }
+
+export type BackgroundImageAttribute = (GatsbyImage<Fluid> & {original: {
+  src: string}}) | string

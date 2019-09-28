@@ -1,11 +1,48 @@
-export default {
-  root: {
-    justifyContent: 'center',
-    display: 'flex',
-    height: 400,
-    flexDirection: 'column'
-  },
-  textField: {
-    width: 200,
-  },
-} as {[key in string]: React.CSSProperties}
+import {
+  ButtonStyleOverride,
+  PaperStyleOverride,
+  Styles,
+  ViewStyle,
+} from '@sproutch/ui'
+import { StyleRuleSet, TextInputStyleRuleSet } from 'reactxp/dist/common/Types'
+
+import { Theme } from '~/theme'
+
+export default function(
+  theme: Theme
+): {
+  root: StyleRuleSet<ViewStyle>
+  input: StyleRuleSet<ViewStyle>
+  paper: PaperStyleOverride
+  submit: ButtonStyleOverride
+} {
+  return {
+    root: Styles.createViewStyle(
+      {
+        height: 400,
+        
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      false
+    ),
+    paper: {
+      root: Styles.createViewStyle(
+        {maxWidth: 400,
+          borderRadius: theme.shape.borderRadius,
+          padding: 48,
+        },
+        false
+      ),
+    },
+    input: Styles.createViewStyle({
+      marginVertical: 12
+    }),
+    submit: {
+      root: Styles.createViewStyle({
+        borderRadius: theme.shape.borderRadius,
+      }),
+    },
+    
+  }
+}

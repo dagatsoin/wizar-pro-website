@@ -1,8 +1,22 @@
-import { Button } from "@sproutch/ui"
+import { Button, ButtonStyleOverride, Styles } from '@sproutch/ui'
 import React from 'react'
+
 import { CTA } from 'src/types/widget'
 
-export default ({ label, palette }: CTA) => {
+export default ({ label, palette, onPress, style }: CTA & { onPress: () => void, style?: ButtonStyleOverride }) => {
+  const _style = {
+    root: Styles.createViewStyle({
+        borderRadius: 4,
+        ...style && style.root as Object
+      }),
+    }
   return (
-  <Button variant="contained" palette={palette} label={label}/>
-)}
+    <Button
+      style={_style}
+      variant="contained"
+      palette={palette}
+      label={label}
+      onPress={onPress}
+    />
+  )
+}

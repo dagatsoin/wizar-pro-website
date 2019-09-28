@@ -6,9 +6,9 @@ cta:
 title: Wizar
 image:
   hiddenHeaderContent: Application de tourisme géolocalisée
-  src: /images/heroshot.jpg
-imagePosition: left
+  src: /images/heroshot_bg.jpg
+imageFirst: false
 contrastText: true
-backgroundImage: /images/heroshot.jpg
+backgroundImage: /images/heroshot_bg.jpg
 ---
 Let tourisme dont vous êtes le héros.

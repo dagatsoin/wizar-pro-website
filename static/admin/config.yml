@@ -14,11 +14,11 @@ collections:
     folder: "content/modules"
     create: true
     fields:
-      - {label: "Layout", name: layout, widget: "select", options: ["hero", "left", "right", "vertical"], default: "left"}
+      - {label: "Layout", name: layout, widget: "select", options: ["hero", "horizontal", "vertical"], default: "horizontal"}
       - {label: "CTA", name: cta, widget: cta, required: false}
       - {label: "Title", name: title, widget: "string"}
       - {label: Image, name: image, widget: imageInHeader, required: false}
-      - {label: "Image position", name: imagePosition, widget: "select", options: ["left", "right"], default: "left"}
+      - {label: "Image first", name: imageFirst, widget: "boolean", default: false}
       - {label: "Contrast text", name: contrastText, widget: "boolean", default: false}
       - {label: "Text", name: body, widget: "markdown", required: false}
       - {label: "Background Image", name: backgroundImage, widget: image, required: false}

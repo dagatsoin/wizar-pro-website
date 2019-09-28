@@ -1,0 +1,39 @@
+@breakpoint-small:                             320px;  // Phone landscape
+@breakpoint-medium:                            768px;  // Tablet Landscape
+@breakpoint-large:                             1200px; // Desktop
+@breakpoint-xlarge:                            1920px; // Large Screens
+
+@breakpoint-xsmall-max:                        (@breakpoint-small - 1);
+@breakpoint-small-max:                         (@breakpoint-medium - 1);
+@breakpoint-medium-max:                        (@breakpoint-large - 1);
+@breakpoint-large-max:                         (@breakpoint-xlarge - 1);
+
+// Mini	up to 320px	Phones portrait
+.xsmall(@rules) {
+  @media screen and (max-width: @breakpoint-xsmall-max) { @rules(); }
+}
+// Small 321px to 768px	Phones landscape
+.small(@rules) {
+  @media screen and (min-width: @breakpoint-small) and (max-width: @breakpoint-small-max) { @rules(); }
+}
+.min-small(@rules) {
+  @media screen and (min-width: @breakpoint-small) { @rules(); }
+}
+// Medium	769px to 1200px	Tablets portrait
+.medium(@rules) {
+  @media screen and (min-width: @breakpoint-medium) and (max-width: @breakpoint-medium-max) { @rules(); }
+}
+.min-medium(@rules) {
+  @media screen and (min-width: @breakpoint-medium) { @rules(); }
+}
+// Large	1200px to 1920px	Desktops & tablets landscape
+.large(@rules) {
+  @media screen and (min-width: @breakpoint-large) and (max-width: @breakpoint-large-max) { @rules(); }
+}
+.min-large(@rules) {
+  @media screen and (min-width: @breakpoint-large) { @rules(); }
+}
+// Xlarge	1921px and larger	Large Desktops
+.xlarge(@rules) {
+  @media screen and (min-width: @breakpoint-xlarge) { @rules(); }
+}
