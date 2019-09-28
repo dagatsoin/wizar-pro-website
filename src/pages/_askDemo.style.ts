@@ -12,6 +12,7 @@ export default function(
   theme: Theme
 ): {
   root: StyleRuleSet<ViewStyle>
+  input: StyleRuleSet<ViewStyle>
   paper: PaperStyleOverride
   submit: ButtonStyleOverride
 } {
@@ -34,6 +35,9 @@ export default function(
         false
       ),
     },
+    input: Styles.createViewStyle({
+      marginVertical: 12
+    }),
     submit: {
       root: Styles.createViewStyle({
         borderRadius: theme.shape.borderRadius,

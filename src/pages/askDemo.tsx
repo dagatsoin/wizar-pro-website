@@ -1,10 +1,10 @@
 import { Button, Paper, Text, View } from '@sproutch/ui'
 import { navigate } from 'gatsby'
-import React, { SyntheticEvent } from 'react'
+import React from 'react'
 
 import { Layout, TextInput } from '~/components'
-import createStyle from './_askDemo.style'
 import { ThemeContext } from '~/ThemeContext'
+import createStyle from './_askDemo.style'
 
 const encode = data => {
   return Object.keys(data)
@@ -59,11 +59,13 @@ class AskDemoForm extends React.Component<{}, State> {
                           recontactera au plus vite.
                         </Text>
                         <TextInput
+                          style={style.input}
                           placeholder="Votre nom/prénom"
                           onChangeText={name => this.setState({ name })}
                           //error={this.state.nameError}
                         />
                         <TextInput
+                          style={style.input}
                           placeholder="Votre email"
                           onChangeText={email => this.setState({ email })}
                           //error={this.state.emailError}
@@ -99,7 +101,7 @@ class AskDemoForm extends React.Component<{}, State> {
       .then(() => {
         this.setState({ sent: true }, () => {
           console.log('sent')
-        //  setTimeout(() => navigate('/'), 4000)
+          setTimeout(() => navigate('/'), 4000)
         })
       })
       .catch(error => alert(error))
