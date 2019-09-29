@@ -5,32 +5,86 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: "static/images" # Media files will be stored in the repo under static/images
-public_folder: "/images" # The src attribute for uploaded media will begin with /images
+media_folder: 'static/images' # Media files will be stored in the repo under static/images
+public_folder: '/images' # The src attribute for uploaded media will begin with /images
 
 collections:
-  - name: "modules"
-    label: "Modules"
-    folder: "content/modules"
+  - name: 'modules'
+    label: 'Modules'
+    folder: 'content/modules'
     create: true
     fields:
-      - {label: "Layout", name: layout, widget: "select", options: ["hero", "horizontal", "vertical"], default: "horizontal"}
-      - {label: "CTA", name: cta, widget: cta, required: false}
-      - {label: "Title", name: title, widget: "string"}
-      - {label: Image, name: image, widget: imageInHeader, required: false}
-      - {label: "Image first", name: imageFirst, widget: "boolean", default: false}
-      - {label: "Contrast text", name: contrastText, widget: "boolean", default: false}
-      - {label: "Text", name: body, widget: "markdown", required: false}
-      - {label: "Background Image", name: backgroundImage, widget: image, required: false}
+      - {
+          label: 'Layout',
+          name: layout,
+          widget: 'select',
+          options: ['hero', 'horizontal', 'vertical'],
+          default: 'horizontal',
+        }
+      - { label: 'CTA', name: cta, widget: cta, required: false }
+      - { label: 'Title', name: title, widget: 'string' }
+      - { label: Image, name: image, widget: imageInHeader, required: false }
+      - {
+          label: 'Image first',
+          name: imageFirst,
+          widget: 'boolean',
+          default: false,
+        }
+      - {
+          label: 'Contrast text',
+          name: contrastText,
+          widget: 'boolean',
+          default: false,
+        }
+      - { label: 'Text', name: body, widget: 'markdown', required: false }
+      - {
+          label: 'Background Image',
+          name: backgroundImage,
+          widget: image,
+          required: false,
+        }
 
-  - name: "pages"
-    label: "Pages"
-    folder: "content/pages"
+  - name: 'pages'
+    label: 'Pages'
+    folder: 'content/pages'
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list"}
+      - { label: 'Meta keywords', name: 'tags', widget: 'list', default: ['news'] }
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+      - { label: 'Meta description', name: 'description', widget: 'text' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'Hero'
+        name: 'hero'
+        required: false
+        widget: 'relation'
+        collection: 'modules'
+        searchFields: ['title']
+        valueField: 'title'
+        displayFields: ['title']
+      - label: 'Section list'
+        name: 'section_list'
+        required: false
+        widget: 'list'
+        field:
+          label: 'Module group'
+          name: 'module_group'
+          widget: 'list'
+          fields:
+            - label: 'Layout'
+              name: layout
+              widget: 'select'
+              options: ['hero', 'horizontal', 'vertical']
+              default: 'horizontal'
+            - label: 'Module list'
+              name: 'modules'
+              widget: 'list'
+              field:
+                label: 'Module'
+                name: 'module'
+                widget: 'relation'
+                collection: 'modules'
+                searchFields: ['title']
+                valueField: 'title'
+                displayFields: ['title']
