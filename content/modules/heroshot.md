@@ -4,6 +4,7 @@ cta:
   label: Demander une démo
   palette: primary
 title: Wizar
+type: module
 image:
   hiddenHeaderContent: Application de tourisme géolocalisée
   src: /images/heroshot_bg.jpg

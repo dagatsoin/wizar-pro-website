@@ -1,6 +1,7 @@
 ---
 layout: hero
 title: le tourisme dont vous êtes le héros.
+type: module
 cta:
   label: Demander une démo
   palette: primary
