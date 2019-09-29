@@ -14,6 +14,7 @@ collections:
     folder: 'content/modules'
     create: true
     fields:
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'module' }
       - {
           label: 'Layout',
           name: layout,
@@ -50,6 +51,7 @@ collections:
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
+      - { label: 'Type', name: 'type', widget: 'hidden', default: 'page' }
       - { label: 'Meta keywords', name: 'tags', widget: 'list', default: ['news'] }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
