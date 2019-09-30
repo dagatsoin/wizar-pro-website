@@ -19,10 +19,10 @@ const palette: Partial<Palette> = {
     contrastText: '#fff'
   },
   text: {
-    primary: 'rgba(159, 155, 143, 1)',
-    secondary: 'rgba(159, 155, 143, 0.7)',
-    disabled: 'rgba(159, 155, 143, 0.5)',
-    hint: 'rgba(159, 155, 143, 0.5)',
+    primary: 'rgba(60, 51, 44, 1)',
+    secondary: 'rgba(60, 51, 44, 0.7)',
+    disabled: 'rgba(60, 51, 44, 0.5)',
+    hint: 'rgba(60, 51, 44, 0.5)',
   },
   background: {
     statusBar: colors.grey[300],

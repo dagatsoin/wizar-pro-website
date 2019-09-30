@@ -1,18 +1,29 @@
 @import '../../layout';
 @import '../../variables';
 
+.contentWrapper(@direction) {
+  .contentWrapper {
+    flex-direction: if((@direction = 'column'), column, row);
+    align-self: center;
+    overflow: visible;
+    &.imageFirst {
+      flex-direction: if((@direction = 'column'), column-reverse, row-reverse)
+    }
+    .min-medium({
+      margin: 0 80px;
+    });
+    .min-large({
+      margin: 0 160px;
+    });
+  }
+}
+
 .hero {
   padding-top: 80px;
-  .contentWrapper {
-    flex-direction: column;
-    &.imageFirst {
-      flex-direction: column-reverse;
-    }
-  }
+  .contentWrapper('column');
   .content {
     overflow: visible;
     padding: 60px 20px;
-    align-self: center;
     h2, h3 {
       text-align: center;
     }
@@ -22,13 +33,65 @@
     h3 {
       font-size: 18px
     }
-    .min-large({
-      
+    .cta {
+      align-items: center;
+    }
+    .min-medium({
+      align-items: flex-start;
+      .title{
+        flex: unset;
+      }
       h2, h3 {
         text-align: left;
       }
       h2 {
-        font-size: 34px
+        font-size: 34px;
+      }
+      h3 {
+        font-size: 24px
+      }
+    })
+  }
+  .image {
+    overflow: visible;
+    align-items: center;
+    margin-top: 60px;
+    .min-medium({
+      max-width: 300px;
+      margin-top: 0;
+      margin-left: 42px;
+    })
+  }
+  .min-medium({
+    padding-top: 120px;
+    .contentWrapper('row')
+  });
+}
+
+.vertical {
+  text-align: center;
+  .contentWrapper('column');
+  .content {
+    overflow: visible;
+    padding: 20px;
+    h2, h3 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px
+    }
+    h3 {
+      font-size: 18px
+    }
+    .min-medium({
+      .title{
+        flex: unset;
+      }
+      h2, h3 {
+        text-align: center;
+      }
+      h2 {
+        font-size: 34px;
       }
       h3 {
         font-size: 24px
@@ -40,16 +103,6 @@
     margin-top: 60px;
     .min-medium({
       margin-top: 0;
-      margin-left: 42px;
     })
   }
-  .min-medium({
-    padding-top: 120px;
-    .contentWrapper {
-      flex-direction: row;
-      &.imageFirst {
-        flex-direction: row-reverse;
-      }
-    }
-  });
 }

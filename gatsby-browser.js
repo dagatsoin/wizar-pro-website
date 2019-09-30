@@ -5,8 +5,10 @@
  */
 import 'typeface-roboto'
 import React from 'react'
+
 import { Provider as ThemeProvider } from './src/ThemeContext'
 import './src/reset.css'
+import './src/assets/fonts/charlemagne/css/charlemagne.css'
 
 export function wrapRootElement({ element }) {
   return (

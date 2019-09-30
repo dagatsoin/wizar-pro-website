@@ -18,6 +18,7 @@ type Props = { markdown: string } & ModuleAttributes
 export default function({
   cta,
   title,
+  isTitleDisplayed,
   backgroundImage,
   contrastText,
   imageFirst,
@@ -25,7 +26,7 @@ export default function({
   markdown,
 }: Props): JSX.Element {
   return (
-    <View className={`${layoutStyle.hero} ${layoutStyle.root}`}>
+    <View className={`${layoutStyle.vertical} ${layoutStyle.root}`}>
       {backgroundImage && (
         <>
           <View
@@ -36,7 +37,9 @@ export default function({
               right: 0,
               left: 0,
             }}
-            className={`${layoutStyle.hidden_l}`}
+            className={`
+              ${layoutStyle.hidden_l}
+            `}
           >
             <BackgroundImage
               src={(backgroundImage as any).childImageSharp.original.src}
@@ -50,7 +53,9 @@ export default function({
               bottom: 0,
               left: 0,
             }}
-            className={`${layoutStyle.visible_l}`}
+            className={`
+              ${layoutStyle.visible_l}
+            `}
           >
             <BackgroundImage src={backgroundImage} />
           </View>
@@ -63,41 +68,33 @@ export default function({
         `}
       >
         <View className={layoutStyle.content}>
-          <View
-            className={`
-            ${layoutStyle.hidden_l}
-            ${layoutStyle.title}
-          `}
-          >
-            <Title.h2
-              contrast={contrastText}
-              style={{ overflow: 'visible', marginVertical: 0, fontSize: 24 }}
-            >
-              {title}
-            </Title.h2>
-          </View>
-          <View
-            className={`
-            ${layoutStyle.visible_l}
-            ${layoutStyle.title}
-          `}
-          >
-            <Title.h2
-              contrast={contrastText}
-              style={{ overflow: 'visible', marginVertical: 0, fontSize: 34 }}
-            >
-              {title}
-            </Title.h2>
-          </View>
+          {isTitleDisplayed && (
+            <>
+              <View className={layoutStyle.hidden_l}>
+                <Title.h2
+                  contrast={contrastText}
+                  style={{ overflow: 'visible', fontSize: 24 }}
+                >
+                  {title}
+                </Title.h2>
+              </View>
+              <View className={layoutStyle.visible_l}>
+                <Title.h2
+                  contrast={contrastText}
+                  style={{ overflow: 'visible', fontSize: 34 }}
+                >
+                  {title}
+                </Title.h2>
+              </View>
+            </>
+          )}
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (
-            <View className={layoutStyle.cta}>
-              <Cta
-                style={{ root: { marginTop: 30 } }}
-                {...cta}
-                onPress={() => navigate('/askDemo/')}
-              />
-            </View>
+            <Cta
+              style={{ root: { marginTop: 30 } }}
+              {...cta}
+              onPress={() => navigate('/askDemo/')}
+            />
           )}
         </View>
         {image && (

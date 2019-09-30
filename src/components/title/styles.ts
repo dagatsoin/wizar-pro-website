@@ -25,7 +25,7 @@ export function createTitleStyle({
   return {
     h1: Styles.createTextStyle(
       {
-        marginVertical: 12,
+        marginVertical: 17,
         fontSize: 34,
         color,
         fontFamily,
@@ -35,7 +35,7 @@ export function createTitleStyle({
     ),
     h2: Styles.createTextStyle(
       {
-        marginVertical: 10,
+        marginVertical: 14,
         fontSize: 28,
         color,
         fontFamily,
@@ -45,9 +45,10 @@ export function createTitleStyle({
     ),
     h3: Styles.createTextStyle(
       {
-        marginVertical: 9,
+        marginVertical: 12,
         fontSize: 24,
-        fontFamily: 'Roboto-Light',
+        fontFamily: 'Roboto',
+        fontWeight: "100",
         color,
         ...style
       },
