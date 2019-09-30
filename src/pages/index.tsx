@@ -82,23 +82,28 @@ function Sections({
 }
 
 function renderSection(section: Section, edges: Array<Edge<ModuleAttributes>>) {
-  return section.map(group =>
-    group.modules
-      .reduce<Array<Node<ModuleAttributes>>>(
-        (nodes, id) =>
-          Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
-            () => nodes,
-            edge => [...nodes, edge.node]
-          ),
-        []
-      )
-      .map(node => ({
-        ...node.frontmatter,
-        key: node.fileAbsolutePath,
-        markdown: node.rawMarkdownBody,
-      }))
-      .map(({ key, ...props }) => <Module key={key} {...props} />)
+  return (
+    <View className={`${lessStyle.section} ${lessStyle[section.layout]}`}>
+      {section.modules
+        .reduce<Array<Node<ModuleAttributes>>>(
+          (nodes, id) =>
+            Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
+              () => nodes,
+              edge => [...nodes, edge.node]
+            ),
+          []
+        )
+        .map(node => ({
+          ...node.frontmatter,
+          key: node.fileAbsolutePath,
+          markdown: node.rawMarkdownBody,
+        }))
+        .map(({ key, ...props }) => (
+          <Module key={key} {...props} />
+        ))}
+    </View>
   )
+  
 }
 
 export const query = graphql`

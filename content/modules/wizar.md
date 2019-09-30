@@ -1,6 +1,7 @@
 ---
 layout: vertical
 title: est un jeu de rôle touristique géolocalisé.
+isTitleDisplayed: true
 imageFirst: false
 contrastText: false
 ---

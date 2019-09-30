@@ -24,6 +24,12 @@ collections:
         }
       - { label: 'CTA', name: cta, widget: cta, required: false }
       - { label: 'Title', name: title, widget: 'string' }
+      - {
+          label: 'Show title',
+          name: isTitleDisplayed,
+          widget: 'boolean',
+          default: true,
+        }
       - { label: Image, name: image, widget: imageInHeader, required: false }
       - {
           label: 'Image first',
@@ -69,24 +75,20 @@ collections:
         name: 'section_list'
         required: false
         widget: 'list'
-        field:
-          label: 'Module group'
-          name: 'module_group'
-          widget: 'list'
-          fields:
-            - label: 'Layout'
-              name: layout
-              widget: 'select'
-              options: ['hero', 'horizontal', 'vertical']
-              default: 'horizontal'
-            - label: 'Module list'
-              name: 'modules'
-              widget: 'list'
-              field:
-                label: 'Module'
-                name: 'module'
-                widget: 'relation'
-                collection: 'modules'
-                searchFields: ['title']
-                valueField: 'title'
-                displayFields: ['title']
+        fields:
+          - label: 'Layout'
+            name: layout
+            widget: 'select'
+            options: [horizontal', 'vertical']
+            default: 'horizontal'
+          - label: 'Module list'
+            name: 'modules'
+            widget: 'list'
+            field:
+              label: 'Module'
+              name: 'module'
+              widget: 'relation'
+              collection: 'modules'
+              searchFields: ['title']
+              valueField: 'title'
+              displayFields: ['title']

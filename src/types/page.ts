@@ -12,9 +12,8 @@ export type NetlifyPage = {
 
 export type PageAttributes = NetlifyPage
 
-export type Section = ModuleGroup[]
-export type ModuleGroup = {
-  layout: SectionLayout
+export type Section = {
+  layout: SectionLayout,
   modules: string[]
 }
 

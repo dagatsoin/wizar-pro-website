@@ -1,6 +1,7 @@
 ---
 layout: hero
 title: le tourisme dont vous êtes le héros.
+isTitleDisplayed: true
 cta:
   label: DEMANDER UNE DÉMO
   palette: primary

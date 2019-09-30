@@ -1,7 +1,14 @@
 import { navigate } from 'gatsby'
 import React from 'react'
 
-import { BackgroundImage, Cta, Image, Markdown, Title, View } from '~/components'
+import {
+  BackgroundImage,
+  Cta,
+  Image,
+  Markdown,
+  Title,
+  View,
+} from '~/components'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
 import * as styles from '../style'
@@ -11,6 +18,7 @@ type Props = { markdown: string } & ModuleAttributes
 export default function({
   cta,
   title,
+  isTitleDisplayed,
   backgroundImage,
   contrastText,
   imageFirst,
@@ -33,7 +41,9 @@ export default function({
               ${layoutStyle.hidden_l}
             `}
           >
-            <BackgroundImage src={(backgroundImage as any).childImageSharp.original.src} />
+            <BackgroundImage
+              src={(backgroundImage as any).childImageSharp.original.src}
+            />
           </View>
           <View
             style={{
@@ -58,22 +68,26 @@ export default function({
         `}
       >
         <View className={layoutStyle.content}>
-          <View className={layoutStyle.hidden_l}>
-            <Title.h2
-              contrast={contrastText}
-              style={{ overflow: 'visible', fontSize: 24 }}
-            >
-              {title}
-            </Title.h2>
-          </View>
-          <View className={layoutStyle.visible_l}>
-            <Title.h2
-              contrast={contrastText}
-              style={{ overflow: 'visible', fontSize: 34 }}
-            >
-              {title}
-            </Title.h2>
-          </View>
+          {isTitleDisplayed && (
+            <>
+              <View className={layoutStyle.hidden_l}>
+                <Title.h2
+                  contrast={contrastText}
+                  style={{ overflow: 'visible', fontSize: 24 }}
+                >
+                  {title}
+                </Title.h2>
+              </View>
+              <View className={layoutStyle.visible_l}>
+                <Title.h2
+                  contrast={contrastText}
+                  style={{ overflow: 'visible', fontSize: 34 }}
+                >
+                  {title}
+                </Title.h2>
+              </View>
+            </>
+          )}
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (
             <Cta

@@ -1,3 +1,6 @@
+@import '../layout';
+@import '../variables';
+
 .heroContainer {
   overflow: visible;
   padding-bottom: 210px;
@@ -10,5 +13,14 @@
     position: absolute;
     display: flex;
     align-self: center;
+  }
+}
+
+.section {
+  flex-direction: column;
+  .min-medium({margin: 0 80px;});
+  .min-large({margin: 0 160px;});
+  &.horizontal {
+    .min-medium({flex-direction: row;});
   }
 }
