@@ -1,24 +1,26 @@
 @import '../../layout';
 @import '../../variables';
 
-.contentWrapper {
-  flex-direction: column;
-  align-self: center;
-  overflow: visible;
-  &.imageFirst {
-    flex-direction: column-reverse;
+.contentWrapper(@direction) {
+  .contentWrapper {
+    flex-direction: if((@direction = 'column'), column, row);
+    align-self: center;
+    overflow: visible;
+    &.imageFirst {
+      flex-direction: if((@direction = 'column'), column-reverse, row-reverse)
+    }
+    .min-medium({
+      margin: 0 80px;
+    });
+    .min-large({
+      margin: 0 160px;
+    });
   }
-  .min-medium({
-    margin: 0 80px;
-  });
-  .min-large({
-    margin: 0 160px;
-  });
 }
 
 .hero {
   padding-top: 80px;
-  .contentWrapper
+  .contentWrapper('column');
   .content {
     overflow: visible;
     padding: 60px 20px;
@@ -62,17 +64,12 @@
   }
   .min-medium({
     padding-top: 120px;
-    .contentWrapper {
-      flex-direction: row;
-      &.imageFirst {
-        flex-direction: row-reverse;
-      }
-    }
+    .contentWrapper('row')
   });
 }
 
 .vertical {
-  .contentWrapper
+  .contentWrapper('column');
   .content {
     overflow: visible;
     padding: 20px;
@@ -108,12 +105,4 @@
       margin-left: 42px;
     })
   }
-  .min-medium({
-    .contentWrapper {
-      flex-direction: row;
-      &.imageFirst {
-        flex-direction: row-reverse;
-      }
-    }
-  });
 }
