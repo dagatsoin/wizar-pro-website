@@ -69,24 +69,9 @@ export default function({
       >
         <View className={layoutStyle.content}>
           {isTitleDisplayed && (
-            <>
-              <View className={layoutStyle.hidden_l}>
-                <Title.h2
-                  contrast={contrastText}
-                  style={{ overflow: 'visible', fontSize: 24 }}
-                >
-                  {title}
-                </Title.h2>
-              </View>
-              <View className={layoutStyle.visible_l}>
-                <Title.h2
-                  contrast={contrastText}
-                  style={{ overflow: 'visible', fontSize: 34 }}
-                >
-                  {title}
-                </Title.h2>
-              </View>
-            </>
+            <Title.h2 contrast={contrastText}>
+              {title}
+            </Title.h2>
           )}
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (
