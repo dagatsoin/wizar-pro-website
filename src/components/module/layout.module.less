@@ -1,18 +1,27 @@
 @import '../../layout';
 @import '../../variables';
 
+.contentWrapper {
+  flex-direction: column;
+  align-self: center;
+  overflow: visible;
+  &.imageFirst {
+    flex-direction: column-reverse;
+  }
+  .min-medium({
+    margin: 0 80px;
+  });
+  .min-large({
+    margin: 0 160px;
+  });
+}
+
 .hero {
   padding-top: 80px;
-  .contentWrapper {
-    flex-direction: column;
-    &.imageFirst {
-      flex-direction: column-reverse;
-    }
-  }
+  .contentWrapper
   .content {
     overflow: visible;
     padding: 60px 20px;
-    align-self: center;
     h2, h3 {
       text-align: center;
     }
@@ -23,12 +32,64 @@
       font-size: 18px
     }
     .min-large({
-      
+      align-items: flex-start;
+      .title{
+        flex: unset;
+      }
       h2, h3 {
         text-align: left;
       }
       h2 {
-        font-size: 34px
+        font-size: 34px;
+      }
+      h3 {
+        font-size: 24px
+      }
+    })
+  }
+  .image {
+    max-width: 300px;
+    align-items: center;
+    margin-top: 60px;
+    .min-medium({
+      margin-top: 0;
+      margin-left: 42px;
+    })
+  }
+  .min-medium({
+    padding-top: 120px;
+    .contentWrapper {
+      flex-direction: row;
+      &.imageFirst {
+        flex-direction: row-reverse;
+      }
+    }
+  });
+}
+
+.vertical {
+  .contentWrapper
+  .content {
+    overflow: visible;
+    padding: 20px;
+    h2, h3 {
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px
+    }
+    h3 {
+      font-size: 18px
+    }
+    .min-large({
+      .title{
+        flex: unset;
+      }
+      h2, h3 {
+        text-align: center;
+      }
+      h2 {
+        font-size: 34px;
       }
       h3 {
         font-size: 24px
@@ -44,7 +105,6 @@
     })
   }
   .min-medium({
-    padding-top: 120px;
     .contentWrapper {
       flex-direction: row;
       &.imageFirst {

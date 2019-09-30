@@ -1,8 +1,14 @@
+import { BackgroundImage } from '@sproutch/ui'
 import { graphql } from 'gatsby'
 import React from 'react'
+import { Option } from 'space-lift'
 
-import { Attributes } from 'src/types/module'
-import { Layout, Module } from '../components'
+import { AvailableType, Edge, Node } from '~/types/graph'
+import { ModuleAttributes } from '~/types/module'
+import { PageAttributes, Section } from '~/types/page'
+import { Layout, Module, View } from '../components'
+import * as sproutchStyle from './_home.style'
+import lessStyle from './home.style.module.less'
 
 type GatsbyModuleData = {
   site: {
@@ -14,28 +20,84 @@ type GatsbyModuleData = {
   }
   allMarkdownRemark: {
     edges: Array<{
-      node: {
-        rawMarkdownBody: string
-        fileAbsolutePath: string
-        frontmatter: Attributes
-      }
+      node: Node<AvailableType>
     }>
   }
 }
 
-const Home = ({ data }: { data: GatsbyModuleData }) => {
-  const modules = data.allMarkdownRemark.edges
-    .filter(edge => edge.node.fileAbsolutePath.indexOf('/modules/') > 0)
-    .map(e => ({
-      attributes: e.node.frontmatter,
-      key: e.node.fileAbsolutePath,
-      markdown: e.node.rawMarkdownBody,
-    }))
+function isModule(edge: {
+  node: { fileAbsolutePath: string }
+}): edge is Edge<ModuleAttributes> {
+  return edge.node.fileAbsolutePath.indexOf('/modules/') > 0
+}
 
-  return (
-    <Layout>
-      {modules.map(({attributes, markdown, key}) => <Module key={key} {...attributes} markdown={markdown}/>)}
-    </Layout>
+function isPage(edge: Edge<any>): edge is Edge<PageAttributes> {
+  return edge.node.fileAbsolutePath.indexOf('/pages/') > 0
+}
+
+function isHome(attributes: PageAttributes): boolean {
+  return attributes.is_home
+}
+
+const Home = ({ data }: { data: GatsbyModuleData }) => {
+  const edges = data.allMarkdownRemark.edges
+  const moduleEdges = edges.filter(isModule)
+  const maybeHomeNode = Option(
+    edges
+      .filter(isPage)
+      .map(edge => edge.node.frontmatter)
+      .find(isHome)
+  )
+  const maybeHeroModule = maybeHomeNode
+    .map(page =>
+      moduleEdges.find(edge => edge.node.frontmatter.title === page.hero)
+    )
+    .map(({ node }) => node)
+
+  return maybeHomeNode
+    .map(node => (
+      <Layout>
+        {maybeHeroModule.map(moduleNode => (
+          <View className={lessStyle.heroContainer}>
+            <Module
+              markdown={moduleNode.rawMarkdownBody}
+              {...moduleNode.frontmatter}
+            />
+          </View>
+        ))}
+        <Sections sections={node.section_list} edges={moduleEdges}/>
+      </Layout>
+    ))
+    .getOrElse(<></>)
+}
+
+function Sections({
+  sections,
+  edges,
+}: {
+  sections: Section[]
+  edges: Array<Edge<ModuleAttributes>>
+}) {
+  return <>{sections.map(s => renderSection(s, edges))}</>
+}
+
+function renderSection(section: Section, edges: Array<Edge<ModuleAttributes>>) {
+  return section.map(group =>
+    group.modules
+      .reduce<Array<Node<ModuleAttributes>>>(
+        (nodes, id) =>
+          Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
+            () => nodes,
+            edge => [...nodes, edge.node]
+          ),
+        []
+      )
+      .map(node => ({
+        ...node.frontmatter,
+        key: node.fileAbsolutePath,
+        markdown: node.rawMarkdownBody,
+      }))
+      .map(({ key, ...props }) => <Module key={key} {...props} />)
   )
 }
 
@@ -53,38 +115,8 @@ export const query = graphql`
     ) {
       edges {
         node {
-          fileAbsolutePath
-          rawMarkdownBody
-          frontmatter {
-            layout
-            cta {
-              label
-              palette
-            }
-            title
-            imageFirst
-            contrastText
-            image {
-              hiddenHeaderContent
-              src {
-                childImageSharp {
-                  fixed(width: 300) {
-                    ...GatsbyImageSharpFixed
-                  }
-                }
-              }
-            }
-            backgroundImage {
-              childImageSharp {
-                original {
-                  src
-                }
-                fluid(maxWidth: 2048) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          ...Page
+          ...Module
         }
       }
     }

@@ -1,14 +1,7 @@
 ---
-layout: hero
-title: le tourisme dont vous êtes le héros.
-cta:
-  label: Demander une démo
-  palette: primary
-image:
-  hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
-  src: /images/demo.png
+layout: vertical
+title: est un jeu de rôle touristique géolocalisé.
 imageFirst: false
-contrastText: true
-backgroundImage: /images/heroshot_bg.jpg
+contrastText: false
 ---
-### Jeu touristique géolocalisé.
+### Nous tranformons votre territoire en jeu de rôle grandeur nature. Pensé pour les territoires. Codé pour la génération Y/Z
