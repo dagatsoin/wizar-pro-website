@@ -91,11 +91,13 @@ export default function({
           </View>
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (
-            <Cta
-              style={{ root: { marginTop: 30 } }}
-              {...cta}
-              onPress={() => navigate('/askDemo/')}
-            />
+            <View className={layoutStyle.cta}>
+              <Cta
+                style={{ root: { marginTop: 30 } }}
+                {...cta}
+                onPress={() => navigate('/askDemo/')}
+              />
+            </View>
           )}
         </View>
         {image && (

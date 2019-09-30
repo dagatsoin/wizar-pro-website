@@ -2,7 +2,7 @@
 layout: hero
 title: le tourisme dont vous êtes le héros.
 cta:
-  label: Demander une démo
+  label: DEMANDER UNE DÉMO
   palette: primary
 image:
   hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
