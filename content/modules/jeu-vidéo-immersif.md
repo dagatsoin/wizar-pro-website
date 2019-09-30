@@ -1,9 +1,9 @@
 ---
-layout: horizontal
+layout: vertical
 title: Jeu vidéo immersif
 image:
   src: /images/picto_invider.png
-imageFirst: false
+imageFirst: true
 contrastText: false
 ---
-Une \*\*gamification\*\* pensée pour vos visiteurs.
+Une **gamification** pensée pour vos visiteurs.
