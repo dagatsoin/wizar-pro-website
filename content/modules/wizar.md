@@ -5,4 +5,4 @@ isTitleDisplayed: true
 imageFirst: false
 contrastText: false
 ---
-### Nous tranformons votre territoire en jeu de rôle grandeur nature. Pensé pour les territoires. Codé pour la génération Y/Z
+### Nous mettons en valeur l’identité de votre territoire sous forme d’une véritable chasse au trésor grandeur nature. Pensé pour les territoires, codé pour les millenials.
