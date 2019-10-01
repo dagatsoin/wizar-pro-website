@@ -24,22 +24,28 @@ export default function({
   markdown,
 }: Props): JSX.Element {
   return (
-    <View className={`${layoutStyle.hero} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
+    <View
+      className={`${layoutStyle.hero} ${layoutStyle.root} ${
+        imageFirst ? layoutStyle.imageFirst : ''
+      }`}
+    >
       {backgroundImage && (
         <>
-          <View className={`${layoutStyle.hidden_l} ${layoutStyle.backgroundImage}`}>
+          <View
+            className={`${layoutStyle.hidden_l} ${layoutStyle.backgroundImage}`}
+          >
             <BackgroundImage
               src={(backgroundImage as any).childImageSharp.original.src}
             />
           </View>
-          <View className={`${layoutStyle.visible_l} ${layoutStyle.backgroundImage}`}>
+          <View
+            className={`${layoutStyle.visible_l} ${layoutStyle.backgroundImage}`}
+          >
             <BackgroundImage src={backgroundImage} />
           </View>
         </>
       )}
-      <View
-        className={layoutStyle.contentWrapper}
-      >
+      <View className={layoutStyle.contentWrapper}>
         <View className={layoutStyle.content}>
           <View
             className={`
@@ -78,9 +84,15 @@ export default function({
               <Cta
                 style={{ root: { marginTop: 30 } } as any}
                 label="TÉLÉCHARGER SUR ANDROID"
-                palette='secondary'
-                onPress={() => navigate('/askDemo/')}
-              />>
+                palette="secondary"
+                onPress={() =>
+                  window.open(
+                    'https://play.google.com/store/apps/details?id=com.warfog.wizar.adventure.map',
+                    '_blank'
+                  )
+                }
+              />
+              >
             </View>
           )}
         </View>

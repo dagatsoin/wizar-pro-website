@@ -43,7 +43,8 @@ class AskDemoForm extends React.Component<{}, State> {
               <View style={style.root}>
                 <Paper elevation={3} style={style.paper}>
                   {!this.state.sent ? (
-                    <>
+                    <>{/* Form attributes data-netlify data-netlify-honeypot and all the hidden fields are required
+                    for Netlify build to register this form. Otherwize, the form will be send but will be blank. */}
                       <form
                         name="contact"
                         data-netlify="true"
