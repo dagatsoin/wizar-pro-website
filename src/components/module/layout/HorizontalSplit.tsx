@@ -9,9 +9,9 @@ import {
   Title,
   View,
 } from '~/components'
+import { textStyles } from '~/textStyles'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
-import * as styles from '../style'
 
 type Props = { markdown: string } & ModuleAttributes
 // todo extract navigation url
@@ -61,7 +61,7 @@ export default function({
               {title}
             </Title.h2>
           )}
-          {markdown && <Markdown input={markdown} contrast={contrastText} />}
+          {markdown && <Markdown input={markdown} contrast={contrastText} textStyles={textStyles}/>}
           {cta && (
             <Cta
               style={{ root: { marginTop: 30 } }}

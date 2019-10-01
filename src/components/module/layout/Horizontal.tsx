@@ -11,7 +11,6 @@ import {
 } from '~/components'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
-import * as styles from '../style'
 
 type Props = { markdown: string } & ModuleAttributes
 // todo extract navigation url

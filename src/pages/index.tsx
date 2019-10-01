@@ -61,7 +61,7 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
     .map(page => (
       <Layout>
         {maybeHeroModule.map(moduleNode => (
-          <View className={lessStyle.heroContainer}>
+          <View key={moduleNode.frontmatter.title} className={lessStyle.heroContainer}>
             <Module
               markdown={moduleNode.rawMarkdownBody}
               {...moduleNode.frontmatter}
@@ -71,7 +71,7 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
         {maybeHomeNode
           .map(node => node.rawMarkdownBody)
           .map(markdown => (
-            <View className={`${lessStyle.section} ${lessStyle.content}`}>
+            <View key={markdown} className={`${lessStyle.section} ${lessStyle.content}`}>
               <Markdown input={markdown} />
             </View>
           ))}
@@ -111,6 +111,7 @@ function renderSection(section: Section, edges: Array<Edge<ModuleAttributes>>) {
   return (
     modules.length && (
       <View
+        key={section.modules.join()}
         className={`${lessStyle.section} ${lessStyle[section.layout]} ${
           modules.length === 1 || section.layout === 'vertical'
             ? lessStyle.noMargin

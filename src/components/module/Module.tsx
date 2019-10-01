@@ -11,11 +11,9 @@ export default function Module(props: Props): JSX.Element {
       return <Hero {...props}/>
     
     case 'vertical':
-      console.log(props)
       return <Vertical {...props}/> 
 
     case 'vertical-small':
-      console.log(props)
       return <VerticalSmall {...props}/> 
 
     case 'horizontal':

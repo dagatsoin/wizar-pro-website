@@ -1,36 +1,22 @@
-import { Text, View } from '@sproutch/ui'
+import { Button } from '@sproutch/ui'
 import React from 'react'
 
-import style from './style'
+import { Text, View } from '..'
+import style from './layout.module.less'
+
+declare const window: Window
 
 export default () => (
-  <div style={style.root}>
-    <View>
-      <View>
-        <div style={{ textAlign: 'center' }}>
-          <Text>
-            &copy; 2018 Warfog &#8212; All rights reserved.
-          </Text>
-        </div>
-      </View>
-      <View>
-        <div style={{ textAlign: 'center' }}>
-          <Text>
-            <a href="mailto:contact@warfog.gg">E-Mail</a> &nbsp;/&nbsp;{' '}
-            <a href="https://http://facebook.com/wizar.game" target="_blank">
-              Facebook
-            </a>{' '}
-            &nbsp;/&nbsp;{' '}
-            <a href="https://twitter.com/WizarGame" target="_blank">
-              Twitter
-            </a>{' '}
-            &nbsp;/&nbsp;{' '}
-            <a href="https://www.instagram.com/wizargame/" target="_blank">
-              Instagram
-            </a>
-          </Text>
-        </div>
-      </View>
+  <View className={style.root}>
+    <View className={style.copyrightContainer}>
+      <Text style={{color: "white"}}>&copy; 2018 Warfog &#8212; All rights reserved.</Text>
     </View>
-  </div>
+    <View className={style.links}>
+      <Button variant='text' onPress={() => window.open("mailto:contact@warfog.gg")} label="E-Mail"/>
+      <Button variant='text' onPress={() => window.open("https://facebook.com/wizar.game", '_blank')} label="Facebook"/>
+      <Button variant='text' onPress={() => window.open("https://discord.gg/Hway5Vv", '_blank')} label="Discord"/>
+      <Button variant='text' onPress={() => window.open("https://twitter.com/WizarGame", '_blank')} label="Twitter"/>
+      <Button variant='text' onPress={() => window.open("https://www.instagram.com/wizargame/", '_blank')} label="Instagram"/>
+    </View>
+  </View>
 )

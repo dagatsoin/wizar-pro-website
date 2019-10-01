@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
+import { textStyles as defaultTextStyles } from '~/textStyles'
+import { TextStyles } from '~/types/TextStyles'
 import { Em } from './Em'
 import { Heading, HeadingProps } from './Heading'
 import { Image } from './Image'
@@ -9,9 +11,17 @@ import { Link } from './Link'
 import { List } from './List'
 import { ListItem } from './ListItem'
 import { Paragraph, ParagraphProps } from './Paragraph'
-import { Strong } from './Strong'
+import { Strong, StrongProps } from './Strong'
 
-function Markdown({ input, contrast }: { input: string, contrast?: boolean }) {
+function Markdown({
+  input,
+  contrast,
+  textStyles = defaultTextStyles,
+}: {
+  input: string
+  contrast?: boolean
+  textStyles?: TextStyles
+}) {
   return (
     <ReactMarkdown
       source={input}
@@ -20,11 +30,21 @@ function Markdown({ input, contrast }: { input: string, contrast?: boolean }) {
         image: Image,
         link: Link,
         list: List,
-        heading: (props: HeadingProps) => <Heading {...props} contrast={contrast}/>,
+        heading: (props: HeadingProps) => (
+          <Heading
+            {...props}
+            contrast={contrast}
+            style={textStyles && textStyles.heading}
+          />
+        ),
         listItem: ListItem,
-        paragraph: (props: ParagraphProps) => <Paragraph {...props} contrast={contrast}/>,
+        paragraph: (props: ParagraphProps) => (
+          <Paragraph {...props} contrast={contrast} />
+        ),
         break: LineBreak,
-        strong: Strong
+        strong: (props: StrongProps) => (
+          <Strong {...props} style={textStyles && textStyles.strong} />
+        ),
       }}
     />
   )
