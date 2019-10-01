@@ -18,21 +18,37 @@
 
 .section {
   flex-direction: column;
-  .min-medium({margin: 0 80px;});
-  .min-large({margin: 0 160px;});
+  .min-medium({margin: 40px;});
+  .min-large({margin: 40px 160px;});
+
   &.horizontal {
     .min-medium({flex-direction: row;});
+  }
+  &.noMargin{
+    margin-left: 0 !important; 
+    margin-right: 0 !important; 
   }
 }
 
 .content {
   text-align: center;
-  //font-size: 24px !important;
 
+  font-size: 18px !important;
+  
   h1,
   h1 div {
     font-family: CharlemagneStd-Bold !important;
-    font-size: 34px !important;
+    font-size: 24px !important;
   }
+
+  .min-medium({
+    font-size: 24px !important;
+  
+    h1,
+    h1 div {
+      font-family: CharlemagneStd-Bold !important;
+      font-size: 34px !important;
+    }
+  })
 
 }

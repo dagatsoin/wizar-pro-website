@@ -1,96 +1,208 @@
 @import '../../layout';
 @import '../../variables';
 
-.contentWrapper(@direction) {
+.mainLayout(@direction) {
   .contentWrapper {
     flex-direction: if((@direction = 'column'), column, row);
+    align-items: center;
     align-self: center;
     overflow: visible;
-    &.imageFirst {
-      flex-direction: if((@direction = 'column'), column-reverse, row-reverse)
+    
+    .min-medium({margin: 0 80px;});
+    .min-large({margin: 0 160px;});
+  }
+  &.imageFirst {
+    .contentWrapper {
+      flex-direction: if((@direction = 'column'), column-reverse, row-reverse);
     }
-    .min-medium({
-      margin: 0 80px;
-    });
-    .min-large({
-      margin: 0 160px;
-    });
   }
 }
 
 .hero {
   padding-top: 80px;
-  .contentWrapper('column');
+  .mainLayout('column');
   .content {
     overflow: visible;
     padding: 60px 20px;
-    h2, h3 {
+    h2,
+    h3 {
       text-align: center;
     }
     h2 {
-      font-size: 24px
+      font-size: 24px;
     }
     h3 {
-      font-size: 18px
+      font-size: 18px;
     }
     .cta {
       align-items: center;
     }
-    .min-medium({
-      align-items: flex-start;
-      .title{
-        flex: unset;
-      }
-      h2, h3 {
-        text-align: left;
-      }
-      h2 {
-        font-size: 34px;
-      }
-      h3 {
-        font-size: 24px
-      }
-    })
+    .min-medium(
+      {align-items: flex-start; .title{flex: unset;} h2,
+      h3 {text-align: left;} h2 {font-size: 34px;} h3 {font-size: 24px}}
+    );
+  }
+  .backgroundImage{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
   }
   .image {
     overflow: visible;
     align-items: center;
     margin-top: 60px;
+    >* {
+      height: 100%;
+      width: 100%;
+    }
     .min-medium({
-      max-width: 300px;
+      max-width: 334px;
       margin-top: 0;
       margin-left: 42px;
-    })
+    });
   }
-  .min-medium({
-    padding-top: 120px;
-    .contentWrapper('row')
-  });
+  .min-medium({padding-top: 120px; .mainLayout('row')});
 }
 
 .vertical {
   text-align: center;
-  .contentWrapper('column');
+  .mainLayout('column');
   .content {
     overflow: visible;
     padding: 20px;
-    
-    h2, h3, h3 div {
-      font-size: 24px !important
+
+    h2,
+    h3,
+    h3 div {
+      font-size: 24px !important;
     }
-   
-    .min-medium({
-      .title{
-        flex: unset;
-      }
-      
-    })
+
+    .min-medium({.title{flex: unset;}});
   }
   .image {
+    overflow: visible;
     align-items: center;
     margin-top: 60px;
+    > * {
+      height: 100%;
+      width: 100%;
+    }
     .min-medium({
       margin-top: 0;
-    })
+    });
   }
+}
+
+.verticalSmall {
+  text-align: center;
+  .mainLayout('column');
+  .image{
+    overflow: visible;
+    align-items: center;
+    margin-top: 60px;
+    height: 100px; 
+    width: 100px; 
+    > * {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  .content {
+    overflow: visible;
+    padding: 20px;
+
+    h2,
+    h3,
+    h3 div {
+      font-size: 24px !important;
+    }
+  }
+
+  .min-medium({
+    .title{flex: unset;}
+    .image {
+      margin-top: 0;
+      height: 156px;
+      width: 156px;
+    }
+  }); 
+}
+
+.horizontal {
+  .mainLayout('column');
+  text-align: center;
+
+  .min-large({
+    .mainLayout('row');
+      
+    .content {
+      overflow: visible;
+
+      h2,
+      h3,
+      h3 div {
+        font-size: 24px !important;
+      }
+
+      .title {
+        flex: unset;
+      }
+    }
+    .image {
+      align-items: center;
+
+      margin-top: 0;
+    }
+  });
+}
+
+.horizontalSplit {
+  .mainLayout('column');
+  text-align: center;
+  .image {
+    align-items: center;
+    overflow: visible;
+    margin-top: 60px;
+    > * {
+      height: 100%;
+      width: 100%;
+    }
+  }
+  justify-content: center;  
+  .backgroundImage{
+    align-self: center;
+    position: absolute;
+    width: 1024px;
+    height: 450px;
+    right: -50%;
+    left: 50%;
+  }
+  .min-large({
+    .mainLayout('row');
+    .content {
+      flex: .5;
+      text-align: right;
+      padding-right: 20px;
+      margin-left: -20px;
+    }
+    .image {
+      margin-top: 0;
+      max-width: 335px;
+    }
+    &.imageFirst{
+      .backgroundImage {
+        right: 50%;
+        left: -50%;
+      }
+      .content {
+        padding-right: 0;
+        margin-left: 0;
+        padding-left: 20px;
+        margin-right: -20px;
+        text-align: left;
+      }
+    }
+  });
 }

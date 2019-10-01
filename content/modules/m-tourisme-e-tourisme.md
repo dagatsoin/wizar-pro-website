@@ -1,5 +1,5 @@
 ---
-layout: vertical
+layout: vertical-small
 title: M-Tourisme/E-tourisme
 isTitleDisplayed: true
 image:

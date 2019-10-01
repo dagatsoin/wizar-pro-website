@@ -26,19 +26,13 @@ export default function({
   markdown,
 }: Props): JSX.Element {
   return (
-    <View className={`${layoutStyle.vertical} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
+    <View className={`${layoutStyle.horizontalSplit} ${layoutStyle.root}`}>
       {backgroundImage && (
         <>
           <View
-            style={{
-              position: 'absolute',
-              height: '100vh',
-              top: 0,
-              right: 0,
-              left: 0,
-            }}
             className={`
               ${layoutStyle.hidden_l}
+              ${layoutStyle.backgroundImage}
             `}
           >
             <BackgroundImage
@@ -46,15 +40,9 @@ export default function({
             />
           </View>
           <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-            }}
             className={`
               ${layoutStyle.visible_l}
+              ${layoutStyle.backgroundImage}
             `}
           >
             <BackgroundImage src={backgroundImage} />
@@ -62,7 +50,10 @@ export default function({
         </>
       )}
       <View
-        className={layoutStyle.contentWrapper}
+        className={`
+          ${layoutStyle.contentWrapper}
+          ${imageFirst ? layoutStyle.imageFirst : ''}
+        `}
       >
         <View className={layoutStyle.content}>
           {isTitleDisplayed && (

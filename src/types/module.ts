@@ -14,7 +14,7 @@ export type NetlifyModule = {
   image?: ImageWidgetValue
 }
 
-export type Layout = 'hero' | 'horizontal' | 'vertical'
+export type Layout = 'hero' | 'horizontal' | 'horizontal-split' | 'vertical' | 'vertical-small'
 
 export type ModuleAttributes = NetlifyModule & {
   image?: ImageAttribute
@@ -44,8 +44,8 @@ export const query = graphql`
         hiddenHeaderContent
         src {
           childImageSharp {
-            fixed(width: 300) {
-              ...GatsbyImageSharpFixed
+            fluid(maxWidth: 335) {
+              ...GatsbyImageSharpFluid
             }
           }
         }

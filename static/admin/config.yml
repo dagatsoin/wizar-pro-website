@@ -19,7 +19,7 @@ collections:
           label: 'Layout',
           name: layout,
           widget: 'select',
-          options: ['hero', 'horizontal', 'vertical'],
+          options: ['hero', 'horizontal', 'horizontal-split', 'vertical', 'vertical-small'],
           default: 'horizontal',
         }
       - { label: 'CTA', name: cta, widget: cta, required: false }

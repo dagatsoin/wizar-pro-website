@@ -50,7 +50,9 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
   )
   const maybeHeroModule = maybeHomeNode
     .map(page =>
-      moduleEdges.find(edge => edge.node.frontmatter.title === page.frontmatter.hero)
+      moduleEdges.find(
+        edge => edge.node.frontmatter.title === page.frontmatter.hero
+      )
     )
     .map(({ node }) => node)
 
@@ -66,15 +68,14 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
             />
           </View>
         ))}
-        {
-          maybeHomeNode.map(node => node.rawMarkdownBody)
+        {maybeHomeNode
+          .map(node => node.rawMarkdownBody)
           .map(markdown => (
             <View className={`${lessStyle.section} ${lessStyle.content}`}>
-              <Markdown input={markdown}/>
+              <Markdown input={markdown} />
             </View>
-          ))
-        }
-        <Sections sections={page.section_list} edges={moduleEdges}/>
+          ))}
+        <Sections sections={page.section_list} edges={moduleEdges} />
       </Layout>
     ))
     .getOrElse(<></>)
@@ -91,28 +92,35 @@ function Sections({
 }
 
 function renderSection(section: Section, edges: Array<Edge<ModuleAttributes>>) {
+  const modules = section.modules
+    .reduce<Array<Node<ModuleAttributes>>>(
+      (nodes, id) =>
+        Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
+          () => nodes,
+          edge => [...nodes, edge.node]
+        ),
+      []
+    )
+    .map(node => ({
+      ...node.frontmatter,
+      key: node.fileAbsolutePath,
+      markdown: node.rawMarkdownBody,
+    }))
+    .map(({ key, ...props }) => <Module key={key} {...props} />)
+
   return (
-    <View className={`${lessStyle.section} ${lessStyle[section.layout]}`}>
-      {section.modules
-        .reduce<Array<Node<ModuleAttributes>>>(
-          (nodes, id) =>
-            Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
-              () => nodes,
-              edge => [...nodes, edge.node]
-            ),
-          []
-        )
-        .map(node => ({
-          ...node.frontmatter,
-          key: node.fileAbsolutePath,
-          markdown: node.rawMarkdownBody,
-        }))
-        .map(({ key, ...props }) => (
-          <Module key={key} {...props} />
-        ))}
-    </View>
+    modules.length && (
+      <View
+        className={`${lessStyle.section} ${lessStyle[section.layout]} ${
+          modules.length === 1 || section.layout === 'vertical'
+            ? lessStyle.noMargin
+            : ''
+        }`}
+      >
+        {modules}
+      </View>
+    )
   )
-  
 }
 
 export const query = graphql`

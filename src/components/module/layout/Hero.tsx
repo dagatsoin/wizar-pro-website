@@ -25,42 +25,21 @@ export default function({
   markdown,
 }: Props): JSX.Element {
   return (
-    <View className={`${layoutStyle.hero} ${layoutStyle.root}`}>
+    <View className={`${layoutStyle.hero} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
       {backgroundImage && (
         <>
-          <View
-            style={{
-              position: 'absolute',
-              height: '100vh',
-              top: 0,
-              right: 0,
-              left: 0,
-            }}
-            className={`${layoutStyle.hidden_l}`}
-          >
+          <View className={`${layoutStyle.hidden_l} ${layoutStyle.backgroundImage}`}>
             <BackgroundImage
               src={(backgroundImage as any).childImageSharp.original.src}
             />
           </View>
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-            }}
-            className={`${layoutStyle.visible_l}`}
-          >
+          <View className={`${layoutStyle.visible_l} ${layoutStyle.backgroundImage}`}>
             <BackgroundImage src={backgroundImage} />
           </View>
         </>
       )}
       <View
-        className={`
-          ${layoutStyle.contentWrapper}
-          ${imageFirst ? layoutStyle.imageFirst : ''}
-        `}
+        className={layoutStyle.contentWrapper}
       >
         <View className={layoutStyle.content}>
           <View

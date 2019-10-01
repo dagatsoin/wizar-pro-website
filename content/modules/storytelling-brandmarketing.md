@@ -1,5 +1,5 @@
 ---
-layout: vertical
+layout: vertical-small
 title: Storytelling / Brandmarketing
 isTitleDisplayed: true
 image:

@@ -1,5 +1,5 @@
 ---
-layout: vertical
+layout: vertical-small
 title: Jeu vidéo immersif
 isTitleDisplayed: true
 image:

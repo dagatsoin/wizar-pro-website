@@ -31,6 +31,7 @@ function renderImage(src: ImageAttribute['src'], title?: string) {
     <Image source={src} style={styles.imageBackgroundPreview} title={title} />
   ) : (
     <Img
+      style={{width: '100%', height: '100%'}}
       fluid={isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined}
       fixed={!isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined}
       title={title}
