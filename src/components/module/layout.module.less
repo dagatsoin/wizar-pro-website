@@ -52,14 +52,15 @@
   .image {
     overflow: visible;
     align-items: center;
-    margin-top: 60px;
+    margin-bottom: 100px;
+    width: 200px;
     >* {
       height: 100%;
       width: 100%;
     }
     .min-medium({
       max-width: 334px;
-      margin-top: 0;
+      margin-bottom: 0;
       margin-left: 42px;
     });
   }
@@ -80,6 +81,9 @@
     }
 
     .min-medium({.title{flex: unset;}});
+  }
+  .backgroundImage {
+    max-width: 100%
   }
   .image {
     overflow: visible;
@@ -166,6 +170,7 @@
     align-items: center;
     overflow: visible;
     margin-top: 60px;
+    width: 256px;
     > * {
       height: 100%;
       width: 100%;
@@ -175,10 +180,7 @@
   .backgroundImage{
     align-self: center;
     position: absolute;
-    width: 1024px;
-    height: 450px;
-    right: -50%;
-    left: 50%;
+    display: none
   }
   .min-large({
     .mainLayout('row');
@@ -191,6 +193,12 @@
     .image {
       margin-top: 0;
       max-width: 335px;
+    }
+    .backgroundImage{
+      width: 1024px;
+      height: 450px;
+      right: -50%;
+      left: 50%;
     }
     &.imageFirst{
       .backgroundImage {

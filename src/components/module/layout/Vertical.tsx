@@ -38,10 +38,11 @@ export default function({
             }}
             className={`
               ${layoutStyle.hidden_l}
+              ${layoutStyle.backgroundImage}
             `}
           >
             <BackgroundImage
-              src={(backgroundImage as any).childImageSharp.original.src}
+              src={backgroundImage}
             />
           </View>
           <View
@@ -54,6 +55,7 @@ export default function({
             }}
             className={`
               ${layoutStyle.visible_l}
+              ${layoutStyle.backgroundImage}
             `}
           >
             <BackgroundImage src={backgroundImage} />

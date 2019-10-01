@@ -71,10 +71,16 @@ export default function({
           {cta && (
             <View className={layoutStyle.cta}>
               <Cta
-                style={{ root: { marginTop: 30 } }}
+                style={{ root: { marginTop: 30 } } as any}
                 {...cta}
                 onPress={() => navigate('/askDemo/')}
               />
+              <Cta
+                style={{ root: { marginTop: 30 } } as any}
+                label="TÉLÉCHARGER SUR ANDROID"
+                palette='secondary'
+                onPress={() => navigate('/askDemo/')}
+              />>
             </View>
           )}
         </View>
