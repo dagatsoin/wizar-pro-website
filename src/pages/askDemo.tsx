@@ -45,6 +45,9 @@ class AskDemoForm extends React.Component<{}, State> {
                   {!this.state.sent ? (
                     <>
                       <form
+                        name="contact"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
                         ref={(form) => this.formRef = form}
                         style={{
 
@@ -54,6 +57,8 @@ class AskDemoForm extends React.Component<{}, State> {
                         }}
                       >
                         <input type="hidden" name="form-name" value="contact" />
+                        <input type="hidden" name="name" value="name" />
+                        <input type="hidden" name="email" value="email" />
                         <Text>
                           Remplissez simplement ce formulaire et l'on vous
                           recontactera au plus vite.
