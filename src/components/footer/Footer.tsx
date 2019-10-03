@@ -9,7 +9,7 @@ declare const window: Window
 export default () => (
   <View className={style.root}>
     <View className={style.copyrightContainer}>
-      <Text style={{color: "white"}}>&copy; 2018 Warfog &#8212; All rights reserved.</Text>
+      <Text style={{color: "white"}}>&copy; 2019 Warfog &#8212; All rights reserved.</Text>
     </View>
     <View className={style.links}>
       <Button variant='text' onPress={() => window.open("mailto:contact@warfog.gg")} label="E-Mail"/>
