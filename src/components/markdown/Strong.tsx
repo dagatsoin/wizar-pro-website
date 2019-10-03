@@ -23,11 +23,8 @@ export function Strong({ children, style }: StrongProps) {
 
   return (
     <Text
-      inherited
-      style={{
-        color: 'bold',
-        ...style
-      }}
+      inherited={inherited}
+      style={style}
     >
       {children}
     </Text>

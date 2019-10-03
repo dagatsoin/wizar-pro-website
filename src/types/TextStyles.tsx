@@ -1,6 +1,7 @@
 import { TextStyle } from '@sproutch/ui'
 export type TextStyles = {
   p?: TextStyle
+  blockquote: TextStyle
   strong?: TextStyle
   heading?: {
     h1?: TextStyle

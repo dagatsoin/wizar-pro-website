@@ -89,7 +89,7 @@ collections:
           - label: 'Layout'
             name: layout
             widget: 'select'
-            options: [horizontal, vertical]
+            options: [horizontal, vertical, carousel]
             default: 'horizontal'
           - label: 'Module list'
             name: 'modules'

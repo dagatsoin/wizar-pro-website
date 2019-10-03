@@ -1,0 +1,19 @@
+@import '../../layout';
+@import '../../variables';
+
+.section {
+  flex-direction: column;
+  .min-medium({margin: 40px;});
+  .min-large({margin: 40px 160px;});
+
+  &.horizontal {
+    .min-medium({flex-direction: row;});
+  }
+  &.noMargin{
+    margin-left: 0 !important; 
+    margin-right: 0 !important; 
+  }
+  &.carousel {
+    height: 400px
+  }
+}

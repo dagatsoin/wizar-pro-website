@@ -44,7 +44,7 @@ export const query = graphql`
         hiddenHeaderContent
         src {
           childImageSharp {
-            fluid(maxWidth: 156) {
+            fluid(maxWidth: 335) {
               ...GatsbyImageSharpFluid
             }
           }

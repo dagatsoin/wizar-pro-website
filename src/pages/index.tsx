@@ -1,13 +1,11 @@
-import { BackgroundImage } from '@sproutch/ui'
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Option } from 'space-lift'
 
 import { AvailableType, Edge, Node } from '~/types/graph'
 import { ModuleAttributes } from '~/types/module'
-import { PageAttributes, Section } from '~/types/page'
-import { Layout, Module, View, Markdown } from '../components'
-import * as sproutchStyle from './_home.style'
+import { PageAttributes, Section as SectionType } from '~/types/page'
+import { Layout, Markdown, Module, Section, View, Carousel } from '../components'
 import lessStyle from './home.style.module.less'
 
 type GatsbyModuleData = {
@@ -81,47 +79,14 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
     .getOrElse(<></>)
 }
 
-function Sections({
+export function Sections({
   sections,
   edges,
 }: {
-  sections: Section[]
+  sections: SectionType[]
   edges: Array<Edge<ModuleAttributes>>
 }) {
-  return <>{sections.map(s => renderSection(s, edges))}</>
-}
-
-function renderSection(section: Section, edges: Array<Edge<ModuleAttributes>>) {
-  const modules = section.modules
-    .reduce<Array<Node<ModuleAttributes>>>(
-      (nodes, id) =>
-        Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
-          () => nodes,
-          edge => [...nodes, edge.node]
-        ),
-      []
-    )
-    .map(node => ({
-      ...node.frontmatter,
-      key: node.fileAbsolutePath,
-      markdown: node.rawMarkdownBody,
-    }))
-    .map(({ key, ...props }) => <Module key={key} {...props} />)
-
-  return (
-    modules.length && (
-      <View
-        key={section.modules.join()}
-        className={`${lessStyle.section} ${lessStyle[section.layout]} ${
-          modules.length === 1 || section.layout === 'vertical'
-            ? lessStyle.noMargin
-            : ''
-        }`}
-      >
-        {modules}
-      </View>
-    )
-  )
+  return <>{sections.map(s => <Section key={s.modules.join()} section={s} edges={edges}/>)}</>
 }
 
 export const query = graphql`

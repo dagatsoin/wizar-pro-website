@@ -18,7 +18,7 @@ export type Section = {
 }
 
 export type ModuleLayout = 'hero' | 'horizontal' | 'vertical'
-export type SectionLayout = 'horizontal' | 'vertical'
+export type SectionLayout = 'horizontal' | 'vertical' | 'carousel'
 
 export type ModuleAttributes = NetlifyPage
 

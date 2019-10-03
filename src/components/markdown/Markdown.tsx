@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 
 import { textStyles as defaultTextStyles } from '~/textStyles'
 import { TextStyles } from '~/types/TextStyles'
+import { Blockquote, BlockquoteProps } from './Blockquote'
 import { Em } from './Em'
 import { Heading, HeadingProps } from './Heading'
 import { Image } from './Image'
@@ -12,6 +13,19 @@ import { List } from './List'
 import { ListItem } from './ListItem'
 import { Paragraph, ParagraphProps } from './Paragraph'
 import { Strong, StrongProps } from './Strong'
+
+type SourcePosition = {
+  end: {
+    line: number
+    column: number
+    offset: number
+  }
+  start: {
+    line: number
+    column: number
+    offset: number
+  }
+}
 
 function Markdown({
   input,
@@ -25,8 +39,21 @@ function Markdown({
   return (
     <ReactMarkdown
       source={input}
+      sourcePos
+      rawSourcePos
       renderers={{
         emphasis: Em,
+        blockquote: (
+          props: BlockquoteProps & { sourcePosition: SourcePosition }
+        ) => {
+          console.log(getSource(input, props.sourcePosition))
+          return (
+            <Blockquote
+              children={getSource(input, props.sourcePosition)}
+              style={textStyles && textStyles.blockquote}
+            />
+          )
+        },
         image: Image,
         link: Link,
         list: List,
@@ -48,6 +75,26 @@ function Markdown({
       }}
     />
   )
+}
+
+function getSource(input: string, sourcePos: SourcePosition) {
+  const lines = input.split(/\n/g)
+
+  const chunkOfFirstLine = lines[sourcePos.start.line - 1].slice(
+    sourcePos.start.column,
+    sourcePos.end.line !== sourcePos.start.line
+      ? sourcePos.end.column
+      : undefined
+  )
+  const chunkOfIntermediateLines = sourcePos.end.line - sourcePos.start.line > 1
+    ? '\n' + lines.slice(sourcePos.start.line, sourcePos.end.line - 1).join('\n')
+    : ''
+
+  const chunkOfLastLine = sourcePos.start.line === sourcePos.end.line
+    ? ''
+    : '\n' + lines[sourcePos.end.line - 1].slice(0, sourcePos.end.column)
+
+  return chunkOfFirstLine + chunkOfIntermediateLines + chunkOfLastLine
 }
 
 export default Markdown
