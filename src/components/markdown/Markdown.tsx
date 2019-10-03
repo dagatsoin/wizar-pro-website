@@ -45,15 +45,12 @@ function Markdown({
         emphasis: Em,
         blockquote: (
           props: BlockquoteProps & { sourcePosition: SourcePosition }
-        ) => {
-          console.log(getSource(input, props.sourcePosition))
-          return (
-            <Blockquote
-              children={getSource(input, props.sourcePosition)}
-              style={textStyles && textStyles.blockquote}
-            />
-          )
-        },
+        ) => (
+          <Blockquote
+            children={getSource(input, props.sourcePosition)}
+            style={textStyles && textStyles.blockquote}
+          />
+        ),
         image: Image,
         link: Link,
         list: List,
@@ -86,13 +83,16 @@ function getSource(input: string, sourcePos: SourcePosition) {
       ? sourcePos.end.column
       : undefined
   )
-  const chunkOfIntermediateLines = sourcePos.end.line - sourcePos.start.line > 1
-    ? '\n' + lines.slice(sourcePos.start.line, sourcePos.end.line - 1).join('\n')
-    : ''
+  const chunkOfIntermediateLines =
+    sourcePos.end.line - sourcePos.start.line > 1
+      ? '\n' +
+        lines.slice(sourcePos.start.line, sourcePos.end.line - 1).join('\n')
+      : ''
 
-  const chunkOfLastLine = sourcePos.start.line === sourcePos.end.line
-    ? ''
-    : '\n' + lines[sourcePos.end.line - 1].slice(0, sourcePos.end.column)
+  const chunkOfLastLine =
+    sourcePos.start.line === sourcePos.end.line
+      ? ''
+      : '\n' + lines[sourcePos.end.line - 1].slice(0, sourcePos.end.column)
 
   return chunkOfFirstLine + chunkOfIntermediateLines + chunkOfLastLine
 }
