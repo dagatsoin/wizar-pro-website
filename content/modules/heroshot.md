@@ -1,10 +1,10 @@
 ---
 layout: hero
+cta:
+  label: DEVENIR TERRITOIRE PARTENAIRE
+  palette: primary
 title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
-cta:
-  label: DEMANDER UNE DÉMO
-  palette: primary
 image:
   hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
   src: /images/demo.png
