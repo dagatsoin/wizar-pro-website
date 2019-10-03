@@ -1,6 +1,6 @@
 ---
 layout: vertical-small
-title: Arras
+title: Pheonixo
 isTitleDisplayed: true
 image:
   src: /images/picto_invider.png
