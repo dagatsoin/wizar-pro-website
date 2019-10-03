@@ -5,7 +5,7 @@ title: Ektros
 isTitleDisplayed: true
 image:
   src: /images/picto_invider.png
-imageFirst: false
+imageFirst: true
 contrastText: false
 ---
 >Apprendre des informations sur notre village (j'ai adoré la petite info sur la mairie et le nom de la place)
