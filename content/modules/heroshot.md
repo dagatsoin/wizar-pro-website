@@ -12,4 +12,4 @@ imageFirst: false
 contrastText: true
 backgroundImage: /images/heroshot_bg.jpg
 ---
-### Jeu touristique géolocalisé.
+### Jeu géolocalisé d'exploration touristique.
