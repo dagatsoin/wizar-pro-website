@@ -1,6 +1,6 @@
 ---
 layout: vertical-small
-title: M-Tourisme/E-tourisme
+title: M-Tourisme
 isTitleDisplayed: true
 image:
   src: /images/picto_phone.png
