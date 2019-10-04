@@ -1,8 +1,10 @@
 ---
 layout: vertical-small
-title: Storytelling / Brandmarketing
+title: 'Storytelling '
 isTitleDisplayed: true
 image:
+  hiddenHeaderContent: Brandmarketing
+  hiddenHeaderLevel: '4'
   src: /images/picto_castle.png
 imageFirst: true
 contrastText: false
