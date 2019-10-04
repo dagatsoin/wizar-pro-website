@@ -28,9 +28,10 @@ function wrapInHeader(level: string, children: React.ReactNode) {
 
 function renderImage(src: ImageAttribute['src'], title?: string) {
   return typeof src === 'string' ? (
-    <Image source={src} style={styles.imageBackgroundPreview} title={title} />
+    <Image source={src} style={styles.imageBackgroundPreview} title={title} accessibilityLabel={title}/>
   ) : (
     <Img
+      alt={title}
       style={{width: '100%', height: '100%'}}
       fluid={isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined}
       fixed={!isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined}

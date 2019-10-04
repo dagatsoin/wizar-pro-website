@@ -13,7 +13,7 @@ export default function({ src }: Props) {
     ? <BackgroundImage uri={src}/>
     : (
       <View style={styles.backgroundImageContainer}>
-        <Img fluid={src.childImageSharp.fluid}/>
+        <Img fluid={src.childImageSharp.fluid} alt="background image"/>
       </View>
     )
 }
