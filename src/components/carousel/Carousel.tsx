@@ -27,7 +27,7 @@ export default class WithoutRouter extends React.Component<Props, State> {
           this.setState({ activeId: this.state.activeId === this.props.slides.length - 1 ? 0 :  this.state.activeId + 1})
         }
       },
-      4000
+      400000000
     )
   }
 
@@ -39,6 +39,7 @@ export default class WithoutRouter extends React.Component<Props, State> {
     return (
       <View style={style.sceneContainer}>
         <SceneTransition
+          style={style.sceneTransition}
           render={() => this.props.slides[this.state.activeId]}
         />
       </View>

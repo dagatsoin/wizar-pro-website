@@ -17,7 +17,7 @@ export function Blockquote({ style, children }: BlockquoteProps) {
           fontSize: 96,
           position: 'absolute',
           top: -32,
-          left: 0,
+          left: -42,
           fontFamily: 'serif',
         }}
       >
@@ -31,7 +31,7 @@ export function Blockquote({ style, children }: BlockquoteProps) {
             position: 'absolute',
             lineHeight: 1,
             bottom: -16,
-            right: 0,
+            right: -42,
             fontFamily: 'serif',
           }}
         >
