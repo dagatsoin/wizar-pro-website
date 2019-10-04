@@ -1,5 +1,5 @@
 import { Map } from 'immutable'
-import CMS from 'netlify-cms'
+import CMS from 'netlify-cms-app'
 import React, { Component } from 'react'
 
 import { Image as ImageComp } from '../components/image'
