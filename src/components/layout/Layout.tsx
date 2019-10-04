@@ -50,7 +50,7 @@ const Layout = ({ children, data }: Props) => {
           { name: 'keywords', content: keywords },
         ]}
       >
-        <html lang="en" />
+        <html lang="fr" />
       </Helmet>
       <Header
         brandLogoUrl={withPrefix(
