@@ -5,7 +5,7 @@ import { Option } from 'space-lift'
 import { AvailableType, Edge, Node } from '~/types/graph'
 import { ModuleAttributes } from '~/types/module'
 import { PageAttributes, Section as SectionType } from '~/types/page'
-import { Layout, Markdown, Module, Section, View, Carousel } from '../components'
+import { Layout, Markdown, Module, Section, View } from '../components'
 import lessStyle from './home.style.module.less'
 
 type GatsbyModuleData = {
@@ -91,12 +91,6 @@ export function Sections({
 
 export const query = graphql`
   {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___title] }
       limit: 1000

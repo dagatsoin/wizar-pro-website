@@ -2,7 +2,10 @@ import { View } from '@sproutch/ui'
 import { graphql, StaticQuery, withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
+import { Option } from 'space-lift'
 
+import { Node } from '~/types/graph'
+import { PageAttributes } from '~/types/page'
 import { Footer } from '..'
 import { Header } from '../header'
 import * as style from './style'
@@ -15,34 +18,50 @@ export type Props = {
 type Data = {
   site: {
     siteMetadata: {
-      title: string
-      description: string
-      keywords: string
       brandLogoUrl: string
     }
   }
+  allMarkdownRemark: {
+    edges: Array<{
+      node: Node<PageAttributes>
+    }>
+  }
 }
 
-const Layout = ({ children, data }: Props) => (
-  <View style={style.root}>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: data.site.siteMetadata.description },
-        { name: 'keywords', content: data.site.siteMetadata.keywords },
-      ]}
-    >
-      <html lang="en" />
-    </Helmet>
-    <Header
-      brandLogoUrl={withPrefix(
-        `./images/${data.site.siteMetadata.brandLogoUrl}`
-      )}
-    />
-    {children}
-    <Footer/>
-  </View>
-)
+const Layout = ({ children, data }: Props) => {
+  const { title, keywords, description } = Option(data.allMarkdownRemark.edges.find(({node}) => node.frontmatter.is_home))
+    .map(edge => ({
+      title: edge.node.frontmatter.title,
+      keywords: edge.node.frontmatter.tags.join(', '),
+      description: edge.node.frontmatter.description
+    }))
+    .getOrElse({
+      title: '',
+      keywords: '',
+      description: ''
+    })
+
+  return (
+    <View style={style.root}>
+      <Helmet
+        title={title}
+        meta={[
+          { name: 'description', content: description },
+          { name: 'keywords', content: keywords },
+        ]}
+      >
+        <html lang="en" />
+      </Helmet>
+      <Header
+        brandLogoUrl={withPrefix(
+          `./images/${data.site.siteMetadata.brandLogoUrl}`
+        )}
+      />
+      {children}
+      <Footer />
+    </View>
+  )
+}
 
 export default props => (
   <StaticQuery
@@ -50,9 +69,17 @@ export default props => (
       query {
         site {
           siteMetadata {
-            title
-            description
             brandLogoUrl
+          }
+        }
+        allMarkdownRemark(
+          sort: { order: DESC, fields: [frontmatter___title] }
+          limit: 1000
+        ) {
+          edges {
+            node {
+              ...Page
+            }
           }
         }
       }

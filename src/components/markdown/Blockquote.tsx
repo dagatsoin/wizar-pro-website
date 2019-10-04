@@ -9,7 +9,6 @@ export type BlockquoteProps = {
 }
 
 export function Blockquote({ style, children }: BlockquoteProps) {
-  console.log(children)
   return (
     <View style={{ overflow: 'visible' }}>
       <Text

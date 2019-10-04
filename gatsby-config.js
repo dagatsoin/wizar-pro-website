@@ -5,8 +5,6 @@ require('ts-node').register({compilerOptions: {
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://pro.wizar.world',
-    title: 'Application jeu de piste géolocalisé pour le tourisme -  Wizar',
-    description: "Application de jeu de piste touristique géolocalisé. Wizar s'appuie sur l’identité des territoires sous forme de chasse au trésor digitale et mobile.",
     brandLogoUrl: 'header_logo.png',
   },
   plugins: [
