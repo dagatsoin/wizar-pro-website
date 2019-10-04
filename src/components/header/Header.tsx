@@ -11,13 +11,6 @@ type Props = {
 const Header = ({ brandLogoUrl, brandName }: Props) => (
   <div style={style.root}>
     <div style={style.brand}>
-      {brandName && (
-        <h1 style={{ margin: 0 }}>
-          <Link to="/">
-            {brandName}
-          </Link>
-        </h1>
-      )}
       {brandLogoUrl && (
         <Link to="/">
           <img style={style.logo} src={brandLogoUrl} alt={brandName} />
