@@ -56,6 +56,7 @@ const Layout = ({ children, data }: Props) => {
         brandLogoUrl={withPrefix(
           `./images/${data.site.siteMetadata.brandLogoUrl}`
         )}
+        brandName={"Wizar"}
       />
       {children}
       <Footer />
