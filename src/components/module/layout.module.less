@@ -100,7 +100,8 @@
     overflow: visible;
     align-items: center;
     margin-top: 60px;
-    height: 100px; 
+    max-height: 100px; // As we use gatsby image, we need to strictly set the height
+    height: 100px; // As we use gatsby image, we need to strictly set the height
     width: 100px; 
     > * {
       height: 100%;
@@ -117,6 +118,7 @@
     .image {
       margin-top: 0;
       height: 156px;
+      max-height: 156px;
       width: 156px;
     }
   }); 
