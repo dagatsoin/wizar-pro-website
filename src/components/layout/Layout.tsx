@@ -9,6 +9,7 @@ import { PageAttributes } from '~/types/page'
 import { Footer } from '..'
 import { Header } from '../header'
 import * as style from './style'
+import favicon64 from './favicon.png'
 
 export type Props = {
   children: React.ReactNode
@@ -48,6 +49,9 @@ const Layout = ({ children, data }: Props) => {
         meta={[
           { name: 'description', content: description },
           { name: 'keywords', content: keywords },
+        ]}
+        link={[
+          { rel: 'icon', type: 'image/png', sizes: "64x64", href: `${favicon64}` },
         ]}
       >
         <html lang="fr" />
