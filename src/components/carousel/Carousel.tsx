@@ -27,7 +27,7 @@ export default class WithoutRouter extends React.Component<Props, State> {
           this.setState({ activeId: this.state.activeId === this.props.slides.length - 1 ? 0 :  this.state.activeId + 1})
         }
       },
-      400000000
+      5000
     )
   }
 
