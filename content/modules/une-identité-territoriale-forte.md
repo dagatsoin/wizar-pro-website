@@ -3,7 +3,9 @@ type: module
 layout: horizontal-split
 title: Une identité territoriale forte
 isTitleDisplayed: true
-imageFirst: false
+image:
+  src: /images/identite_phone.jpg
+imageFirst: true
 contrastText: false
 backgroundImage: /images/identite_territoriale.png
 ---
