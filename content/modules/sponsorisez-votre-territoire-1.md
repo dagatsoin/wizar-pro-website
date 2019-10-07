@@ -6,4 +6,4 @@ isTitleDisplayed: true
 imageFirst: false
 contrastText: false
 ---
-Mettez en valeur votre identité territoriale et faites-en profitez vos commerçants.
+## Mettez en valeur votre identité territoriale et faites-en profitez vos commerçants.
