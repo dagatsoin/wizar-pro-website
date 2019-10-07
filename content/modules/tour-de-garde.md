@@ -13,7 +13,7 @@ contrastText: false
 3 sources de Wizar a connecter
 
 ---
-mise en avant du patrimoine bâti
+Mise en avant du patrimoine bâti
 
 ---
-badge à l’effigie du blason de la ville
+Badge à l’effigie du blason de la ville
