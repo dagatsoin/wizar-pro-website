@@ -9,7 +9,7 @@ image:
 imageFirst: true
 contrastText: false
 ---
-### 600€ ttc
+### **600€ ttc**
 3 sources de Wizar a connecter
 
 ---
