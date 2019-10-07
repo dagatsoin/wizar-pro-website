@@ -9,6 +9,10 @@ imageFirst: true
 contrastText: false
 ---
 ### 600€ ttc
-- 3 sources de Wizar a connecter
-- mise en avant du patrimoine bâti
-- badge à l’effigie du blason de la ville
+3 sources de Wizar a connecter
+
+---
+mise en avant du patrimoine bâti
+
+---
+badge à l’effigie du blason de la ville
