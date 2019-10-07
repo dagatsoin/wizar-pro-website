@@ -3,6 +3,7 @@ type: module
 layout: vertical-small
 title: Tour de garde
 isTitleDisplayed: true
+elevation: 5
 image:
   src: /images/tour_de_garde.png
 imageFirst: true
