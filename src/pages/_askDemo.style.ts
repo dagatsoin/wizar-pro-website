@@ -19,7 +19,6 @@ export default function(
   return {
     root: Styles.createViewStyle(
       {
-        height: 400,
         justifyContent: 'center',
         alignItems: 'center',
       },
@@ -27,7 +26,8 @@ export default function(
     ),
     paper: {
       root: Styles.createViewStyle(
-        {maxWidth: 400,
+        {
+          maxWidth: 700,
           borderRadius: theme.shape.borderRadius,
           margin: 24,
           padding: 24,
