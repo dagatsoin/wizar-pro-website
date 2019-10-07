@@ -1,3 +1,4 @@
+import { Paper } from '@sproutch/ui'
 import { navigate } from 'gatsby'
 import React from 'react'
 
@@ -9,11 +10,11 @@ import {
   Title,
   View,
 } from '~/components'
+import { textStyles } from '~/textStyles'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
-import { textStyles } from '~/textStyles'
 
-type Props = { markdown: string } & ModuleAttributes
+type Props = { markdown: string; noMargin: boolean } & ModuleAttributes
 // todo extract navigation url
 export default function({
   cta,
@@ -23,10 +24,18 @@ export default function({
   contrastText,
   imageFirst,
   image,
+  elevation,
   markdown,
+  noMargin,
 }: Props): JSX.Element {
-  return (
-    <View className={`${layoutStyle.verticalSmall} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
+  const module = (
+    <View
+      className={`
+        ${layoutStyle.verticalSmall}
+        ${layoutStyle.root}
+        ${imageFirst ? layoutStyle.imageFirst : ''}
+      `}
+    >
       {backgroundImage && (
         <>
           <View
@@ -62,15 +71,22 @@ export default function({
         </>
       )}
       <View
-        className={layoutStyle.contentWrapper}
+        className={`
+        ${layoutStyle.contentWrapper}
+        ${noMargin ? layoutStyle.noMargin : ''}
+      `}
       >
         <View className={layoutStyle.content}>
           {isTitleDisplayed && (
-            <Title.h2 contrast={contrastText}>
-              {title}
-            </Title.h2>
+            <Title.h2 contrast={contrastText}>{title}</Title.h2>
           )}
-          {markdown && <Markdown input={markdown}contrast={contrastText} textStyles={textStyles}/>}
+          {markdown && (
+            <Markdown
+              input={markdown}
+              contrast={contrastText}
+              textStyles={textStyles}
+            />
+          )}
           {cta && (
             <Cta
               style={{ root: { marginTop: 30 } }}
@@ -86,5 +102,24 @@ export default function({
         )}
       </View>
     </View>
+  )
+  return elevation ? wrapInPaper(module, elevation) : module
+}
+
+function wrapInPaper(children: React.ReactNode, elevation: number) {
+  return (
+    <Paper
+      elevation={elevation}
+      style={{
+        root: {
+          marginTop: elevation,
+          marginRight: elevation * 2,
+          marginBottom: elevation * 4,
+          marginLeft: elevation * 2
+        },
+      }}
+    >
+      {children}
+    </Paper>
   )
 }

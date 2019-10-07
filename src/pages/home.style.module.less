@@ -5,14 +5,16 @@
   overflow: visible;
   padding-bottom: 210px;
   &::after {
-    content: '';
-    background-image: url(/images/logo_color.png);
-    width: 219px;
+    width: 100%;
     height: 285px;
-    bottom: 0;
     position: absolute;
+    bottom: 0;
     display: flex;
     align-self: center;
+    content: '';
+    background-image: url(/images/logo_color.png);
+    background-position-x: 50%;
+    background-repeat: no-repeat;
   }
 }
 

@@ -8,8 +8,10 @@
     align-self: center;
     overflow: visible;
     
-    .min-medium({margin: 0 80px;});
-    .min-large({margin: 0 160px;});
+    &:not(.noMargin) {
+      .min-medium({margin: 0 80px;});
+      .min-large({margin: 0 160px;});
+    }
   }
   &.imageFirst {
     .contentWrapper {

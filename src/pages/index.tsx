@@ -57,6 +57,7 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
   return maybeHomeNode
     .map(node => node.frontmatter)
     .map(page => (
+      // tslint:disable-next-line: jsx-key
       <Layout>
         {maybeHeroModule.map(moduleNode => (
           <View key={moduleNode.frontmatter.title} className={lessStyle.heroContainer}>

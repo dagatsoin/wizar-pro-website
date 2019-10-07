@@ -3,7 +3,7 @@ import React from 'react'
 import { ModuleAttributes } from '../../types/module'
 import { Hero, Horizontal, HorizontalSplit, Vertical, VerticalSmall } from './layout'
 
-type Props = { markdown: string } & ModuleAttributes
+type Props = { markdown: string, noMargin: boolean } & ModuleAttributes
 
 export default function Module(props: Props): JSX.Element {
   switch (props.layout) {
