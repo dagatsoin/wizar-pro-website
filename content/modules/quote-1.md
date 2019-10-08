@@ -7,4 +7,4 @@ image:
 imageFirst: true
 contrastText: false
 ---
->Jeu très prenant, les graphismes sont très bons et correspondent bien au type de jeu (quêtes/personnages). Les Infos touristiques sont intéressantes.
+>Jeu très prenant et les Infos touristiques sont intéressantes.
