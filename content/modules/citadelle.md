@@ -2,6 +2,9 @@
 type: module
 layout: vertical-small
 elevation: 5
+cta:
+  label: Commander
+  palette: secondary
 title: Citadelle
 isTitleDisplayed: true
 image:
