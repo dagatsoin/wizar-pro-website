@@ -9,7 +9,7 @@ image:
     peuvent se jouer sans connexion internet.
   hiddenHeaderLevel: 2
   src: /images/map_screenshot.jpg
-imageFirst: true
+imageFirst: false
 contrastText: false
 backgroundImage: /images/pixel_forest.png
 ---
