@@ -4,6 +4,7 @@ import { Edge, Node } from '~/types/graph'
 import { ModuleAttributes } from '~/types/module'
 import { Section } from '~/types/page'
 import { Carousel, Module, View } from '..'
+import { Title } from '../title'
 import lessStyle from './section.module.less'
 
 type Props = {
@@ -23,24 +24,34 @@ export default function renderSection({ section, edges }: Props) {
     )
     .map(node => {
       return {
-      ...node.frontmatter,
-      key: node.frontmatter.title,
-      markdown: node.rawMarkdownBody,
-    }})
-    .map(({ key, ...props }, _i, {length}) => <Module key={key} {...props} noMargin={length > 1}/>)
+        ...node.frontmatter,
+        key: node.frontmatter.title,
+        markdown: node.rawMarkdownBody,
+      }
+    })
+    .map(({ key, ...props }, _i, { length }) => (
+      <Module key={key} {...props} noMargin={length > 1} />
+    ))
 
   function wrapInContainer(children: React.ReactNode) {
     return (
-      <View
-        key={section.modules.join()}
-        className={`${lessStyle.section} ${lessStyle[section.layout]} ${
-          modules.length === 1 || section.layout === 'vertical'
-            ? lessStyle.noMargin
-            : ''
-        }`}
-      >
-        {children}
-      </View>
+      <>
+        {section.title && (
+          <View style={{ flex: 1, textAlign: 'center' }}>
+            <Title.h2>{section.title}</Title.h2>
+          </View>
+        )}
+        <View
+          key={section.modules.join()}
+          className={`${lessStyle.section} ${lessStyle[section.layout]} ${
+            modules.length === 1 || section.layout === 'vertical'
+              ? lessStyle.noMargin
+              : ''
+          }`}
+        >
+          {children}
+        </View>
+      </>
     )
   }
 

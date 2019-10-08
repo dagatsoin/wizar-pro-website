@@ -1,6 +1,6 @@
 ---
 type: module
-layout: horizontal
+layout: vertical-small
 title: award-cci
 isTitleDisplayed: false
 image:

@@ -13,6 +13,7 @@ export type NetlifyPage = {
 export type PageAttributes = NetlifyPage
 
 export type Section = {
+  title?: string,
   layout: SectionLayout,
   modules: string[]
 }
@@ -30,6 +31,7 @@ export const query = graphql`
       hero
       title
       section_list {
+        title
         layout
         modules
       }

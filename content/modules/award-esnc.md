@@ -1,6 +1,6 @@
 ---
 type: module
-layout: horizontal
+layout: vertical-small
 title: award-esnc
 isTitleDisplayed: false
 image:

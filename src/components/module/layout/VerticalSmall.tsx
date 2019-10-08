@@ -76,27 +76,29 @@ export default function({
         ${noMargin ? layoutStyle.noMargin : ''}
       `}
       >
-        <View className={layoutStyle.content}>
-          {isTitleDisplayed && (
-            <Title.h2 contrast={contrastText}>{title}</Title.h2>
-          )}
-          {markdown && (
-            <Markdown
-              input={markdown}
-              contrast={contrastText}
-              textStyles={textStyles}
-            />
-          )}
-          {cta && (
-            <View className={layoutStyle.cta}>
-              <Cta
-                style={{ root: { marginTop: 30, flex: 1 } }}
-                {...cta}
-                onPress={() => navigate('/order/')}
+        {(markdown || isTitleDisplayed) && (
+          <View className={layoutStyle.content}>
+            {isTitleDisplayed && (
+              <Title.h2 contrast={contrastText}>{title}</Title.h2>
+            )}
+            {markdown && (
+              <Markdown
+                input={markdown}
+                contrast={contrastText}
+                textStyles={textStyles}
               />
-            </View>
-          )}
-        </View>
+            )}
+            {cta && (
+              <View className={layoutStyle.cta}>
+                <Cta
+                  style={{ root: { marginTop: 30, flex: 1 } }}
+                  {...cta}
+                  onPress={() => navigate('/order/')}
+                />
+              </View>
+            )}
+          </View>
+        )}
         {image && (
           <View className={layoutStyle.image}>
             <Image {...image} />
@@ -117,7 +119,7 @@ function wrapInPaper(children: React.ReactNode, elevation: number) {
           marginTop: elevation,
           marginRight: elevation * 2,
           marginBottom: elevation * 4,
-          marginLeft: elevation * 2
+          marginLeft: elevation * 2,
         },
       }}
     >
