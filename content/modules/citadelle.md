@@ -1,9 +1,9 @@
 ---
 type: module
 layout: vertical-small
+elevation: 5
 title: Citadelle
 isTitleDisplayed: true
-elevation: 5
 image:
   src: /images/citadel.png
 imageFirst: true
@@ -11,10 +11,7 @@ contrastText: false
 ---
 ### **1800€ ttc**
 
-3 sources de Wizar à connecter
-
----
-3 quêtes à 3 objectifs
+4 quêtes à 3 objectifs
 
 ---
 Mise en avant de l’Histoire locale
