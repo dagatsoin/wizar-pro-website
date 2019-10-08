@@ -1,4 +1,4 @@
-import { navigate } from 'gatsby'
+import { navigate, withPrefix } from 'gatsby'
 import React from 'react'
 
 import {
@@ -97,7 +97,14 @@ export default function({
         </View>
         {image && (
           <View className={layoutStyle.image}>
-            <Image {...image} />
+            <BackgroundImage
+              resizeMode="cover"
+              src={withPrefix('./images/canvas-phone.png')}
+            />
+
+            <View className={layoutStyle.screenshot}>
+              <Image {...image} />
+            </View>
           </View>
         )}
       </View>

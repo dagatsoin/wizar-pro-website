@@ -75,7 +75,7 @@ export default function({
               </>
             )}
 
-            <BackgroundImage resizeMode='cover' src={withPrefix("./images/canvas-phone.jpg")} />
+            <BackgroundImage resizeMode='cover' src={withPrefix("./images/canvas-phone.png")} />
             
             <View className={layoutStyle.screenshot}>
               <Image {...image} />
