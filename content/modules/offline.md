@@ -11,6 +11,6 @@ image:
   src: /images/map_screenshot.jpg
 imageFirst: true
 contrastText: false
-backgroundImage: /images/offline.jpg
+backgroundImage: /images/pixel_forest.png
 ---
 ### Wizar est une application développée pour couvrir les territoires en zones blanches. En téléchargeant le jeu en amont, le joueur/visiteur peut avoir accès aux histoires des territoires qui ne sont pas couverts.
