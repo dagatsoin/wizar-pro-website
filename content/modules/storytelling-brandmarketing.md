@@ -1,6 +1,6 @@
 ---
 layout: vertical-small
-title: 'Storytelling '
+title: 'Flux touristiques '
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: Brandmarketing
@@ -9,4 +9,5 @@ image:
 imageFirst: true
 contrastText: false
 ---
-### Nous transformons **l’Histoire** et le patrimoine locale en **épopées fantastique.**
+### Mise en avant du petit patrimoine sur des territoires moins fréquentés.
+
