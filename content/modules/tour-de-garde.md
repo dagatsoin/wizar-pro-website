@@ -3,7 +3,7 @@ type: module
 layout: vertical-small
 elevation: 5
 cta:
-  label: Commandez
+  label: Commander
   palette: secondary
 title: Tour de garde
 isTitleDisplayed: true
