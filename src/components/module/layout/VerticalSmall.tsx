@@ -88,11 +88,13 @@ export default function({
             />
           )}
           {cta && (
-            <Cta
-              style={{ root: { marginTop: 30 } }}
-              {...cta}
-              onPress={() => navigate('/askDemo/')}
-            />
+            <View className={layoutStyle.cta}>
+              <Cta
+                style={{ root: { marginTop: 30, flex: 1 } }}
+                {...cta}
+                onPress={() => navigate('/order/')}
+              />
+            </View>
           )}
         </View>
         {image && (
