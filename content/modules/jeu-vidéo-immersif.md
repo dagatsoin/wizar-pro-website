@@ -1,6 +1,6 @@
 ---
 layout: vertical-small
-title: Jeu vidéo immersif
+title: Consommation Locale
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: jeu video
@@ -9,4 +9,4 @@ image:
 imageFirst: true
 contrastText: false
 ---
-### Une **gamification** pensée pour vos visiteurs.
+### Par le jeu, Wizar favorise la consommation locale.
