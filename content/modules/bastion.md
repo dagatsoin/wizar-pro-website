@@ -1,9 +1,12 @@
 ---
 type: module
 layout: vertical-small
+elevation: 5
+cta:
+  label: Commander
+  palette: secondary
 title: Bastion
 isTitleDisplayed: true
-elevation: 5
 image:
   src: /images/bastion.png
 imageFirst: true
