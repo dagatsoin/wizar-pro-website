@@ -1,7 +1,7 @@
 ---
 type: module
 layout: horizontal-split
-title: Une identité territoriale forte
+title: Valorisation du patrimoine
 isTitleDisplayed: true
 image:
   src: /images/identite_phone.jpg
@@ -9,4 +9,4 @@ imageFirst: true
 contrastText: false
 backgroundImage: /images/identite_territoriale.png
 ---
-### Tous les territoires sont **riches d’histoires**, de **patrimoine** et de personnages légendaires. Wizar s’inspire de ces trésors qui sont au coeur de l’univers du jeu et les contextualise sur les lieux. Forgez et diffusez l’identité de votre territoire.
+### Il y a toujours une anecdote derrière le petit patrimoine. Avec des thèmes qui entrent dans le label “Art et Histoire”, Wizar valorise croix, calvaire, linteaux etc.. en le contextualisant, en ajoutant l’info touristique qui correspond et le gamifie dans son jeu.  
