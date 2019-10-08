@@ -11,4 +11,5 @@ backgroundImage: /images/village.png
 ---
 ### Wizar permet de créer de la valeur sur l’ensemble du territoire. 
 ### - Ventiler les flux touristiques : amener les touristes présents dans la zones denses vers des zones moins fréquentées. (low tourisme)
-### - Promouvoir l’économie locale, en répertoriant et contextualisant les commerces, artisans et le savoir faire local, au sein du jeu. 
+### - Au travers des mécaniques du jeu, Wizar incite à consommer chez les artisans. Ex : Quête des Artisans à La Gacilly : Le joueur doit se rendre dans la vie réelle devant la boutique de l''artisan du cuir pour récupérer un morceau de cuir dans le jeu.
+
