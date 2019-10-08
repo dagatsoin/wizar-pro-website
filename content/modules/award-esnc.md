@@ -4,7 +4,8 @@ layout: vertical-small
 title: award-esnc
 isTitleDisplayed: false
 image:
-  src: /images/tour_de_garde.png
+  src: /images/logo-esnc.png
 imageFirst: false
 contrastText: false
 ---
+
