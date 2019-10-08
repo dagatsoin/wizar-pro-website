@@ -10,5 +10,5 @@ contrastText: false
 backgroundImage: /images/village.png
 ---
 ### Wizar permet de créer de la valeur sur l’ensemble du territoire. 
-### 1. Ventiler les flux touristiques : amener les touristes présents dans la zones denses vers des zones moins fréquentées. (low tourisme)
-### 2. Promouvoir l’économie locale, en répertoriant et contextualisant les commerces, artisans et le savoir faire local, au sein du jeu. 
+### - Ventiler les flux touristiques : amener les touristes présents dans la zones denses vers des zones moins fréquentées. (low tourisme)
+### - Promouvoir l’économie locale, en répertoriant et contextualisant les commerces, artisans et le savoir faire local, au sein du jeu. 
