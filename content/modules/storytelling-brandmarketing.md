@@ -3,9 +3,7 @@ layout: vertical-small
 title: 'Flux touristiques '
 isTitleDisplayed: true
 image:
-  hiddenHeaderContent: Brandmarketing
-  hiddenHeaderLevel: '4'
-  src: /images/picto_castle.png
+  src: /images/picto_flux.png
 imageFirst: true
 contrastText: false
 ---
