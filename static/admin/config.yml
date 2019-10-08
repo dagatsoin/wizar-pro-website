@@ -87,6 +87,7 @@ collections:
         required: false
         widget: 'list'
         fields:
+          - { label: 'Title', name: 'title', widget: 'string', required: false }
           - label: 'Layout'
             name: layout
             widget: 'select'
