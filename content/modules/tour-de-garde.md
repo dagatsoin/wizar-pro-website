@@ -2,6 +2,9 @@
 type: module
 layout: vertical-small
 elevation: 5
+cta:
+  label: Contactez-nous
+  palette: secondary
 title: Tour de garde
 isTitleDisplayed: true
 image:
