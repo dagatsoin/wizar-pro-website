@@ -4,7 +4,8 @@ layout: vertical-small
 title: award-cci
 isTitleDisplayed: false
 image:
-  src: /images/tour_de_garde.png
+  src: /images/logo-cci.png
 imageFirst: false
 contrastText: false
 ---
+
