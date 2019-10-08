@@ -7,10 +7,11 @@ import * as styles from './style'
 
 type Props = {
   src: GatsbyImage<Fluid> | string
+  resizeMode?: 'cover' | 'contain'
 }
-export default function({ src }: Props) {
+export default function({ src, resizeMode }: Props) {
   return typeof src === 'string'
-    ? <BackgroundImage uri={src}/>
+    ? <BackgroundImage uri={src} resizeMode={resizeMode}/>
     : (
       <View style={styles.backgroundImageContainer}>
         <Img fluid={src.childImageSharp.fluid} alt="background image"/>

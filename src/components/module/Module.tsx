@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { ModuleAttributes } from '../../types/module'
-import { Hero, Horizontal, HorizontalSplit, Vertical, VerticalSmall } from './layout'
+import { Hero, Horizontal, PhoneScreenshot, Vertical, VerticalSmall } from './layout'
 
 type Props = { markdown: string, noMargin: boolean } & ModuleAttributes
 
@@ -19,8 +19,8 @@ export default function Module(props: Props): JSX.Element {
     case 'horizontal':
       return <Horizontal {...props}/>
     
-    case 'horizontal-split':
+    case 'phone-screenshot':
     default:
-      return <HorizontalSplit {...props}/>
+      return <PhoneScreenshot {...props}/>
     }
 }

@@ -49,8 +49,6 @@ export class ImageControl extends Component<ControlProps> {
   public render() {
     const { forID, classNameWrapper } = this.props
 
-    console.log(this.props)
-
     return (
       <div id={forID} className={classNameWrapper}>
         <DefaultImageControl

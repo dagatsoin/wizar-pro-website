@@ -1,13 +1,13 @@
 ---
 type: module
-layout: horizontal-split
+layout: phone-screenshot
 title: Fonctionne en zone blanche
 isTitleDisplayed: true
-backgroundImage: /images/offline.jpg
+backgroundImage: /images/pixel_forest.png
 image:
   hiddenHeaderContent: Wizar peut se jouer en zone blanche. Les cartes sont pré-téléchargeables et peuvent se jouer sans connexion internet.
   hiddenHeaderLevel: 2
-  src: /images/offline_phone.png
+  src: /images/map_screenshot.jpg
 imageFirst: true
 contrastText: false
 ---

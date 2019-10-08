@@ -15,7 +15,7 @@ export type NetlifyModule = {
   image?: ImageWidgetValue
 }
 
-export type Layout = 'hero' | 'horizontal' | 'horizontal-split' | 'vertical' | 'vertical-small'
+export type Layout = 'hero' | 'horizontal' | 'phone-screenshot' | 'vertical' | 'vertical-small'
 
 export type ModuleAttributes = NetlifyModule & {
   image?: ImageAttribute

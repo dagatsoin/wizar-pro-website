@@ -62,6 +62,7 @@ const Home = ({ data }: { data: GatsbyModuleData }) => {
         {maybeHeroModule.map(moduleNode => (
           <View key={moduleNode.frontmatter.title} className={lessStyle.heroContainer}>
             <Module
+              noMargin
               markdown={moduleNode.rawMarkdownBody}
               {...moduleNode.frontmatter}
             />

@@ -1,11 +1,11 @@
 ---
 type: module
-layout: horizontal-split
+layout: phone-screenshot
 title: Une identité territoriale forte
 isTitleDisplayed: true
 image:
-  src: /images/identite_phone.jpg
-imageFirst: true
+  src: /images/identite_screenshot.jpg
+imageFirst: false
 contrastText: false
 backgroundImage: /images/identite_territoriale.png
 ---

@@ -96,7 +96,6 @@ Pour en savoir plus, remplissez ce formulaire et nous vous enverrons notre dossi
   private handleSubmit = () => {
     const { email, name } = this.state
     const body = encode({ 'form-name': 'contact', email, name })
-    console.log(body)
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -104,7 +103,6 @@ Pour en savoir plus, remplissez ce formulaire et nous vous enverrons notre dossi
     })
       .then(() => {
         this.setState({ sent: true }, () => {
-          console.log('sent')
           setTimeout(() => navigate('/'), 4000)
         })
       })

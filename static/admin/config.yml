@@ -19,7 +19,7 @@ collections:
           label: 'Layout',
           name: layout,
           widget: 'select',
-          options: ['hero', 'horizontal', 'horizontal-split', 'vertical', 'vertical-small'],
+          options: ['hero', 'horizontal', 'phone-screenshot', 'vertical', 'vertical-small'],
           default: 'horizontal',
         }
       - { label: 'Elevation', name: elevation, widget: number, valueType: int, min: 0, max: 24, required: false }

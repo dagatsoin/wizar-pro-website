@@ -7,7 +7,7 @@ title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
-  src: /images/demo.png
+  src: /images/demo.jpg
 imageFirst: false
 contrastText: true
 backgroundImage: /images/heroshot_bg.jpg

@@ -21,11 +21,12 @@ export default function renderSection({ section, edges }: Props) {
         ),
       []
     )
-    .map(node => ({
+    .map(node => {
+      return {
       ...node.frontmatter,
       key: node.frontmatter.title,
       markdown: node.rawMarkdownBody,
-    }))
+    }})
     .map(({ key, ...props }, _i, {length}) => <Module key={key} {...props} noMargin={length > 1}/>)
 
   function wrapInContainer(children: React.ReactNode) {
