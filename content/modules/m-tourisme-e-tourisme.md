@@ -1,6 +1,6 @@
 ---
 layout: vertical-small
-title: M-Tourisme
+title: Zone Blanche
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: E-tourisme
@@ -9,4 +9,5 @@ image:
 imageFirst: true
 contrastText: false
 ---
-### Etudié pour la **mobilité** durant le séjour.
+### Wizar offre une solution numérique d’itinérance en zone blanche.
+
