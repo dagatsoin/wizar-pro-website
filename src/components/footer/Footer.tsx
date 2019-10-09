@@ -1,4 +1,5 @@
 import { Button } from '@sproutch/ui'
+import { navigateTo } from 'gatsby'
 import React from 'react'
 
 import { Text, View } from '..'
@@ -17,6 +18,7 @@ export default () => (
       <Button variant='text' onPress={() => window.open("https://discord.gg/Hway5Vv", '_blank')} label="Discord"/>
       <Button variant='text' onPress={() => window.open("https://twitter.com/WizarGame", '_blank')} label="Twitter"/>
       <Button variant='text' onPress={() => window.open("https://www.instagram.com/wizargame/", '_blank')} label="Instagram"/>
+      <Button variant='text' onPress={() => navigateTo("/eula")} label="CGU"/>
     </View>
   </View>
 )
