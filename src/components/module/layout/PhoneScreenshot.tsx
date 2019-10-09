@@ -25,7 +25,6 @@ export default function({
   image,
   markdown,
 }: Props): JSX.Element {
-  console.log(image)
   return (
     <View className={`${layoutStyle.phoneScreenshot} ${imageFirst ? layoutStyle.imageFirst : ''} ${layoutStyle.root}`}>
       <View
