@@ -1,0 +1,4 @@
+[[headers]]
+for = "/*"
+[headers.values]
+Content-Security-Policy = "script-src 'self' https://apis.google.com/"
