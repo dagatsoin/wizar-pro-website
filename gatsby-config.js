@@ -19,19 +19,15 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-gtag`,
       options: {
-        id: "G-KR1NP9FX30",
-  
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
-        includeInDevelopment: false,
-  
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        // Defaults to null
-        defaultDataLayer: { platform: "gatsby" }
-      }
+        // your google analytics tracking id
+        trackingId: `G-KR1NP9FX30`,
+        // Puts tracking script in the head instead of the body
+        head: true,
+        // enable ip anonymization
+        anonymize: true,
+      },
     },
     {
       resolve: `gatsby-plugin-csp`,
