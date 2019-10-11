@@ -29,8 +29,6 @@ type Data = {
   }
 }
 
-declare const dataLayer: any
-
 const Layout = ({ children, data }: Props) => {
   const { title, keywords, description } = Option(data.allMarkdownRemark.edges.find(({node}) => node.frontmatter.is_home))
     .map(edge => ({
@@ -56,14 +54,6 @@ const Layout = ({ children, data }: Props) => {
           { rel: 'icon', type: 'image/png', sizes: "64x64", href: `${favicon64}` },
         ]}
       >
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-KR1NP9FX30"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-KR1NP9FX30');
-        </script>
         <html lang="fr" />
       </Helmet>
       <Header
