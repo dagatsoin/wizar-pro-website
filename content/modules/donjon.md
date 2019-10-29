@@ -18,10 +18,10 @@ contrastText: false
 
 #### Spécial activité payante d'intérieur
 
-Nous transformons votre musées, châteaux, aquariums en donjon où le visiteur part à la chasse au trésor.
+Nous transformons votre musée, château, aquarium en donjon où le visiteur part à la chasse au trésor.
 
 ---
-Donjon sur mesure en fonction du plan du batîment.
+Donjon sur mesure en fonction du plan du bâtiment.
 
 ---
 Mise en avant de l’Histoire locale
