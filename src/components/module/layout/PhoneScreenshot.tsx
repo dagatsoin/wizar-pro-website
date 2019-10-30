@@ -18,6 +18,7 @@ type Props = { markdown: string } & ModuleAttributes
 export default function({
   cta,
   title,
+  titleLevel,
   isTitleDisplayed,
   backgroundImage,
   contrastText,
@@ -25,6 +26,7 @@ export default function({
   image,
   markdown,
 }: Props): JSX.Element {
+  const H = Title['h' + titleLevel]
   return (
     <View className={`${layoutStyle.phoneScreenshot} ${imageFirst ? layoutStyle.imageFirst : ''} ${layoutStyle.root}`}>
       <View
@@ -32,7 +34,7 @@ export default function({
       >
         <View className={layoutStyle.content}>
           {isTitleDisplayed && (
-            <Title.h2 contrast={contrastText}>{title}</Title.h2>
+            <H style={textStyles.heading && textStyles.heading.h2} contrast={contrastText}>{title}</H>
           )}
           {markdown && (
             <Markdown

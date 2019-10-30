@@ -1,6 +1,7 @@
 ---
 type: module
 layout: vertical-small
+titleLevel: 4
 title: Ektros
 isTitleDisplayed: true
 image:

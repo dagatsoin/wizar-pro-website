@@ -1,6 +1,7 @@
 ---
 type: module
 layout: vertical-small
+titleLevel: 4
 title: Toto44
 isTitleDisplayed: true
 image:

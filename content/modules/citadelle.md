@@ -5,6 +5,7 @@ elevation: 5
 cta:
   label: Commander
   palette: secondary
+titleLevel: 4
 title: Citadelle
 isTitleDisplayed: true
 image:

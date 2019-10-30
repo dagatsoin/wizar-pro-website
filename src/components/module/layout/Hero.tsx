@@ -9,6 +9,7 @@ import {
   Title,
   View,
 } from '~/components'
+import { textStyles } from '~/textStyles'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
 
@@ -17,12 +18,14 @@ type Props = { markdown: string } & ModuleAttributes
 export default function({
   cta,
   title,
+  titleLevel,
   backgroundImage,
   contrastText,
   imageFirst,
   image,
   markdown,
 }: Props): JSX.Element {
+  const H = Title['h' + titleLevel]
   return (
     <View
       className={`${layoutStyle.hero} ${layoutStyle.root} ${
@@ -53,12 +56,12 @@ export default function({
             ${layoutStyle.title}
           `}
           >
-            <Title.h2
+            <H
               contrast={contrastText}
-              style={{ overflow: 'visible', marginVertical: 0, fontSize: 24 }}
+              style={{ ...textStyles.heading && textStyles.heading.h2, overflow: 'visible', marginVertical: 0, fontSize: 24 }}
             >
               {title}
-            </Title.h2>
+            </H>
           </View>
           <View
             className={`
@@ -66,12 +69,12 @@ export default function({
             ${layoutStyle.title}
           `}
           >
-            <Title.h2
+            <H
               contrast={contrastText}
               style={{ overflow: 'visible', marginVertical: 0, fontSize: 34 }}
             >
               {title}
-            </Title.h2>
+            </H>
           </View>
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (

@@ -1,6 +1,7 @@
 ---
 type: module
 layout: vertical-small
+titleLevel: 4
 title: award-esnc
 isTitleDisplayed: false
 image:

@@ -9,6 +9,7 @@ import {
   Title,
   View,
 } from '~/components'
+import { textStyles } from '~/textStyles'
 import { ModuleAttributes } from '~/types/module'
 import layoutStyle from '../layout.module.less'
 
@@ -17,6 +18,7 @@ type Props = { markdown: string } & ModuleAttributes
 export default function({
   cta,
   title,
+  titleLevel,
   isTitleDisplayed,
   backgroundImage,
   contrastText,
@@ -24,6 +26,7 @@ export default function({
   image,
   markdown,
 }: Props): JSX.Element {
+  const H = Title['h' + titleLevel]
   return (
     <View className={`${layoutStyle.horizontal} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
       {backgroundImage && (
@@ -65,9 +68,12 @@ export default function({
       >
         <View className={layoutStyle.content}>
           {isTitleDisplayed && (
-            <Title.h2 contrast={contrastText}>
+            <H
+              style={textStyles.heading && textStyles.heading.h2}
+              contrast={contrastText}
+            >
               {title}
-            </Title.h2>
+            </H>
           )}
           {markdown && <Markdown input={markdown} contrast={contrastText} />}
           {cta && (

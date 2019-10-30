@@ -7,6 +7,7 @@ export type NetlifyModule = {
   layout: Layout
   cta?: CTA
   title: string
+  titleLevel: number
   isTitleDisplayed: boolean
   elevation: number
   imageFirst: boolean
@@ -38,6 +39,7 @@ export const query = graphql`
         palette
       }
       title
+      titleLevel
       elevation
       isTitleDisplayed
       imageFirst

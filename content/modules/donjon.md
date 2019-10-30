@@ -5,6 +5,7 @@ elevation: 1
 cta:
   label: En savoir plus
   palette: secondary
+titleLevel: 4
 title: Donjon
 isTitleDisplayed: true
 image:

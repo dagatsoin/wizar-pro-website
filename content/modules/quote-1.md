@@ -1,5 +1,6 @@
 ---
 layout: vertical-small
+titleLevel: 4
 title: Farkz
 isTitleDisplayed: true
 image:

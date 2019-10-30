@@ -1,6 +1,7 @@
 ---
 type: module
 layout: phone-screenshot
+titleLevel: 4
 title: Valorisation du patrimoine
 isTitleDisplayed: true
 image:

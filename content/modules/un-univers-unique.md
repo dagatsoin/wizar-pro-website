@@ -1,6 +1,7 @@
 ---
 type: module
 layout: vertical
+titleLevel: 4
 title: 'La cible '
 isTitleDisplayed: true
 image:

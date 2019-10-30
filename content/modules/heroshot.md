@@ -3,6 +3,7 @@ layout: hero
 cta:
   label: DEVENIR TERRITOIRE PARTENAIRE
   palette: primary
+titleLevel: 1
 title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
 image:

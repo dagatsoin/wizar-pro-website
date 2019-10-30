@@ -1,5 +1,6 @@
 ---
 layout: vertical-small
+titleLevel: 4
 title: Pheonixo
 isTitleDisplayed: true
 image:

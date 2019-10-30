@@ -5,6 +5,7 @@ elevation: 5
 cta:
   label: Commander
   palette: secondary
+titleLevel: 4
 title: Bastion
 isTitleDisplayed: true
 image:

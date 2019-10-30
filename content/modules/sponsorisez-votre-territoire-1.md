@@ -1,6 +1,7 @@
 ---
 type: module
 layout: vertical
+titleLevel: 4
 title: Sponsorisez votre territoire !
 isTitleDisplayed: true
 imageFirst: false

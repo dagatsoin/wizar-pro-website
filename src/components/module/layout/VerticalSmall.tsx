@@ -19,6 +19,7 @@ type Props = { markdown: string; noMargin: boolean } & ModuleAttributes
 export default function({
   cta,
   title,
+  titleLevel,
   isTitleDisplayed,
   backgroundImage,
   contrastText,
@@ -28,6 +29,7 @@ export default function({
   markdown,
   noMargin,
 }: Props): JSX.Element {
+  const H = Title['h' + titleLevel]
   const module = (
     <View
       className={`
@@ -79,7 +81,7 @@ export default function({
         {(markdown || isTitleDisplayed) && (
           <View className={layoutStyle.content}>
             {isTitleDisplayed && (
-              <Title.h2 contrast={contrastText}>{title}</Title.h2>
+              <H style={textStyles.heading && textStyles.heading.h2} contrast={contrastText}>{title}</H>
             )}
             {markdown && (
               <Markdown

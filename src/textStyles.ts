@@ -9,5 +9,12 @@ export const textStyles: TextStyles = {
   },
   strong: {
     fontWeight: 'normal'
+  },
+  heading: {
+    h2: {
+      fontFamily: 'CharlemagneStd-Bold',
+      marginVertical: 14,
+      fontSize: 28,
+    }
   }
 }
