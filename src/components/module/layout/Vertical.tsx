@@ -24,6 +24,7 @@ export default function({
   image,
   markdown,
 }: Props): JSX.Element {
+  console.log(image)
   return (
     <View className={`${layoutStyle.vertical} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>
       {backgroundImage && (

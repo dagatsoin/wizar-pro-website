@@ -4,7 +4,7 @@ title: Zone Blanche
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: E-tourisme
-  hiddenHeaderLevel: '4'
+  hiddenHeaderLevel: 4
   src: /images/picto_offline.png
 imageFirst: true
 contrastText: false

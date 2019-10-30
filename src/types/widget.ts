@@ -6,5 +6,5 @@ export type CTA = {
 export type Image = {
   src: string
   hiddenHeaderContent?: string
-  hiddenHeaderLevel?: string
+  hiddenHeaderLevel?: number
 }

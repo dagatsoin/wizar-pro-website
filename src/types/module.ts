@@ -44,6 +44,7 @@ export const query = graphql`
       contrastText
       image {
         hiddenHeaderContent
+        hiddenHeaderLevel
         src {
           childImageSharp {
             fluid(maxWidth: 335) {

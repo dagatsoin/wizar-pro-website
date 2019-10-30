@@ -27,7 +27,7 @@ export class ImageControl extends Component<ControlProps> {
         return {
           src: value.get('src'),
           hiddenHeaderContent: value.get('hiddenHeaderContent'),
-          hiddenHeaderLevel: value.get('hiddenHeaderLevel'),
+          hiddenHeaderLevel: Number(value.get('hiddenHeaderLevel')),
         }
       } else {
         return this.props.value as Image
@@ -77,12 +77,12 @@ export class ImageControl extends Component<ControlProps> {
           onChange={this.onHiddenHeaderLevelChange}
           value={this.value.hiddenHeaderLevel}
         >
-          <option value={'1'}>1</option>
-          <option value={'2'}>2</option>
-          <option value={'3'}>3</option>
-          <option value={'4'}>4</option>
-          <option value={'5'}>5</option>
-          <option value={'6'}>6</option>
+          <option value={1}>1</option>
+          <option value={2}>2</option>
+          <option value={3}>3</option>
+          <option value={4}>4</option>
+          <option value={5}>5</option>
+          <option value={6}>6</option>
         </select>
       </div>
     )
