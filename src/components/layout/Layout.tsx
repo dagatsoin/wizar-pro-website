@@ -37,8 +37,8 @@ const Layout = ({ children, data }: Props) => {
       description: edge.node.frontmatter.description
     }))
     .getOrElse({
-      title: '',
-      keywords: '',
+      title: "Wizar - Jeu vidéo d'exploration touristique.",
+      keywords: "Jeu vidéo d'exploration touristique. Wizar s'appuie sur l’identité des territoires sous forme de chasse au trésor numérique et mobile.",
       description: ''
     })
 
