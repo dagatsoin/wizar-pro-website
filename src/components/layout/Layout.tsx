@@ -51,7 +51,7 @@ const Layout = ({ children, data }: Props) => {
           { name: 'keywords', content: keywords },
         ]}
         link={[
-          { rel: 'icon', type: 'image/png', sizes: "64x64", href: `${favicon64}` },
+          { rel: 'icon', type: 'image/png', sizes: "96x96", href: `${'/favicon.png'}` },
         ]}
       >
         <html lang="fr" />
