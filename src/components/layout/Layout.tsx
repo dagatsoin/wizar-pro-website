@@ -8,7 +8,6 @@ import { Node } from '~/types/graph'
 import { PageAttributes } from '~/types/page'
 import { Footer } from '..'
 import { Header } from '../header'
-import favicon64 from './favicon.png'
 import * as style from './style'
 
 export type Props = {
