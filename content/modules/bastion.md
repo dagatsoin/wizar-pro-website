@@ -3,11 +3,11 @@ type: module
 layout: vertical-small
 elevation: 5
 cta:
-  label: Commander
+  label: 'Contactez-nous '
   palette: secondary
-titleLevel: 4
 title: Bastion
 isTitleDisplayed: true
+titleLevel: 4
 image:
   src: /images/bastion.png
 imageFirst: true
