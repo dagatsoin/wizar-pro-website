@@ -3,11 +3,11 @@ type: module
 layout: vertical-small
 elevation: 5
 cta:
-  label: Commander
+  label: 'Contactez-nous '
   palette: secondary
-titleLevel: 4
 title: Tour de garde
 isTitleDisplayed: true
+titleLevel: 4
 image:
   src: /images/tour_de_garde.png
 imageFirst: true
