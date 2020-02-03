@@ -55,10 +55,6 @@ class AskDemoForm extends React.Component<{}, State> {
                           input={`
 Wizar souhaite se déployer dans de nouveaux territoires et recherche des **partenaires pour sponsoriser son développement.**
 
-Nous souhaitons proposer à nos partenaire notre capacité à toucher une cible difficile (ici les excursionnistes familles avec adolescents) et à les faire consommer dans les territoires en demande.
-
-A partir d'un certain seuil de financement de quêtes sur les territoires secondaires, Wizar **anime gratuitement** vos portes d'entrées touristiques afin de répartir les flux sur tout le territoire.
-
 Pour en savoir plus, remplissez ce formulaire et nous vous enverrons notre dossier de partenariat.`}
                         />
 
