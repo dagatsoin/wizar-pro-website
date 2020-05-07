@@ -18,7 +18,7 @@ module.exports = {
     brandLogoUrl: 'header_logo.png',
   },
   plugins: [
-    {
+    /* {
       resolve: `gatsby-plugin-gtag`,
       options: {
         // your google analytics tracking id
@@ -44,6 +44,13 @@ module.exports = {
           "img-src": "'self' data: www.google-analytics.com"
         }
       }
+    }, */
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "G-KR1NP9FX30",
+      },
     },
     `gatsby-plugin-less`,
     {
