@@ -1,54 +1,15 @@
 
-const {
-  NODE_ENV,
-  URL: NETLIFY_SITE_URL = 'https://pro.wizar.world',
-  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
-} = process.env;
-const isNetlifyProduction = NETLIFY_ENV === 'production';
-const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
+const { NODE_ENV } = process.env;
 
-require('ts-node').register({compilerOptions: {
-  module: 'commonjs',
-  target: 'es2017',
-},})
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://pro.wizar.world',
     brandLogoUrl: 'header_logo.png',
   },
   plugins: [
-    /* {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        // your google analytics tracking id
-        trackingId: `G-KR1NP9FX30`,
-        // Puts tracking script in the head instead of the body
-        head: true,
-        // enable ip anonymization
-        anonymize: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-csp`,
-      options: {
-        disableOnDev: true,
-        reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
-        mergeScriptHashes: true, // you can disable scripts sha256 hashes
-        mergeStyleHashes: false, // you can disable styles sha256 hashes
-        mergeDefaultDirectives: true,
-        directives: {
-          "script-src": "'self' www.googletagmanager.com",
-          "connect-src": "'self' stats.g.doubleclick.net www.google-analytics.com",
-          "style-src": "'self' 'unsafe-inline'",
-          "img-src": "'self' data: www.google-analytics.com"
-        }
-      }
-    }, */
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: "G-KR1NP9FX30",
       },
     },
@@ -57,7 +18,6 @@ module.exports = {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
-        //jsxPragma: `jsx`, // defaults to "React"
         allExtensions: true, // defaults to false
       },
     },
@@ -80,6 +40,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/pages`,
         name: 'pages',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
       },
     },
     {
@@ -114,7 +81,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        resolveEnv: () => NETLIFY_ENV,
+        resolveEnv: () => NODE_ENV,
         env: {
           production: {
             policy: [{ userAgent: '*' }]

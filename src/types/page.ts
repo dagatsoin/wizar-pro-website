@@ -1,16 +1,14 @@
 import { graphql } from 'gatsby'
 
-export type NetlifyPage = {
-  tags: string[]
-  title: string
+export type PageAttributes = {
+  tags: string[];
+  title: string;
+  date: string;
+  description: string;
+  hero: string;
+  section_list: Section[];
   is_home: boolean
-  date: string
-  description: string
-  hero: string
-  section_list: Section[]
 }
-
-export type PageAttributes = NetlifyPage
 
 export type Section = {
   title?: string,
@@ -20,8 +18,6 @@ export type Section = {
 
 export type ModuleLayout = 'hero' | 'horizontal' | 'vertical'
 export type SectionLayout = 'horizontal' | 'vertical' | 'carousel'
-
-export type ModuleAttributes = NetlifyPage
 
 export const query = graphql`
   fragment Page on MarkdownRemark {
@@ -40,7 +36,5 @@ export const query = graphql`
       date
       description
     }
-    fileAbsolutePath
-    rawMarkdownBody
   }
 `

@@ -3,7 +3,7 @@ import React from 'react'
 import { Image } from 'reactxp'
 
 import { isFluid } from '../../types/image'
-import { ImageAttribute } from '../../types/module'
+import { ImageAttribute } from "../../types/ImageAttribute"
 import * as styles from './style'
 
 type Props = ImageAttribute
@@ -26,15 +26,34 @@ function wrapInHeader(level: number, children: React.ReactNode) {
   }
 }
 
-function renderImage(src: ImageAttribute['src'], title?: string) {
+function renderImage({
+  src,
+  title,
+  width = "100%",
+  height = "100%"
+}: {
+  src: ImageAttribute['src']
+  title?: string
+  width?: string
+  height?: string
+}) {
   return typeof src === 'string' ? (
-    <Image source={src} style={styles.imageBackgroundPreview} title={title} accessibilityLabel={title}/>
+    <Image
+      source={src}
+      style={styles.imageBackgroundPreview}
+      title={title}
+      accessibilityLabel={title}
+    />
   ) : (
     <Img
       alt={title}
-      style={{width: '100%', height: '100%'}}
-      fluid={isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined}
-      fixed={!isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined}
+      style={{ width, height }}
+      fluid={
+        isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined
+      }
+      fixed={
+        !isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined
+      }
       title={title}
     />
   )
@@ -43,12 +62,12 @@ function renderImage(src: ImageAttribute['src'], title?: string) {
 export default function({
   hiddenHeaderContent,
   hiddenHeaderLevel,
-  src,
+  src
 }: Props) {
   return hiddenHeaderContent
     ? wrapInHeader(
         hiddenHeaderLevel || 1,
-        renderImage(src, hiddenHeaderContent)
+        renderImage({ src, title: hiddenHeaderContent })
       )
-    : renderImage(src, hiddenHeaderContent)
+    : renderImage({ src, title: hiddenHeaderContent })
 }

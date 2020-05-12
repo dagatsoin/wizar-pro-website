@@ -1,7 +1,8 @@
 import { graphql } from 'gatsby'
 
-import { Fixed, Fluid, GatsbyImage } from './image'
+import { BackgroundImageAttribute } from './BackgroundImageAttribute'
 import { CTA, Image as ImageWidgetValue } from './widget'
+import { ImageAttribute } from './ImageAttribute'
 
 export type NetlifyModule = {
   layout: Layout
@@ -22,11 +23,6 @@ export type ModuleAttributes = NetlifyModule & {
   image?: ImageAttribute
   backgroundImage?: BackgroundImageAttribute
 }
-
-export type ImageAttribute = ImageWidgetValue | ImageWidgetValue & { src: GatsbyImage<Fluid | Fixed> }
-
-export type BackgroundImageAttribute = (GatsbyImage<Fluid> & {original: {
-  src: string}}) | string
 
 export const query = graphql`
   fragment Module on MarkdownRemark {

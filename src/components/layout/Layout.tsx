@@ -12,7 +12,6 @@ import * as style from './style'
 
 export type Props = {
   children: React.ReactNode
-  data: Data
 }
 
 type Data = {
@@ -28,17 +27,20 @@ type Data = {
   }
 }
 
-const Layout = ({ children, data }: Props) => {
-  const { title, keywords, description } = Option(data.allMarkdownRemark.edges.find(({node}) => node.frontmatter.is_home))
+const Layout = ({ children, data }: Props & { data: Data}) => {
+  const { title, keywords, description } = Option(
+    data.allMarkdownRemark.edges.find(({ node }) => node.frontmatter.is_home)
+  )
     .map(edge => ({
       title: edge.node.frontmatter.title,
       keywords: edge.node.frontmatter.tags.join(', '),
-      description: edge.node.frontmatter.description
+      description: edge.node.frontmatter.description,
     }))
     .getOrElse({
       title: "Wizar - Jeu vidéo d'exploration touristique.",
-      keywords: "Jeu vidéo d'exploration touristique. Wizar s'appuie sur l’identité des territoires sous forme de chasse au trésor numérique et mobile.",
-      description: ''
+      keywords:
+        "Jeu vidéo d'exploration touristique. Wizar s'appuie sur l’identité des territoires sous forme de chasse au trésor numérique et mobile.",
+      description: '',
     })
 
   return (
@@ -50,7 +52,12 @@ const Layout = ({ children, data }: Props) => {
           { name: 'keywords', content: keywords },
         ]}
         link={[
-          { rel: 'icon', type: 'image/png', sizes: "96x96", href: `${'/favicon.png'}` },
+          {
+            rel: 'icon',
+            type: 'image/png',
+            sizes: '96x96',
+            href: `${'/favicon.png'}`,
+          },
         ]}
       >
         <html lang="fr" />
@@ -59,7 +66,7 @@ const Layout = ({ children, data }: Props) => {
         brandLogoUrl={withPrefix(
           `./images/${data.site.siteMetadata.brandLogoUrl}`
         )}
-        brandName={"Wizar"}
+        brandName={'Wizar'}
       />
       {children}
       <Footer />
@@ -67,7 +74,7 @@ const Layout = ({ children, data }: Props) => {
   )
 }
 
-export default props => (
+export default (props: Props) => (
   <StaticQuery
     query={graphql`
       query {
@@ -88,6 +95,8 @@ export default props => (
         }
       }
     `}
-    render={(data: Data) => <Layout data={data} {...props} />}
+    render={(data) => (
+      <Layout data={data} {...props} />
+    )}
   />
 )

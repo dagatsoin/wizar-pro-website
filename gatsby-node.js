@@ -23,9 +23,7 @@ exports.createPages = ({ actions, graphql }) => {
             fields {
               slug
             }
-            frontmatter {
-              tags
-            }
+            fileAbsolutePath
           }
         }
       }
@@ -37,20 +35,20 @@ exports.createPages = ({ actions, graphql }) => {
         return Promise.reject(result.errors)
       }
 
-      const posts = result.data.allMarkdownRemark.edges
-      const component = path.resolve(`src/templates/page.tsx`)
+      const posts = result.data.allMarkdownRemark.edges.map(edge => edge.node)
+      const component = path.resolve(`src/components/blog/Blog.tsx`)
 
-      posts.forEach(edge => {
-        const id = edge.node.id
-        createPage({
-          path: edge.node.fields.slug,
-          tags: edge.node.frontmatter.tags,
-          component,
-          context: {
-            id,
-          },
+      posts
+        .filter(isBlog)
+        .forEach(node => {
+          createPage({
+            path: node.fields.slug,
+            component,
+            context: {
+              id: node.id,
+            },
+          })
         })
-      })
     })
     .catch(e => {
       console.error(e)
@@ -62,15 +60,34 @@ const createNodeFieldMarkdownRemark = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
+    const type = getType(node)
+    if (type) {
+      const path = createFilePath({ node, getNode })
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `/${type}${path}`
+      })
+    }
   }
-}
+} 
 
 exports.onCreateNode = nodeContext => {
   createNodeFieldMarkdownRemark(nodeContext)
+}
+
+function getType(node) {
+  if (isPage(node)) {
+    return 'page'
+  } else if (isBlog(node)) {
+    return 'blog'
+  }
+}
+
+function isBlog(node) {
+  return node.fileAbsolutePath.includes('/blog/')
+}
+
+function isPage(node) {
+  return node.fileAbsolutePath.includes('/pages/')
 }
