@@ -10,12 +10,13 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { ModuleAttributes } from '~/types/module'
+import { Environment, Module } from '~/types'
+import { GatsbyImage } from '~/types/image'
 import layoutStyle from '../layout.module.less'
 
-type Props = { markdown: string } & ModuleAttributes
+type Props<E extends Environment> = { markdown: string } & Module<E>
 // todo extract navigation url
-export default function({
+export default function<E extends Environment>({
   cta,
   title,
   titleLevel,
@@ -24,7 +25,7 @@ export default function({
   imageFirst,
   image,
   markdown,
-}: Props): JSX.Element {
+}: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   return (
     <View
@@ -38,7 +39,7 @@ export default function({
             className={`${layoutStyle.hidden_l} ${layoutStyle.backgroundImage}`}
           >
             <BackgroundImage
-              src={(backgroundImage as any).childImageSharp.original.src}
+              src={(backgroundImage as GatsbyImage<any>).childImageSharp.original.src}
             />
           </View>
           <View

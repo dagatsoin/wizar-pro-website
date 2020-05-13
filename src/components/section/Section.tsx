@@ -1,20 +1,20 @@
 import React from 'react'
 import { Option } from 'space-lift'
+
+import { Module as ModuleType, Section } from '~/types'
 import { Edge, Node } from '~/types/graph'
-import { ModuleAttributes } from '~/types/module'
-import { Section } from '~/types/page'
 import { Carousel, Module, View } from '..'
 import { Title } from '../title'
 import lessStyle from './section.module.less'
 
 type Props = {
   section: Section
-  edges: Array<Edge<ModuleAttributes>>
+  edges: Array<Edge<ModuleType>>
 }
 
 export default function renderSection({ section, edges }: Props) {
   const modules = section.modules
-    .reduce<Array<Node<ModuleAttributes>>>(
+    .reduce<Array<Node<ModuleType>>>(
       (nodes, id) =>
         Option(edges.find(edge => edge.node.frontmatter.title === id)).fold(
           () => nodes,

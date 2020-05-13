@@ -1,6 +1,5 @@
-import { BlogAttributes } from "./types/blog"
+import { BlogAttributes, PageAttributes } from './types'
 import { Edge } from './types/graph'
-import { PageAttributes } from './types/page'
 
 export function isPage(edge: Edge<any>): edge is Edge<PageAttributes> {
   return edge.node.fileAbsolutePath.indexOf('/pages/') > 0

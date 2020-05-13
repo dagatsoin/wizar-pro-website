@@ -1,13 +1,13 @@
 import { Button, ButtonProps, Styles } from '@sproutch/ui'
 import React from 'react'
 
-import { CTA } from 'src/types/widget'
+import { CTA } from '~/types'
 
 export default ({ label, palette, onPress, style }: CTA & ButtonProps) => {
   const _style = {
     root: Styles.createViewStyle({
         borderRadius: 4,
-        ...style && style.root as Object
+        ...style && style.root as {}
       }),
     }
   return (

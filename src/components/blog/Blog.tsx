@@ -2,11 +2,10 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { BlogNode } from '~/types/blog'
+import { BlogNode } from '~/types'
 import { Layout, Markdown, Title, View } from '..'
 import { Image } from '../image'
 import { Paragraph } from '../markdown/Paragraph'
-import { ImageAttribute } from '~/types/ImageAttribute'
 
 /**
  * @credits https://gist.github.com/thevangelist/8ff91bac947018c9f3bfaad6487fa149#gistcomment-2659294
@@ -39,7 +38,7 @@ export default function Blog({
         ]}
       />
       {blog.frontmatter.backgroundImage && (
-          <Image src={blog.frontmatter.backgroundImage as ImageAttribute} />
+          <Image src={blog.frontmatter.backgroundImage} />
         )}
       <View style={{margin: 16}}>
         <Title.h2>{blog.frontmatter.title}</Title.h2>

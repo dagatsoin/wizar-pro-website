@@ -1,29 +1,5 @@
 import { graphql } from 'gatsby'
 
-import { BackgroundImageAttribute } from './BackgroundImageAttribute'
-import { CTA, Image as ImageWidgetValue } from './widget'
-import { ImageAttribute } from './ImageAttribute'
-
-export type NetlifyModule = {
-  layout: Layout
-  cta?: CTA
-  title: string
-  titleLevel: number
-  isTitleDisplayed: boolean
-  elevation: number
-  imageFirst: boolean
-  contrastText: boolean
-  backgroundImage?: string
-  image?: ImageWidgetValue
-}
-
-export type Layout = 'hero' | 'horizontal' | 'phone-screenshot' | 'vertical' | 'vertical-small'
-
-export type ModuleAttributes = NetlifyModule & {
-  image?: ImageAttribute
-  backgroundImage?: BackgroundImageAttribute
-}
-
 export const query = graphql`
   fragment Module on MarkdownRemark {
     fileAbsolutePath
@@ -61,6 +37,50 @@ export const query = graphql`
           }
         }
       }
+    }
+  }
+  fragment Blog on MarkdownRemark {
+    fields {
+      slug
+    }
+    fileAbsolutePath
+    rawMarkdownBody
+    frontmatter {
+      title
+      subhead
+      tags
+      date
+      author
+      description
+      contrastText
+      backgroundImage {
+        childImageSharp {
+          original {
+            src
+          }
+          fluid(maxWidth: 2048) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  }
+
+  fragment Page on MarkdownRemark {
+    fileAbsolutePath
+    rawMarkdownBody
+    frontmatter {
+      hero
+      title
+      section_list {
+        title
+        layout
+        modules
+      }
+      is_home
+      tags
+      date
+      description
     }
   }
 `

@@ -1,8 +1,6 @@
-import { BlogAttributes } from './blog'
-import { ModuleAttributes } from './module'
-import { PageAttributes } from './page'
+import { BlogAttributes, Environment, Module, PageAttributes } from '.'
 
-export type AvailableType = ModuleAttributes | PageAttributes | BlogAttributes
+export type AvailableType<E extends Environment = 'gatsby'> = Module<E> | PageAttributes | BlogAttributes
 
 export type Edge<T extends AvailableType> = {
   node: Node<T>

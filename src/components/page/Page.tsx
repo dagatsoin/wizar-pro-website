@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Option } from 'space-lift'
+import { Module as ModuleType } from '~/types'
 import { Edge, GatsbyData } from '~/types/graph'
-import { ModuleAttributes } from '~/types/module'
 import { isHome, isPage } from '~/utils'
 import { Markdown, Module, View } from '..'
 import { Sections } from '../section/Sections'
@@ -60,6 +60,6 @@ export default function Page({data}: {data: GatsbyData}) {
 
 function isModule(edge: {
   node: { fileAbsolutePath: string }
-}): edge is Edge<ModuleAttributes> {
+}): edge is Edge<ModuleType<any>> {
   return edge.node.fileAbsolutePath.indexOf('/modules/') > 0
 }

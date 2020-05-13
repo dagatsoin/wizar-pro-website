@@ -1,8 +1,8 @@
 import { Map } from 'immutable'
 import React, { Component } from 'react'
 
+import { CTA } from '~/types'
 import { Cta } from '../components/cta'
-import { CTA } from '../types/widget'
 import { NetlifyControlWidgetProps, NetlifyPreviewWidgetProps } from './props'
 
 type ControlProps = NetlifyControlWidgetProps<undefined, CTA | Map<keyof CTA, string>>

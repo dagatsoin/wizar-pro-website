@@ -11,12 +11,12 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { ModuleAttributes } from '~/types/module'
+import { Environment, Module } from '~/types'
 import layoutStyle from '../layout.module.less'
 
-type Props = { markdown: string; noMargin: boolean } & ModuleAttributes
+type Props<E extends Environment> = { markdown: string; noMargin: boolean } & Module<E>
 // todo extract navigation url
-export default function({
+export default function<E extends Environment>({
   cta,
   title,
   titleLevel,
@@ -28,7 +28,7 @@ export default function({
   elevation,
   markdown,
   noMargin,
-}: Props): JSX.Element {
+}: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   const module = (
     <View

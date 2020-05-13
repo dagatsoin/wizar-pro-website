@@ -1,8 +1,7 @@
 import React from 'react'
 
+import { Module, Section as SectionType } from '~/types'
 import { Edge } from '~/types/graph'
-import { ModuleAttributes } from '~/types/module'
-import { Section as SectionType } from '~/types/page'
 import Section from './Section'
 
 export function Sections({
@@ -10,7 +9,7 @@ export function Sections({
   edges,
 }: {
   sections: SectionType[]
-  edges: Array<Edge<ModuleAttributes>>
+  edges: Array<Edge<Module>>
 }) {
   return (
     <>

@@ -2,11 +2,9 @@ import Img from 'gatsby-image'
 import React from 'react'
 import { Image } from 'reactxp'
 
-import { isFluid } from '../../types/image'
-import { ImageAttribute } from "../../types/ImageAttribute"
+import { ImageAttribute } from '../../types'
+import { GatsbyImage, isFluid } from '../../types/image'
 import * as styles from './style'
-
-type Props = ImageAttribute
 
 function wrapInHeader(level: number, children: React.ReactNode) {
   switch (level) {
@@ -32,7 +30,7 @@ function renderImage({
   width = "100%",
   height = "100%"
 }: {
-  src: ImageAttribute['src']
+  src: GatsbyImage<any> | string
   title?: string
   width?: string
   height?: string
@@ -59,11 +57,11 @@ function renderImage({
   )
 }
 
-export default function({
+export default function<T extends GatsbyImage<any> | string>({
   hiddenHeaderContent,
   hiddenHeaderLevel,
   src
-}: Props) {
+}: ImageAttribute<T>) {
   return hiddenHeaderContent
     ? wrapInHeader(
         hiddenHeaderLevel || 1,

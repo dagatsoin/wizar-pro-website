@@ -10,12 +10,12 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { ModuleAttributes } from '~/types/module'
+import { Environment, Module } from '~/types'
 import layoutStyle from '../layout.module.less'
 
-type Props = { markdown: string } & ModuleAttributes
+type Props<E extends Environment> = { markdown: string } & Module<E>
 // todo extract navigation url
-export default function({
+export default function<E extends Environment>({
   cta,
   title,
   titleLevel,
@@ -25,7 +25,7 @@ export default function({
   imageFirst,
   image,
   markdown,
-}: Props): JSX.Element {
+}: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   return (
     <View className={`${layoutStyle.horizontal} ${layoutStyle.root} ${imageFirst ? layoutStyle.imageFirst : ''}`}>

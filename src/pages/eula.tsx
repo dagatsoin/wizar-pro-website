@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
 import React from 'react'
 import { Layout, Markdown, View } from '~/components'
+import { PageAttributes } from '~/types'
 import { Node } from '~/types/graph'
-import { PageAttributes } from '~/types/page'
 
 type Props = {
   allMarkdownRemark: {

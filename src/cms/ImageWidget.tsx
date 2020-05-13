@@ -2,12 +2,13 @@ import { Map } from 'immutable'
 import CMS from 'netlify-cms-app'
 import React, { Component } from 'react'
 
-import { Image as ImageComp } from '../components/image'
-import { Image } from '../types/widget'
+import { Image } from '../components/image'
+import { ImageAttribute } from '../types'
 import { NetlifyControlWidgetProps, NetlifyPreviewWidgetProps } from './props'
 
-type ControlProps = NetlifyControlWidgetProps<any, Image | Map<keyof Image, string>>
-type PreviewProps = NetlifyPreviewWidgetProps<any, Image>
+type Value = ImageAttribute<string>
+type ControlProps = NetlifyControlWidgetProps<any, Value | Map<keyof ImageAttribute, string>>
+type PreviewProps = NetlifyPreviewWidgetProps<any, Value>
 
 interface CMS {
   getWidget(
@@ -20,17 +21,17 @@ interface CMS {
 const DefaultImageControl = CMS.getWidget('image').control
 
 export class ImageControl extends Component<ControlProps> {
-  get value(): Image {
+  get value(): Value {
     if (this.props.value) {
       if (Map.isMap(this.props.value)) {
-        const value = this.props.value as Map<keyof Image, string>
+        const value = this.props.value as Map<keyof ImageAttribute, string>
         return {
           src: value.get('src'),
           hiddenHeaderContent: value.get('hiddenHeaderContent'),
           hiddenHeaderLevel: Number(value.get('hiddenHeaderLevel')),
         }
       } else {
-        return this.props.value as Image
+        return this.props.value as Value
       }
     } else {
       return {
@@ -93,7 +94,7 @@ export class ImageControl extends Component<ControlProps> {
   ) => {
     this.props.onChange({
       ...this.value,
-      hiddenHeaderLevel: e.currentTarget.value,
+      hiddenHeaderLevel: Number(e.currentTarget.value),
     })
   }
 
@@ -120,5 +121,5 @@ export function ImagePreview(props: PreviewProps) {
   const fieldName = props.field.get('name')
   // todo what if it is a nested field
   const value = props.value || props.entry.getIn(['data', fieldName]).toJS()
-  return <ImageComp {...value}/>
+  return <Image {...value}/>
 }
