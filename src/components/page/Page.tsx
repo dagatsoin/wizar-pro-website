@@ -1,12 +1,14 @@
+import { withTheme } from '@sproutch/ui'
 import React from 'react'
 
 import { Option } from 'space-lift'
+import { Theme } from '~/theme'
 import { PageType } from '~/types'
 import { Markdown, Module, View } from '..'
 import { Sections } from '../section/Sections'
 import lessStyle from './page.style.module.less'
 
-export default function Page({ page }: { page: PageType }) {
+function Page({ page, theme }: { page: PageType } & {theme?: Theme}) {
   const modules = page.modules
   const maybeHeroModule = Option(modules.find(m => m.title === page.hero))
 
@@ -18,7 +20,10 @@ export default function Page({ page }: { page: PageType }) {
         </View>
       ))}
       {page.content && (
-        <View className={`${lessStyle.section} ${lessStyle.content}`}>
+        <View
+          className={`${lessStyle.section} ${lessStyle.content}`}
+          style={!maybeHeroModule.isDefined() ? {paddingTop: theme!.business.layout.appBar.height} : undefined}
+        >
           <Markdown input={page.content} />
         </View>
       )}
@@ -26,3 +31,5 @@ export default function Page({ page }: { page: PageType }) {
     </>
   )
 }
+
+export default withTheme(Page)

@@ -36,14 +36,27 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const posts = result.data.allMarkdownRemark.edges.map(edge => edge.node)
-      const component = path.resolve(`src/templates/Blog.tsx`)
+      const blogFactory = path.resolve(`src/templates/Blog.tsx`)
+      const pageFactory = path.resolve(`src/templates/Page.tsx`)
 
       posts
         .filter(isBlog)
         .forEach(node => {
           createPage({
             path: node.fields.slug,
-            component,
+            component: blogFactory,
+            context: {
+              id: node.id,
+            },
+          })
+        })
+
+      posts
+        .filter(isPage)
+        .forEach(node => {
+          createPage({
+            path: node.fields.slug,
+            component: pageFactory,
             context: {
               id: node.id,
             },
@@ -66,7 +79,7 @@ const createNodeFieldMarkdownRemark = ({ node, actions, getNode }) => {
       createNodeField({
         name: `slug`,
         node,
-        value: `/${type}${path}`
+        value: type === 'page' ? `${path}` : `/${type}${path}`
       })
     }
   }
