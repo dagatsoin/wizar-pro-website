@@ -23,8 +23,8 @@ export default function factory({
       <Helmet
         title={`${node.frontmatter.title} | Wizar - Jeu vidéo d'exploration touristique.`}
         meta={[
-          { name: 'description', content: node.frontmatter.description },
-          { name: 'keywords', content: node.frontmatter.tags },
+          { name: 'description', content: node.frontmatter.metaDescription },
+          { name: 'keywords', content: node.frontmatter.metaKeywords },
         ]}
       />
       <Blog

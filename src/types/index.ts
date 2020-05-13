@@ -7,12 +7,6 @@ export type ImageAttribute<T extends string | GatsbyImage<Fluid | Fixed> = Gatsb
 }
 
 export type BackgroundImageAttribute<T extends string | GatsbyImage<Fluid | Fixed> = GatsbyImage<any>> = T
-/* | (GatsbyImage<Fluid> & {
-    original: {
-      src: string
-    }
-  })
-| string */
 
 export type CTA = {
   palette: 'primary' | 'secondary'
@@ -37,10 +31,10 @@ export type Module<E extends Environment = 'gatsby'> = {
 }
 
 export type PageAttributes = {
-  tags: string[];
   title: string;
   date: string;
-  description: string;
+  metaDescription: string
+  metaKeywords: string[]
   hero: string;
   section_list: Section[];
   is_home: boolean
@@ -71,7 +65,8 @@ export type BlogAttributes = {
   tags: string[]
   date: string
   author: string
-  description: string
+  metaDescription: string
+  metaKeywords: string[]
   contrastText: boolean
 }
 
@@ -85,7 +80,13 @@ export type BlogItemType = {
   slug: string,
 }
 
-export type BlogType = Omit<BlogAttributes, "contrastText"> & {
+export type BlogType = {
+  backgroundImage?: GatsbyImage<Fluid>
+  title: string
+  subhead?: string
+  tags: string[]
+  date: string
+  author: string
   slug: string,
   content: string
 }

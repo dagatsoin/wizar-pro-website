@@ -4,7 +4,7 @@ import {
   Styles,
   ViewStyle,
 } from '@sproutch/ui'
-import { StyleRuleSet, TextInputStyleRuleSet } from 'reactxp/dist/common/Types'
+import { StyleRuleSet } from 'reactxp/dist/common/Types'
 
 import { Theme } from '~/theme'
 

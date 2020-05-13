@@ -16,7 +16,6 @@ export function BlogPreview(props: Props) {
         date: props.entry.getIn(['data', 'date']),
         author: props.entry.getIn(['data', 'author']),
         content: props.entry.getIn(['data', 'body']),
-        description: props.entry.getIn(['data', 'description']),
         slug: props.entry.getIn(['data', 'slug']),
       }}
     />

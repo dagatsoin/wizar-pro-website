@@ -1,10 +1,10 @@
 ---
 is_home: false
-tags:
+metaKeywords:
   - ''
 title: Conditions générales d'utilisation
 date: 2019-10-09T09:03:42.557Z
-description: Wizar Pro - Conditions générales d'utilisation
+metaDescription: Wizar Pro - Conditions générales d'utilisation
 section_list: []
 ---
 Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez sans réserves les présentes modalités. Aussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance dans l’économie numérique, les responsables du présent site internet [pro.wizar.world](http://https://pro.wizar.world/) sont :

@@ -33,8 +33,8 @@ const Layout = ({ children, data }: Props & { data: Data}) => {
   )
     .map(edge => ({
       title: edge.node.frontmatter.title,
-      keywords: edge.node.frontmatter.tags.join(', '),
-      description: edge.node.frontmatter.description,
+      keywords: edge.node.frontmatter.metaKeywords.join(', '),
+      description: edge.node.frontmatter.metaDescription,
     }))
     .getOrElse({
       title: "Wizar - Jeu vidéo d'exploration touristique.",
