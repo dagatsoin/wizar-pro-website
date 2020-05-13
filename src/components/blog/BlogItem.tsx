@@ -3,8 +3,7 @@ import { navigateTo } from 'gatsby'
 import React from 'react'
 
 import { Theme } from '~/theme'
-import { BlogAttributes } from '~/types/blog'
-import { Edge } from '~/types/graph'
+import { BlogItemType } from '~/types'
 import { BackgroundImage } from '../backgroundImage'
 import { Paragraph } from '../markdown/Paragraph'
 import { Title } from '../title'
@@ -13,18 +12,16 @@ import layoutStyle from './layout.module.less'
 import style from './styles'
 
 type Props = {
-  data: Edge<BlogAttributes>
+  blog: BlogItemType
   isFirst?: true
 } & {
   theme?: Theme
 }
 
-function BlogItem({ data, isFirst, theme }: Props) {
-  const blog = data.node.frontmatter
+function BlogItem({ blog, isFirst, theme }: Props) {
 
   return (
     <View
-      key={data.node.fields.slug}
       style={{
         ...style.root,
         paddingTop: isFirst ? theme!.business.layout.appBar.height : undefined,
@@ -48,14 +45,14 @@ function BlogItem({ data, isFirst, theme }: Props) {
       )}
       <Title.h2
         contrast={blog.contrastText}
-        onPress={() => navigateTo(data.node.fields.slug)}
+        onPress={() => navigateTo(blog.slug)}
       >
         {blog.title}
       </Title.h2>
       {blog.subhead && (
         <Title.h3
           contrast={blog.contrastText}
-          onPress={() => navigateTo(data.node.fields.slug)}
+          onPress={() => navigateTo(blog.slug)}
         >
           {blog.subhead}
         </Title.h3>

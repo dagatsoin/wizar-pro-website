@@ -72,6 +72,20 @@ export type BlogAttributes = {
   date: string
   author: string
   description: string
-  cta?: CTA
   contrastText: boolean
+}
+
+export type BlogItemType = {
+  backgroundImage?: GatsbyImage<Fluid>
+  title: string
+  subhead?: string
+  date: string
+  author: string
+  contrastText: boolean
+  slug: string,
+}
+
+export type BlogType = Omit<BlogAttributes, "contrastText"> & {
+  slug: string,
+  content: string
 }

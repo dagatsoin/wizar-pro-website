@@ -121,6 +121,12 @@ collections:
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Meta description', name: 'description', widget: 'text' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
+      - {
+        label: 'Background Image',
+        name: backgroundImage,
+        widget: image,
+        required: false,
+      }
       - label: 'Hero'
         name: 'hero'
         required: false

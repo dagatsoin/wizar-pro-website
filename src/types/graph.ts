@@ -3,7 +3,12 @@ import { BlogAttributes, Environment, Module, PageAttributes } from '.'
 export type AvailableType<E extends Environment = 'gatsby'> = Module<E> | PageAttributes | BlogAttributes
 
 export type Edge<T extends AvailableType> = {
-  node: Node<T>
+  node: Node<T extends Module<any>
+    ? Module<any>
+    : T extends PageAttributes
+    ? PageAttributes
+    : BlogAttributes
+  >
 }
 
 export type Node<T extends AvailableType> = {

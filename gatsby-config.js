@@ -1,4 +1,4 @@
-
+const path = require('path')
 const { NODE_ENV } = process.env;
 
 module.exports = {
@@ -7,6 +7,16 @@ module.exports = {
     brandLogoUrl: 'header_logo.png',
   },
   plugins: [
+    {
+      // Needed for resolve alias module in Netlify cms.js
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "~": path.resolve(__dirname, 'src'),
+        },
+        extensions: []
+      }
+    },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {

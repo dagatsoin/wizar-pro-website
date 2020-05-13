@@ -2,19 +2,32 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import { BlogItem } from '~/components/blog'
+import { BlogAttributes, BlogItemType } from '~/types'
 import { isBlog } from '~/utils'
 import { Layout } from '../components'
-import { GatsbyData } from '../types/graph'
+import { Edge, GatsbyData } from '../types/graph'
 
 const BlogList = ({ data }: { data: GatsbyData }) => (
   <Layout>
     {data.allMarkdownRemark.edges
       .filter(edge => isBlog(edge))
-      // tslint:disable-next-line: jsx-key
-      .map((edge: any) => <BlogItem data={edge} isFirst/>)
+      .map((edge: Edge<BlogAttributes>) => toBlogItem(edge))
+      .map(blog => <BlogItem key={blog.slug} blog={blog} isFirst/>)
     }
   </Layout>
 )
+
+function toBlogItem(edge: Edge<BlogAttributes>): BlogItemType {
+  return {
+    backgroundImage: edge.node.frontmatter.backgroundImage,
+    title: edge.node.frontmatter.title,
+    subhead: edge.node.frontmatter.subhead,
+    date: edge.node.frontmatter.date,
+    author: edge.node.frontmatter.author,
+    contrastText: edge.node.frontmatter.contrastText,
+    slug: edge.node.fields.slug
+  }
+}
 
 export const query = graphql`
   {

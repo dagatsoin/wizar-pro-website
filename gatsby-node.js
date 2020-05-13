@@ -36,7 +36,7 @@ exports.createPages = ({ actions, graphql }) => {
       }
 
       const posts = result.data.allMarkdownRemark.edges.map(edge => edge.node)
-      const component = path.resolve(`src/components/blog/Blog.tsx`)
+      const component = path.resolve(`src/templates/Blog.tsx`)
 
       posts
         .filter(isBlog)
