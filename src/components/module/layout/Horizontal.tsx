@@ -10,10 +10,10 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { Environment, Module } from '~/types'
+import { Environment, ModuleType } from '~/types'
 import layoutStyle from '../layout.module.less'
 
-type Props<E extends Environment> = { markdown: string } & Module<E>
+type Props<E extends Environment> = ModuleType<E>
 // todo extract navigation url
 export default function<E extends Environment>({
   cta,
@@ -24,7 +24,7 @@ export default function<E extends Environment>({
   contrastText,
   imageFirst,
   image,
-  markdown,
+  content,
 }: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   return (
@@ -75,7 +75,7 @@ export default function<E extends Environment>({
               {title}
             </H>
           )}
-          {markdown && <Markdown input={markdown} contrast={contrastText} />}
+          <Markdown input={content} contrast={contrastText} />
           {cta && (
             <Cta
               style={{ root: { marginTop: 30 } }}

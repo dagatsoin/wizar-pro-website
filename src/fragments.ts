@@ -46,12 +46,19 @@ export const query = graphql`
     fileAbsolutePath
     rawMarkdownBody
     frontmatter {
+      hero
       title
       subhead
+      section_list {
+        title
+        layout
+        modules
+      }
       tags
       date
       author
-      description
+      metaKeywords
+      metaDescription
       contrastText
       backgroundImage {
         childImageSharp {
@@ -78,9 +85,9 @@ export const query = graphql`
         modules
       }
       is_home
-      tags
       date
-      description
+      metaKeywords
+      metaDescription
     }
   }
 `

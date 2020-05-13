@@ -25,7 +25,9 @@ function toBlogItem(edge: Edge<BlogAttributes>): BlogItemType {
     date: edge.node.frontmatter.date,
     author: edge.node.frontmatter.author,
     contrastText: edge.node.frontmatter.contrastText,
-    slug: edge.node.fields.slug
+    slug: edge.node.fields.slug,
+    hero: edge.node.frontmatter.hero,
+    section_list: edge.node.frontmatter.section_list,
   }
 }
 

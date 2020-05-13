@@ -1,40 +1,22 @@
 import { graphql } from 'gatsby'
-import React from 'react'
-import { Option } from 'space-lift'
 
-import { Page } from '~/components/page'
-import { GatsbyData } from '~/types/graph'
-import { isHome, isPage } from '~/utils'
-import { Layout } from '../components'
+import { default as Home } from '../templates/Page'
 
-const Home = ({ data }: { data: GatsbyData }) => (
-  <Layout>
-    {Option(
-      data.allMarkdownRemark.edges
-        .filter(isPage)
-        .filter(edge => isHome(edge.node.frontmatter))
-        .map(edge => edge.node)[0]
-    )
-      .map(() => (
-        // tslint:disable-next-line: jsx-key
-        <Page data={data} />
-      ))
-      .getOrElse(<></>)}
-  </Layout>
-)
+export default function(data: any) {
+  return Home(data)
+}
+
 export const query = graphql`
-  {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___title] }
-      limit: 1000
+  query {
+    page: markdownRemark(frontmatter: { is_home: { eq: true } }) {
+      ...Page
+    }
+    modulesData: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/modules/" } }
     ) {
-      edges {
-        node {
-          ...Page
-          ...Module
-        }
+      nodes {
+        ...Module
       }
     }
   }
 `
-export default Home

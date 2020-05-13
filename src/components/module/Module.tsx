@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Environment, Module as ModuleType } from '~/types'
+import { Environment, ModuleType } from '~/types'
 import { Hero, Horizontal, PhoneScreenshot, Vertical, VerticalSmall } from './layout'
 
-type Props<E extends Environment> = { markdown: string, noMargin: boolean } & ModuleType<E>
+type Props<E extends Environment> = { noMargin: boolean } & ModuleType<E>
 
 export default function Module<E extends Environment>(props: Props<E>): JSX.Element {
   switch (props.layout) {
