@@ -54,7 +54,7 @@ const Header = ({ brandLogoUrl, brandName }: Props) => {
             </Link>
           </div>
         ))}
-        {
+        {/* {
           <div style={{ paddingRight: 16 }}>
             <Link to="/blog">
               <Title.h4
@@ -67,7 +67,7 @@ const Header = ({ brandLogoUrl, brandName }: Props) => {
               </Title.h4>
             </Link>
           </div>
-        }
+        } */}
       </div>
     </header>
   )

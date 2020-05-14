@@ -99,6 +99,7 @@ collections:
       - label: Menu item
         name: menuItem
         widget: string
+        default: ""
       
       - label: Is the home page
         name: is_home

@@ -1,2 +1,2 @@
 export { default as Markdown } from './Markdown'
-export { TextStyles } from '~/types/TextStyles'
+export { TextStyles } from '~/types/textStyles'

@@ -41,6 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
 
       posts
         .filter(isBlog)
+        .filter(node => !node.fileAbsolutePath.includes('__placeholder__'))
         .forEach(node => {
           createPage({
             path: node.fields.slug,
