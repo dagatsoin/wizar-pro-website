@@ -5,160 +5,231 @@ backend:
 
 publish_mode: editorial_workflow
 
-media_folder: 'static/images' # Media files will be stored in the repo under static/images
-public_folder: '/images' # The src attribute for uploaded media will begin with /images
+media_folder: static/images # Media files will be stored in the repo under static/images
+public_folder: /images # The src attribute for uploaded media will begin with /images
 
 collections:
-  - name: 'modules'
-    label: 'Modules'
-    folder: 'content/modules'
+  - name: modules
+    label: Modules
+    folder: content/modules
     create: true
     fields:
-      - { label: 'Type', name: 'type', widget: 'hidden', default: 'module' }
-      - {
-          label: 'Layout',
-          name: layout,
-          widget: 'select',
-          options: ['hero', 'horizontal', 'phone-screenshot', 'vertical', 'vertical-small'],
-          default: 'horizontal',
-        }
-      - { label: 'Elevation', name: elevation, widget: number, valueType: int, min: 0, max: 24, required: false }
-      - { label: 'CTA', name: cta, widget: cta, required: false }
-      - { label: 'Title', name: title, widget: 'string' }
-      - {
-          label: 'Show title',
-          name: isTitleDisplayed,
-          widget: 'boolean',
-          default: true,
-        }
-      - { label: 'Hn level', name: titleLevel, widget: 'number', default: 1, valueType: 'int', min: 1, max: 6 }
-      - { label: Image, name: image, widget: imageInHeader, required: false }
-      - {
-          label: 'Image first',
-          name: imageFirst,
-          widget: 'boolean',
-          default: false,
-        }
-      - {
-          label: 'Contrast text',
-          name: contrastText,
-          widget: 'boolean',
-          default: false,
-        }
-      - { label: 'Text', name: body, widget: 'markdown', required: false }
-      - {
-          label: 'Background Image',
-          name: backgroundImage,
-          widget: image,
-          required: false,
-        }
+      - label: Type
+        name: type
+        widget: hidden
+        default: module
 
-  - name: 'pages'
-    label: 'Pages'
-    folder: 'content/pages'
+      - label: Layout
+        name: layout
+        widget: select
+        options: [hero, horizontal, phone-screenshot, vertical, vertical-small]
+        default: horizontal
+
+      - label: Elevation
+        name: elevation
+        widget: number
+        valueType: int
+        min: 0
+        max: 24
+        required: false
+
+      - label: CTA
+        name: cta
+        widget: object
+        required: false
+        fields:
+          - label: Label
+            name: label
+            widget: string
+
+          - label: Palette
+            name: palette
+            widget: select
+            options: [primary, secondary]
+            default: primary
+
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Show title
+        name: isTitleDisplayed
+        widget: boolean
+        default: true
+
+      - label: Hn level
+        name: titleLevel
+        widget: number
+        default: 1
+        valueType: int
+        min: 1
+        max: 6
+
+      - label: Image
+        name: image
+        widget: imageInHeader
+        required: false
+
+      - label: Image first
+        name: imageFirst
+        widget: boolean
+        default: false
+        
+      - label: Contrast text
+        name: contrastText
+        widget: boolean
+        default: false
+        
+      - label: Text
+        name: body
+        widget: markdown
+        required: false
+
+      - label: Background Image
+        name: backgroundImage
+        widget: image
+        required: false
+
+  - name: pages
+    label: Pages
+    folder: content/pages
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - { label: 'Menu item', name: 'menuItem', widget: 'string' }
-      - {
-          label: 'Is the home page',
-          name: 'is_home',
-          widget: boolean,
-          default: false,
-        }
-      - {
-          label: 'Meta keywords',
-          name: 'metaKeywords',
-          widget: 'list',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Meta description', name: 'metaDescription', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - label: 'Hero'
-        name: 'hero'
+      - label: Menu item
+        name: menuItem
+        widget: string
+      
+      - label: Is the home page
+        name: is_home
+        widget: boolean
+        default: false
+      
+      - label: Meta keywords
+        name: metaKeywords
+        widget: list
+        
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Publish Date
+        name: date
+        widget: datetime
+
+      - label: Meta description
+        name: metaDescription
+        widget: text
+
+      - label: Body
+        name: body
+        widget: markdown
+
+      - label: Hero
+        name: hero
         required: false
-        widget: 'relation'
-        collection: 'modules'
-        searchFields: ['title']
-        valueField: 'title'
-        displayFields: ['title']
-      - label: 'Section list'
-        name: 'section_list'
+        widget: relation
+        collection: modules
+        searchFields: [title]
+        valueField: title
+        displayFields: [title]
+
+      - label: Section list
+        name: section_list
         required: false
-        widget: 'list'
+        widget: list
         fields:
-          - { label: 'Title', name: 'title', widget: 'string', required: false }
-          - label: 'Layout'
+          - label: Title
+            name: title
+            widget: string
+            required: false
+
+          - label: Layout
             name: layout
-            widget: 'select'
+            widget: select
             options: [horizontal, vertical, carousel]
-            default: 'horizontal'
-          - label: 'Module list'
-            name: 'modules'
-            widget: 'list'
+            default: horizontal
+
+          - label: Module list
+            name: modules
+            widget: list
             field:
-              label: 'Module'
-              name: 'module'
-              widget: 'relation'
-              collection: 'modules'
-              searchFields: ['title']
-              valueField: 'title'
-              displayFields: ['title']
+              label: Module
+              name: module
+              widget: relation
+              collection: modules
+              searchFields: [title]
+              valueField: title
+              displayFields: [title]
   
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: blog
+    label: Blog
+    folder: content/blog
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
-      - {
-          label: 'Meta keywords',
-          name: 'metaKeywords',
-          widget: 'list',
-        }
-      - {
-          label: 'Tags',
-          name: 'tags',
-          widget: 'list',
-        }
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Meta description', name: 'metaDescription', widget: 'text' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
-      - {
-        label: 'Background Image',
-        name: backgroundImage,
-        widget: image,
-        required: false,
-      }
-      - label: 'Hero'
-        name: 'hero'
+      - label: Meta keywords
+        name: metaKeywords
+        widget: list
+        
+      - label: Tags
+        name: tags
+        widget: list
+        
+      - label: Title
+        name: title
+        widget: string
+
+      - label: Publish Date
+        name: date
+        widget: datetime
+
+      - label: Meta description
+        name: metaDescription
+        widget: text
+
+      - label: Body
+        name: body
+        widget: markdown
+
+      - label: Background Image
+        name: backgroundImage
+        widget: image
         required: false
-        widget: 'relation'
-        collection: 'modules'
-        searchFields: ['title']
-        valueField: 'title'
-        displayFields: ['title']
-      - label: 'Section list'
-        name: 'section_list'
+
+      - label: Hero
+        name: hero
         required: false
-        widget: 'list'
+        widget: relation
+        collection: modules
+        searchFields: [title]
+        valueField: title
+        displayFields: [title]
+
+      - label: Section list
+        name: section_list
+        required: false
+        widget: list
         fields:
-          - { label: 'Title', name: 'title', widget: 'string', required: false }
-          - label: 'Layout'
+          - label: Title
+            name: title
+            widget: string
+            required: false
+
+          - label: Layout
             name: layout
-            widget: 'select'
+            widget: select
             options: [horizontal, vertical, carousel]
-            default: 'horizontal'
-          - label: 'Module list'
-            name: 'modules'
-            widget: 'list'
+            default: horizontal
+
+          - label: Module list
+            name: modules
+            widget: list
             field:
-              label: 'Module'
-              name: 'module'
-              widget: 'relation'
-              collection: 'modules'
-              searchFields: ['title']
-              valueField: 'title'
-              displayFields: ['title']
+              label: Module
+              name: module
+              widget: relation
+              collection: modules
+              searchFields: [title]
+              valueField: title
+              displayFields: [title]
