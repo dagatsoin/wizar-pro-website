@@ -1,7 +1,6 @@
 import { SceneTransition } from '@sproutch/ui'
 import React from 'react'
 
-import { Text } from '../text'
 import { View } from '../view'
 import * as style from './style'
 

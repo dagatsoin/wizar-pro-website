@@ -58,7 +58,7 @@ export default getTheme<WizarBusiness, Overrides>({
   business: {
     layout: {
       appBar: {
-        height: 57
+        height: 8 * spacing
       }
     },
     background: {

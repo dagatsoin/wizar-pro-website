@@ -1,7 +1,7 @@
 import { Button, ButtonProps, Styles } from '@sproutch/ui'
 import React from 'react'
 
-import { CTA } from 'src/types/widget'
+import { CTA } from 'src/types'
 
 export default ({ label, palette, onPress, style }: CTA & ButtonProps) => {
   const _style = {

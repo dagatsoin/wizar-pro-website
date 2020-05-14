@@ -2,11 +2,9 @@ import Img from 'gatsby-image'
 import React from 'react'
 import { Image } from 'reactxp'
 
-import { isFluid } from '../../types/image'
-import { ImageAttribute } from '../../types/module'
+import { ImageAttribute } from '../../types'
+import { GatsbyImage, isFluid } from '../../types/image'
 import * as styles from './style'
-
-type Props = ImageAttribute
 
 function wrapInHeader(level: number, children: React.ReactNode) {
   switch (level) {
@@ -26,29 +24,48 @@ function wrapInHeader(level: number, children: React.ReactNode) {
   }
 }
 
-function renderImage(src: ImageAttribute['src'], title?: string) {
+function renderImage({
+  src,
+  title,
+  width = "100%",
+  height = "100%"
+}: {
+  src: GatsbyImage<any> | string
+  title?: string
+  width?: string
+  height?: string
+}) {
   return typeof src === 'string' ? (
-    <Image source={src} style={styles.imageBackgroundPreview} title={title} accessibilityLabel={title}/>
+    <Image
+      source={src}
+      style={styles.imageBackgroundPreview}
+      title={title}
+      accessibilityLabel={title}
+    />
   ) : (
     <Img
       alt={title}
-      style={{width: '100%', height: '100%'}}
-      fluid={isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined}
-      fixed={!isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined}
+      style={{ width, height }}
+      fluid={
+        isFluid(src.childImageSharp) ? src.childImageSharp.fluid : undefined
+      }
+      fixed={
+        !isFluid(src.childImageSharp) ? src.childImageSharp.fixed : undefined
+      }
       title={title}
     />
   )
 }
 
-export default function({
+export default function<T extends GatsbyImage<any> | string>({
   hiddenHeaderContent,
   hiddenHeaderLevel,
-  src,
-}: Props) {
+  src
+}: ImageAttribute<T>) {
   return hiddenHeaderContent
     ? wrapInHeader(
         hiddenHeaderLevel || 1,
-        renderImage(src, hiddenHeaderContent)
+        renderImage({ src, title: hiddenHeaderContent })
       )
-    : renderImage(src, hiddenHeaderContent)
+    : renderImage({ src, title: hiddenHeaderContent })
 }

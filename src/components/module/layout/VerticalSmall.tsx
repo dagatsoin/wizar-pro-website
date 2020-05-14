@@ -11,12 +11,12 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { ModuleAttributes } from '~/types/module'
+import { Environment, ModuleType } from '~/types'
 import layoutStyle from '../layout.module.less'
 
-type Props = { markdown: string; noMargin: boolean } & ModuleAttributes
+type Props<E extends Environment> = { noMargin: boolean } & ModuleType<E>
 // todo extract navigation url
-export default function({
+export default function<E extends Environment>({
   cta,
   title,
   titleLevel,
@@ -26,9 +26,9 @@ export default function({
   imageFirst,
   image,
   elevation,
-  markdown,
+  content,
   noMargin,
-}: Props): JSX.Element {
+}: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   const module = (
     <View
@@ -78,14 +78,14 @@ export default function({
         ${noMargin ? layoutStyle.noMargin : ''}
       `}
       >
-        {(markdown || isTitleDisplayed) && (
+        {(content.length || isTitleDisplayed) && (
           <View className={layoutStyle.content}>
             {isTitleDisplayed && (
               <H style={textStyles.heading && textStyles.heading.h2} contrast={contrastText}>{title}</H>
             )}
-            {markdown && (
+            {content && (
               <Markdown
-                input={markdown}
+                input={content}
                 contrast={contrastText}
                 textStyles={textStyles}
               />

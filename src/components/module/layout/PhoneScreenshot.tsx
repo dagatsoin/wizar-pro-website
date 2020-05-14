@@ -10,12 +10,12 @@ import {
   View,
 } from '~/components'
 import { textStyles } from '~/textStyles'
-import { ModuleAttributes } from '~/types/module'
+import { Environment, ModuleType } from '~/types'
 import layoutStyle from '../layout.module.less'
 
-type Props = { markdown: string } & ModuleAttributes
+type Props<E extends Environment> = ModuleType<E>
 // todo extract navigation url
-export default function({
+export default function<E extends Environment>({
   cta,
   title,
   titleLevel,
@@ -24,8 +24,8 @@ export default function({
   contrastText,
   imageFirst,
   image,
-  markdown,
-}: Props): JSX.Element {
+  content,
+}: Props<E>): JSX.Element {
   const H = Title['h' + titleLevel]
   return (
     <View className={`${layoutStyle.phoneScreenshot} ${imageFirst ? layoutStyle.imageFirst : ''} ${layoutStyle.root}`}>
@@ -36,13 +36,11 @@ export default function({
           {isTitleDisplayed && (
             <H style={textStyles.heading && textStyles.heading.h2} contrast={contrastText}>{title}</H>
           )}
-          {markdown && (
-            <Markdown
-              input={markdown}
-              contrast={contrastText}
-              textStyles={textStyles}
-            />
-          )}
+          <Markdown
+            input={content}
+            contrast={contrastText}
+            textStyles={textStyles}
+          />
           {cta && (
             <Cta
               style={{ root: { marginTop: 30 } }}

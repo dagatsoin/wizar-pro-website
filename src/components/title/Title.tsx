@@ -8,6 +8,7 @@ import { createTitleStyle } from './styles'
 
 type Props = {
   children: string
+  onPress?: () => void
   style?: TextStyle
   palette?: 'primary' | 'secondary'
   contrast?: boolean
@@ -63,6 +64,7 @@ function Title({
   contrast,
   style,
   heading,
+  onPress
 }: Props & { heading: Heading }) {
   return (
     <ThemeContext.Consumer>
@@ -74,7 +76,7 @@ function Title({
           style,
         })
         return (
-          <Text style={textStyle[heading]}>
+          <Text style={textStyle[heading]} onPress={onPress}>
             {React.createElement(
               heading,
               { style: { margin: 0, padding: 0 } },

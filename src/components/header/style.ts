@@ -4,15 +4,26 @@ export default {
   root: {
     position: 'absolute',
     zIndex: 1,
-    height: `${theme.spacing.unit * 8}px`,
+    display: 'flex',
+    height: `${theme.business.layout.appBar.height}px`,
     width: '100%',
-    padding: `${theme.spacing.unit * 2}px`,
+    alignItems: 'center'
   },
   brand: {
-    color: 'white'
+    color: 'white',
+    marginLeft: `${theme.spacing * 2}px`
   },
   logo: {
-    height: `${theme.spacing.unit * 4}px`,
-    margin: '21px 26px'
+    
+  },
+  menu: {
+    display: 'flex',
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  menuButton: {
+    fontSize: 20,
+    color: 'white'
   }
 } as {[key in string]: React.CSSProperties}

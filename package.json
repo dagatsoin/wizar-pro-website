@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": "Wizar Pro Web Site <daniel.neveux@gmail.com>",
   "dependencies": {
-    "@sproutch/ui": "^0.0.4-beta.4",
+    "@sproutch/ui": "^0.0.4-beta.7",
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
     "gatsby-plugin-google-analytics": "^2.3.1",
@@ -50,6 +50,7 @@
     "@types/node": "^12.7.9",
     "@types/react": "^16.9.4",
     "@types/react-dom": "^16.9.1",
+    "gatsby-plugin-alias-imports": "^1.0.5",
     "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
