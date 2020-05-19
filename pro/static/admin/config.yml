@@ -1,7 +1,7 @@
 backend:
-  name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
-  repo: dagatsoin/wizar-pro-website
+  name: test-repo
+ # branch: master # Branch to update (optional; defaults to master)
+ # repo: dagatsoin/wizar-pro-website
 
 publish_mode: editorial_workflow
 
@@ -221,7 +221,6 @@ collections:
             name: layout
             widget: select
             options: [horizontal, vertical, carousel]
-            default: horizontal
 
           - label: Module list
             name: modules
