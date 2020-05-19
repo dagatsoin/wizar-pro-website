@@ -8,7 +8,6 @@ module.exports = {
   },
   plugins: [
     'gatsby-theme-warfog',
-
     {
       // Needed for resolve alias module in Netlify cms.js
       resolve: `gatsby-plugin-alias-imports`,
