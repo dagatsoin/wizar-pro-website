@@ -1,8 +1,8 @@
+import { Image } from "gatsby-theme-warfog"
 import { Map } from 'immutable'
 import CMS from 'netlify-cms-app'
 import React, { Component } from 'react'
 
-import { Image } from '../components/image'
 import { ImageAttribute } from '../types'
 import { NetlifyControlWidgetProps, NetlifyPreviewWidgetProps } from './props'
 

@@ -1,10 +1,9 @@
 import { Button, Paper, Text, View } from '@sproutch/ui'
 import { navigate } from 'gatsby'
+import { Markdown, TextInput, ThemeContext } from 'gatsby-theme-warfog'
 import React from 'react'
 
-import { Markdown, TextInput } from '~/components'
 import { Layout } from '~/containers'
-import { ThemeContext } from '~/ThemeContext'
 import createStyle from './_askDemo.style'
 
 const encode = data => {

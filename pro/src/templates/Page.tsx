@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
+import { Page } from 'gatsby-theme-warfog'
 import React from 'react'
 import Helmet from "react-helmet"
 
-import { Page } from '~/components/page'
 import { Layout } from '~/containers'
 import { ModuleNode, PageNode } from '~/types'
 

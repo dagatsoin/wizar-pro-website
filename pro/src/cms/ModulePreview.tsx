@@ -1,7 +1,5 @@
+import { Module, Provider } from "gatsby-theme-warfog"
 import React from 'react'
-
-import { Provider } from '~/ThemeContext'
-import { Module } from '../components'
 
 export function ModulePreview(props: any) {
   console.log({

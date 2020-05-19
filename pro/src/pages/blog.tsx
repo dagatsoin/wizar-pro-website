@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby'
+import { BlogItem } from 'gatsby-theme-warfog'
 import React from 'react'
 
-import { BlogItem } from '~/components/blog'
 import { Layout } from '~/containers'
 import { BlogAttributes, BlogItemType } from '~/types'
 import { isBlog } from '~/utils'
@@ -10,7 +10,7 @@ import { Edge, GatsbyData } from '../types/graph'
 const BlogList = ({ data }: { data: GatsbyData }) => (
   <Layout>
     {data.allMarkdownRemark.edges
-      .filter(edge => isBlog(edge))
+      .filter(edge => edge.node.fileAbsolutePath.indexOf('/blog/') > 0)
       .map((edge: Edge<BlogAttributes>) => toBlogItem(edge))
       .map(blog => <BlogItem key={blog.slug} blog={blog} isFirst/>)
     }

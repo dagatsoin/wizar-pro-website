@@ -1,8 +1,8 @@
 import { graphql } from 'gatsby'
+import { Blog } from 'gatsby-theme-warfog'
 import React from 'react'
 import Helmet from "react-helmet"
 
-import Blog from '~/components/blog/Blog'
 import { Layout } from '~/containers'
 import { BlogNode, ModuleNode } from '~/types'
 

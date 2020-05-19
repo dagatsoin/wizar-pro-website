@@ -1,6 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
+import { Layout } from 'gatsby-theme-warfog'
 import React from 'react'
-import { Layout } from '~/components'
 
 type Props = {
   children: React.ReactNode

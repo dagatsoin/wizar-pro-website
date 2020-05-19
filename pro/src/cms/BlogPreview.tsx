@@ -1,6 +1,5 @@
 import React from "react"
-
-import { Blog } from "../components/blog"
+import { Blog } from "gatsby-theme-warfog"
 
 type Props = {
   entry: any,
