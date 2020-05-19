@@ -2,7 +2,8 @@ import { Button, Paper, Text, View } from '@sproutch/ui'
 import { navigate } from 'gatsby'
 import React from 'react'
 
-import { Layout, TextInput, Markdown } from '~/components'
+import { Markdown, TextInput } from '~/components'
+import { Layout } from '~/containers'
 import { ThemeContext } from '~/ThemeContext'
 import createStyle from './_askDemo.style'
 

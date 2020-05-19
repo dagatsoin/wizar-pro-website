@@ -3,8 +3,8 @@ import React from 'react'
 import Helmet from "react-helmet"
 
 import { Page } from '~/components/page'
+import { Layout } from '~/containers'
 import { ModuleNode, PageNode } from '~/types'
-import { Layout } from '../components'
 
 export default function factory({
   data : { page, modulesData: { nodes: modules } }

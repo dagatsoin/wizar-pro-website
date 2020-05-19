@@ -2,8 +2,8 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from "react-helmet"
 
-import { Layout } from '~/components'
 import Blog from '~/components/blog/Blog'
+import { Layout } from '~/containers'
 import { BlogNode, ModuleNode } from '~/types'
 
 export default function factory({

@@ -1,32 +1,22 @@
 import { View } from '@sproutch/ui'
-import { graphql, StaticQuery, withPrefix } from 'gatsby'
+import { withPrefix } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { PageAttributes } from '~/types'
-import { Node } from '~/types/graph'
 import { Footer } from '..'
 import { Header } from '../header'
 import * as style from './style'
 
 export type Props = {
   children: React.ReactNode
+  logoUrl: string
+  menuItems: Array<{
+    url: string
+    menuItemLabel: string
+  }>
 }
 
-type Data = {
-  site: {
-    siteMetadata: {
-      brandLogoUrl: string
-    }
-  }
-  allMarkdownRemark: {
-    edges: Array<{
-      node: Node<PageAttributes>
-    }>
-  }
-}
-
-const Layout = ({ children, data }: Props & { data: Data}) => {
+export const Layout = ({ children, logoUrl, menuItems }) => {
   return (
     <View style={style.root}>
       <Helmet
@@ -42,9 +32,8 @@ const Layout = ({ children, data }: Props & { data: Data}) => {
         <html lang="fr" />
       </Helmet>
       <Header
-        brandLogoUrl={withPrefix(
-          `./images/${data.site.siteMetadata.brandLogoUrl}`
-        )}
+        menuItems={menuItems}
+        brandLogoUrl={withPrefix(`./images/${logoUrl}`)}
         brandName={'Wizar'}
       />
       {children}
@@ -52,30 +41,3 @@ const Layout = ({ children, data }: Props & { data: Data}) => {
     </View>
   )
 }
-
-export default (props: Props) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        site {
-          siteMetadata {
-            brandLogoUrl
-          }
-        }
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___title] }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              ...Page
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => (
-      <Layout data={data} {...props} />
-    )}
-  />
-)

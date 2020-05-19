@@ -2,9 +2,9 @@ import { graphql } from 'gatsby'
 import React from 'react'
 
 import { BlogItem } from '~/components/blog'
+import { Layout } from '~/containers'
 import { BlogAttributes, BlogItemType } from '~/types'
 import { isBlog } from '~/utils'
-import { Layout } from '../components'
 import { Edge, GatsbyData } from '../types/graph'
 
 const BlogList = ({ data }: { data: GatsbyData }) => (
