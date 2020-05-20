@@ -34,7 +34,7 @@ export class ImageControl extends Component<ControlProps> {
         return this.props.value as Value
       }
     } else {
-      return {
+      return { 
         src: '',
       }
     }
@@ -64,6 +64,7 @@ export class ImageControl extends Component<ControlProps> {
           onRemoveMediaControl={this.props.onRemoveMediaControl}
           classNameWrapper={classNameWrapper}
           value={this.value.src}
+          t={this.props.t}
         />
         <input
           className={classNameWrapper}
@@ -118,8 +119,8 @@ export class ImageControl extends Component<ControlProps> {
 }
 
 export function ImagePreview(props: PreviewProps) {
-  const fieldName = props.field.get('name')
+  /* const fieldName = props.field.get('name')
   // todo what if it is a nested field
-  const value = props.value || props.entry.getIn(['data', fieldName]).toJS()
-  return <Image {...value}/>
+  const value = props.value || props.entry.getIn(['data', fieldName]).toJS() */
+  return "<Image {...value}/>"
 }

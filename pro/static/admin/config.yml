@@ -70,10 +70,34 @@ collections:
         widget: imageInHeader
         required: false
 
-      - label: Image first
-        name: imageFirst
-        widget: boolean
-        default: false
+      - label: Featured image
+        name: image
+        widget: object
+        required: false
+        fields:
+          - label: Featured Image
+            name: src
+            widget: image
+            media_library:
+              config:
+                multiple: false
+
+          - label: Hidden header content
+            name: hiddenHeaderContent
+            widget: string
+            required: false
+
+          - label: Header level
+            name: hiddenHeaderLevel
+            widget: select
+            options: ["1", "2", "3", "4", "5", "6"]
+            default: "1"
+            
+
+#      - label: Image first
+#        name: imageFirst
+#        widget: boolean
+#        default: false
         
       - label: Contrast text
         name: contrastText

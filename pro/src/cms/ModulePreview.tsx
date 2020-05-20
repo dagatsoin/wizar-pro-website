@@ -1,21 +1,28 @@
 import { Module, Provider } from "gatsby-theme-warfog"
 import React from 'react'
+import theme from '~/theme'
 
 export function ModulePreview(props: any) {
-  console.log({
+  const cta = {
     label: props.widgetsFor('cta').getIn(['data', 'label']),
     palette: props.widgetsFor('cta').getIn(['data', 'palette'])
-  })
+  }
+  const featureImageSrc = props.widgetsFor('image').getIn(['data', 'src'])
+  const hiddenHeaderContent = props.widgetsFor('image').getIn(['data', 'hiddenHeaderContent'])
+  const image = featureImageSrc ? {
+    src: featureImageSrc,
+    hiddenHeaderContent,
+    hiddenHeaderLevel: hiddenHeaderContent ? props.widgetsFor('image').getIn(['data', 'hiddenHeaderLevel']) : undefined
+  } : undefined
+  console.log(image)
   return (
-    <Provider>
+    <Provider themeConfig={theme}>
       <Module
         noMargin
         layout={props.entry.getIn(['data', 'layout'])}
-        cta={{
-          label: props.widgetsFor('cta').getIn(['data', 'label']),
-          palette: props.widgetsFor('cta').getIn(['data', 'palette'])
-        }}
+        cta={cta.label ? cta : undefined}
         title={props.entry.getIn(['data', 'title'])}
+        image={image}
         titleLevel={props.entry.getIn(['data', 'titleLevel'])}
         isTitleDisplayed={props.entry.getIn(['data', 'isTitleDisplayed'])}
         elevation={props.entry.getIn(['data', 'elevation'])}

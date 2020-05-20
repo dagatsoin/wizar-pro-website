@@ -3,14 +3,7 @@ import React from 'react'
 
 import { Environment, ModuleType } from '~/types'
 import { GatsbyImage } from '~/types/image'
-import {
-  BackgroundImage,
-  Cta,
-  Image,
-  Markdown,
-  Title,
-  View,
-} from '../../'
+import { BackgroundImage, Cta, Image, Markdown, Title, View } from '../../'
 import { textStyles } from '../../../textStyles'
 import layoutStyle from '../layout.module.less'
 
@@ -39,7 +32,10 @@ export default function<E extends Environment>({
             className={`${layoutStyle.hidden_l} ${layoutStyle.backgroundImage}`}
           >
             <BackgroundImage
-              src={(backgroundImage as GatsbyImage<any>).childImageSharp.original.src}
+              src={
+                (backgroundImage as GatsbyImage<any>).childImageSharp.original
+                  .src
+              }
             />
           </View>
           <View
@@ -59,7 +55,12 @@ export default function<E extends Environment>({
           >
             <H
               contrast={contrastText}
-              style={{ ...textStyles.heading && textStyles.heading.h2, overflow: 'visible', marginVertical: 0, fontSize: 24 }}
+              style={{
+                ...(textStyles.heading && textStyles.heading.h2),
+                overflow: 'visible',
+                marginVertical: 0,
+                fontSize: 24,
+              }}
             >
               {title}
             </H>
@@ -78,26 +79,27 @@ export default function<E extends Environment>({
             </H>
           </View>
           <Markdown input={content} contrast={contrastText} />
-          {cta && (
-            <View className={layoutStyle.cta}>
+
+          <View className={layoutStyle.cta}>
+            {cta && (
               <Cta
                 style={{ root: { marginTop: 30 } } as any}
                 {...cta}
                 onPress={() => navigate('/askDemo/')}
               />
-              <Cta
-                style={{ root: { marginTop: 30 } } as any}
-                label="TÉLÉCHARGER SUR ANDROID"
-                palette="secondary"
-                onPress={() =>
-                  window.open(
-                    'https://play.google.com/store/apps/details?id=com.warfog.wizar.adventure.map',
-                    '_blank'
-                  )
-                }
-              />
-            </View>
-          )}
+            )}
+            <Cta
+              style={{ root: { marginTop: 30 } } as any}
+              label="TÉLÉCHARGER SUR ANDROID"
+              palette="secondary"
+              onPress={() =>
+                window.open(
+                  'https://play.google.com/store/apps/details?id=com.warfog.wizar.adventure.map',
+                  '_blank'
+                )
+              }
+            />
+          </View>
         </View>
         {image && (
           <View className={layoutStyle.image}>

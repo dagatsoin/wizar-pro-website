@@ -16,7 +16,7 @@ import CMS from "netlify-cms-app"
 // import "../other-styles.css"
 
   // Custom Widgets
-import { ImageControl, ImagePreview } from "./ImageWidget"
+//import { ImageControl, ImagePreview } from "./ImageWidget"
 // import { boundedImageControlMaker, boundedImagePreviewMaker } from './withCMS'
 //import { withGlobalDecorator } from './withGlobalDecorator'
 //import { SectionPreview } from './SectionPreview'
@@ -33,4 +33,4 @@ CMS.registerPreviewTemplate("blog", BlogPreview)
  * Register the imported widget:
  */
 //CMS.registerWidget("cta", CTAControl, CTAPreview)
-CMS.registerWidget("imageInHeader", ImageControl, ImagePreview)
+//CMS.registerWidget("imageInHeader", ImageControl, ImagePreview)
