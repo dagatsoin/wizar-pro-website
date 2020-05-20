@@ -19,7 +19,7 @@ export default () => (
       <Button variant='text' onPress={() => window.open("https://discord.gg/Hway5Vv", '_blank')} label="Discord"/>
       <Button variant='text' onPress={() => window.open("https://twitter.com/WizarGame", '_blank')} label="Twitter"/>
       <Button variant='text' onPress={() => window.open("https://www.instagram.com/wizargame/", '_blank')} label="Instagram"/>
-      <Button variant='text' onPress={() => navigateTo("/http://localhost:8000/2019-10-09-conditions-ge%CC%81ne%CC%81rales-dutilisation/")} label="CGU"/>
+      <Button variant='text' onPress={() => navigateTo("/2019-10-09-conditions-ge%CC%81ne%CC%81rales-dutilisation/")} label="CGU"/>
     </View>
   </View>
 )
