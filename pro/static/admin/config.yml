@@ -182,7 +182,7 @@ collections:
   
   - name: blog
     label: Blog
-    folder: content/blog
+    folder: pro/content/blog
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
