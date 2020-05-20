@@ -5,7 +5,7 @@ const slash = require(`slash`)
 const cwd = process.cwd()
 
 module.exports = async (markdownPath, imagePath, options) => {
-	const { mediaPath, publicPath } = await getConfig(options)
+	const { mediaPath, publicPath, monoRepoFolder } = await getConfig(options)
 	if(
 		typeof imagePath !== `string` ||
 		imagePath.indexOf(`${publicPath}/`) !== 0
@@ -13,26 +13,9 @@ module.exports = async (markdownPath, imagePath, options) => {
 		return imagePath
 	}
 	markdownPath = dirname(markdownPath).replace(`${cwd}/`, ``)
-//	console.log("publicPath: "+ publicPath, "mediaPath: " + mediaPath, cwd, __dirname)
-//	console.log("imagePath before replace", imagePath)
-	//imagePath = imagePath.replace(publicPath, mediaPath)
-	imagePath = imagePath.replace(publicPath, "static/images")
-	console.log("imagePath after replace", imagePath)
+	const staticImageFolder = mediaPath.replace(`${monoRepoFolder}/`, '')
+	imagePath = imagePath.replace(publicPath, staticImageFolder)
 	const newPath = relative(markdownPath, imagePath)
-	console.log("relative place from md file", newPath)
-	
-/* 
-	publicPath: /images mediaPath: static/images
-	imagePath before replace /images/village.png
-	imagePath after replace static/images/village.png
-	relative place from md file ../../static/images/village.png
-	
-	publicPath: /images mediaPath: pro/static/images
-	imagePath before replace /images/village.png
-	imagePath after replace pro/static/images/village.png
-	relative place from md file ../../pro/static/images/village.png
-
-*/
 
 	return slash(newPath)
 }
