@@ -10,7 +10,7 @@ public_folder: /images # The src attribute for uploaded media will begin with /i
 collections:
   - name: modules
     label: Modules
-    folder: content/modules
+    folder: pro/content/modules
     create: true
     fields:
       - label: Type
@@ -91,12 +91,6 @@ collections:
             widget: select
             options: ["1", "2", "3", "4", "5", "6"]
             default: "1"
-            
-
-#      - label: Image first
-#        name: imageFirst
-#        widget: boolean
-#        default: false
         
       - label: Contrast text
         name: contrastText
@@ -115,7 +109,7 @@ collections:
 
   - name: pages
     label: Pages
-    folder: content/pages
+    folder: pro/content/pages
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
