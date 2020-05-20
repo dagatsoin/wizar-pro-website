@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-theme-warfog",
+  "version": "0.0.2",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  }
+}
