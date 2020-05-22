@@ -26,7 +26,7 @@ export const Provider = function({ children, themeConfig = {} }: { children: Rea
       })
     },
   })
-  console.log(state.theme.business.text.contrast)
+
   return (
     <ThemeSetterContext.Provider value={state}>
       <ThemeContext.Provider value={state.theme}>

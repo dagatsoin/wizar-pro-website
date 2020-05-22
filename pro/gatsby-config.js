@@ -19,17 +19,16 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "G-KR1NP9FX30",
-      },
-    },
-    `gatsby-plugin-less`,
-    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false
         allExtensions: true, // defaults to false
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "G-KR1NP9FX30",
       },
     },
     {
@@ -40,12 +39,6 @@ module.exports = {
         name: 'uploads',
       },
     },
-    /* {
-      resolve: `gatsby-plugin-netlify-cms-paths`,
-      options: {
-        cmsConfig: `/static/admin/config.yml`,
-      },
-    }, */
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -71,12 +64,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          /* {
-            resolve: `gatsby-plugin-netlify-cms-paths`,
-            options: {
-              cmsConfig: `/static/admin/config.yml`,
-            },
-          }, */
           'gatsby-plugin-netlify-paths',
           {
             resolve: 'gatsby-remark-images',
@@ -113,7 +100,6 @@ module.exports = {
       }
     },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-sitemap`,
