@@ -5,7 +5,7 @@ const slash = require(`slash`)
 const cwd = process.cwd()
 
 module.exports = async (markdownPath, imagePath, options) => {
-	const { mediaPath, publicPath } = await getConfig(options)
+	const { mediaPath, publicPath, monoRepoFolder } = await getConfig(options)
 	if(
 		typeof imagePath !== `string` ||
 		imagePath.indexOf(`${publicPath}/`) !== 0
@@ -13,7 +13,9 @@ module.exports = async (markdownPath, imagePath, options) => {
 		return imagePath
 	}
 	markdownPath = dirname(markdownPath).replace(`${cwd}/`, ``)
-	imagePath = imagePath.replace(publicPath, mediaPath)
+	const staticImageFolder = mediaPath.replace(`${monoRepoFolder}/`, '')
+	imagePath = imagePath.replace(publicPath, staticImageFolder)
 	const newPath = relative(markdownPath, imagePath)
+
 	return slash(newPath)
 }

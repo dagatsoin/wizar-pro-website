@@ -28,8 +28,11 @@
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.2.2",
     "reactxp": "^2.0.0-rc.1",
+    "read-yaml-promise": "^1.0.2",
+    "slash": "^3.0.0",
     "space-lift": "^0.8.7",
-    "typeface-roboto": "0.0.75"
+    "typeface-roboto": "0.0.75",
+    "unist-util-select": "^3.0.1"
   },
   "keywords": [
     "gatsby"
