@@ -117,7 +117,7 @@ collections:
       - label: Menu item
         name: menuItem
         widget: string
-        default: ""
+        required: false
       
       - label: Is the home page
         name: is_home
