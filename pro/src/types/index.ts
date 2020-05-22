@@ -104,7 +104,6 @@ export type BlogItemType = {
   author: string
   hero: string
   contrastText: boolean
-  section_list: Section[]
   slug: string
 }
 

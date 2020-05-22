@@ -4,7 +4,6 @@ import React from 'react'
 
 import { Layout } from '~/containers'
 import { BlogAttributes, BlogItemType } from '~/types'
-import { isBlog } from '~/utils'
 import { Edge, GatsbyData } from '../types/graph'
 
 const BlogList = ({ data }: { data: GatsbyData }) => (
@@ -27,7 +26,6 @@ function toBlogItem(edge: Edge<BlogAttributes>): BlogItemType {
     contrastText: edge.node.frontmatter.contrastText,
     slug: edge.node.fields.slug,
     hero: edge.node.frontmatter.hero,
-    section_list: edge.node.frontmatter.section_list,
   }
 }
 

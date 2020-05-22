@@ -28,6 +28,7 @@ export default function factory({
       <Blog
         blog={{
           ...blog.frontmatter,
+          section_list: blog.frontmatter.section_list || [],
           slug: blog.fields.slug,
           content: blog.rawMarkdownBody,
           modules: modules.map(m => ({
