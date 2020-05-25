@@ -25,12 +25,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "G-KR1NP9FX30",
-      },
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -76,54 +70,8 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-robots-txt',
-      options: {
-        resolveEnv: () => NODE_ENV,
-        env: {
-          production: {
-            policy: [{ userAgent: '*' }]
-            //policy: [{ userAgent: '*', disallow: ['/'] }],
-          },
-          'branch-deploy': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
-          },
-          'deploy-preview': {
-            policy: [{ userAgent: '*', disallow: ['/'] }],
-            sitemap: null,
-            host: null
-          }
-        }
-      }
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        // Exclude specific pages or groups of pages using glob parameters
-        // See: https://github.com/isaacs/minimatch
-        // The example below will exclude the single `path/to/page` and all routes beginning with `category`
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-  
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-        }`,
-      },
-    },
     {
       resolve: `gatsby-plugin-netlify-cms`,
       options: {
