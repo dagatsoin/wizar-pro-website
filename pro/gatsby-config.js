@@ -64,7 +64,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          'gatsby-plugin-netlify-paths',
           {
             resolve: 'gatsby-remark-images',
             options: {
