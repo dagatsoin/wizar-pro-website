@@ -4,7 +4,7 @@ const readYaml = require(`read-yaml-promise`)
 const cwd = process.cwd()
 let obj
 
-module.exports = async function({ cmsConfig = `/static/admin/config.yml` }){
+module.exports = async function({ cmsConfig = `/admin/config.yml` }){
 	if(obj) return obj
 	const configPath = join(cwd, cmsConfig)
 	const { media_folder, public_folder, monorepo_folder = '' } = await readYaml(configPath)

@@ -8,6 +8,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-theme-warfog',
+    'gatsby-theme-netlifycms',
     {
       // Needed for resolve alias module in Netlify cms.js
       resolve: `gatsby-plugin-alias-imports`,
@@ -29,35 +30,6 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "UA-167419488-1",
-      },
-    },
-    {
-      // keep as first gatsby-source-filesystem plugin for gatsby image support
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/static/images`,
-        name: 'uploads',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/pages`,
-        name: 'pages',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/modules`,
-        name: 'modules',
       },
     },
     {
@@ -123,15 +95,6 @@ module.exports = {
             }
         }`,
       },
-    },
-    {
-      resolve: `gatsby-plugin-netlify-cms`,
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    }
   ],
 }
