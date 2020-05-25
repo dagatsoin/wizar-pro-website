@@ -7,7 +7,7 @@ isTitleDisplayed: true
 titleLevel: 4
 image:
   hiddenHeaderContent: Valorisation du patrimoine
-  hiddenHeaderLevel: "3"
+  hiddenHeaderLevel: 3
   src: /images/picto_offline.png
 contrastText: false
 imageFirst: true

@@ -8,7 +8,7 @@ titleLevel: 4
 image:
   src: /images/picto_flux.png
   hiddenHeaderContent: "Valorisation du patrimoine sous forme de micro aventures. "
-  hiddenHeaderLevel: "3"
+  hiddenHeaderLevel: 3
 contrastText: false
 imageFirst: true
 ---
