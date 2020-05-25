@@ -3,15 +3,15 @@ layout: hero
 cta:
   label: DEVENIR TERRITOIRE PARTENAIRE
   palette: primary
-titleLevel: 1
 title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
+titleLevel: 1
 image:
-  hiddenHeaderContent: Application jeu de piste géolocalisé pour le tourisme -  Wizar
+  hiddenHeaderContent: Application de jeu vidéo géolocalisé pour le tourisme -  Wizar
   hiddenHeaderLevel: 3
   src: /images/demo.jpg
-imageFirst: false
 contrastText: true
 backgroundImage: /images/heroshot_bg.jpg
+imageFirst: false
 ---
-### Jeu géolocalisé d'exploration touristique.
+### Jeu vidéo géolocalisé d'exploration touristique.
