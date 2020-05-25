@@ -7,9 +7,9 @@ title: Zone blanche et itinérance
 isTitleDisplayed: true
 titleLevel: 4
 image:
-  hiddenHeaderContent: Wizar peut se jouer en zone blanche. Les cartes sont
-    pré-téléchargeables et peuvent se jouer sans connexion internet.
-  hiddenHeaderLevel: 2
+  hiddenHeaderContent: Wizar peut se jouer sans connexion internet. Pour des micro
+    aventures près de chez soi.
+  hiddenHeaderLevel: "3"
   src: /images/map_screenshot.jpg
 contrastText: false
 backgroundImage: /images/pixel_forest.png
