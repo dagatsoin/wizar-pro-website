@@ -8,9 +8,14 @@ const path = require('path')
  * }>
  * - uploadFolder: string // the location where uploaded assets are stored
  */
-module.exports = ({ useDefault = true, contentFolders, uploadFolder }) => {
+module.exports = ({ contentFolders, uploadFolder, cmsConfigPath }) => {
   const config = {}
-  if (useDefault) {
+  if (contentFolders) {
+    config.plugins = contentFolders.map(options => ({
+      resolve: 'gatsby-source-filesystem',
+      options,
+    }))
+  } else {
     config.plugins = [
       {
         resolve: 'gatsby-source-filesystem',
@@ -41,38 +46,26 @@ module.exports = ({ useDefault = true, contentFolders, uploadFolder }) => {
         },
       },
     ]
-  } else {
-    if (contentFolders) {
-      config.plugins = contentFolders.map(options => ({
+  }
+  
+  if (uploadFolder) {
+    config.plugins = [
+      ...config.plugins,
+      {
         resolve: 'gatsby-source-filesystem',
-        options,
-      }))
-    }
-
-    if (uploadFolder) {
-      config.plugins = [
-        ...config.plugins,
-        {
-          resolve: 'gatsby-source-filesystem',
-          options: {
-            path: uploadFolder,
-            name: 'uploads',
-          },
+        options: {
+          path: uploadFolder,
+          name: 'uploads',
         },
-      ]
-    }
+      },
+    ]
   }
 
   config.plugins = [
     ...config.plugins,
-   /*  {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: ['gatsby-plugin-netlify-paths'],
-      },
-    }, */
     {
       resolve: `gatsby-plugin-netlify-cms`,
+      options: cmsConfigPath
     },
   ]
 
