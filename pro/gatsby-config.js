@@ -8,7 +8,23 @@ module.exports = {
   },
   plugins: [
     'gatsby-theme-warfog',
-    'gatsby-theme-netlifycms',
+    {
+      resolve: 'gatsby-theme-netlifycms',
+      options: {
+        useDefault: false,
+        contentFolders: [{
+          name: "blog",
+          path: path.resolve(__dirname, 'content/blog')
+        }, {
+          name: "modules",
+          path: path.resolve(__dirname, 'content/modules')
+        }, {
+          name: "pages",
+          path: path.resolve(__dirname, 'content/pages')
+        }],
+        uploadFolder: path.resolve(__dirname, 'static/images')
+      }
+    },
     {
       // Needed for resolve alias module in Netlify cms.js
       resolve: `gatsby-plugin-alias-imports`,

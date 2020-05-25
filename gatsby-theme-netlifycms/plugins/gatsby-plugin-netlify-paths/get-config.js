@@ -4,10 +4,10 @@ const readYaml = require(`read-yaml-promise`)
 const cwd = process.cwd()
 let obj
 
-module.exports = async function({ cmsConfig = `/admin/config.yml` }){
+module.exports = async function({ cmsConfig }){
 	if(obj) return obj
-	const configPath = join(cwd, cmsConfig)
-	const { media_folder, public_folder, monorepo_folder = '' } = await readYaml(configPath)
+	const configPath = join(cmsConfig)
+	const { media_folder, public_folder, monorepo_folder = ''/* , ...rest */ } = await readYaml(configPath)
 	if(!media_folder ){
 		console.error(`Missing media_folder in Netlify CMS config`)
 		process.exit(1)
@@ -17,7 +17,8 @@ module.exports = async function({ cmsConfig = `/admin/config.yml` }){
 		process.exit(1)
 	}
 	obj = {
-		monoRepoFolder: monorepo_folder,
+/* 		contentFolders: rest.collections.map(({name, folder}) => ({name, folder })),
+ */		monoRepoFolder: monorepo_folder,
 		mediaPath: media_folder,
 		publicPath: public_folder,
 	}
