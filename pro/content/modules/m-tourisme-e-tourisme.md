@@ -1,14 +1,16 @@
 ---
 layout: vertical-small
-titleLevel: 4
+cta:
+  palette: primary
 title: Zone Blanche
 isTitleDisplayed: true
+titleLevel: 4
 image:
-  hiddenHeaderContent: E-tourisme
-  hiddenHeaderLevel: 4
+  hiddenHeaderContent: Valorisation du patrimoine
+  hiddenHeaderLevel: "3"
   src: /images/picto_offline.png
-imageFirst: true
 contrastText: false
+imageFirst: true
 ---
-### Wizar offre une solution numérique d’itinérance en zone blanche.
+### Wizar offre une solution numérique d’itinérance en zone blanche pour une valorisation du patrimoine. 
 
