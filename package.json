@@ -1,6 +1,6 @@
 {
   "private": true,
-  "workspaces": ["pro", "gatsby-theme-warfog"],
+  "workspaces": ["pro", "gatsby-theme-warfog", "gatsby-theme-netlifycms"],
   "scripts": {
     "deploy-pro": "yarn && yarn workspace pro build"
   }
