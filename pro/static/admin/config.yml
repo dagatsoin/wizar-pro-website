@@ -40,6 +40,7 @@ collections:
         fields:
           - label: Label
             name: label
+            required: false
             widget: string
 
           - label: Palette
