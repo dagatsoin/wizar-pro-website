@@ -1,12 +1,16 @@
 ---
 layout: vertical-small
-titleLevel: 4
-title: 'Flux touristiques '
+cta:
+  palette: primary
+title: "Flux touristiques "
 isTitleDisplayed: true
+titleLevel: 4
 image:
   src: /images/picto_flux.png
-imageFirst: true
+  hiddenHeaderContent: "Valorisation du patrimoine sous forme de micro aventures. "
+  hiddenHeaderLevel: "3"
 contrastText: false
+imageFirst: true
 ---
-### Mise en avant du petit patrimoine sur des territoires moins fréquentés.
+### Mise en avant du petit patrimoine sur des territoires sous forme de micro aventures.
 
