@@ -6,21 +6,26 @@ import { Hero, Horizontal, PhoneScreenshot, Vertical, VerticalSmall } from './la
 type Props<E extends Environment> = { noMargin: boolean } & ModuleType<E>
 
 export default function Module<E extends Environment>(props: Props<E>): JSX.Element {
+  // Clean props
+  const cleanProps = {...props}
+  if (!cleanProps.cta?.label) {
+    delete cleanProps.cta
+  }
   switch (props.layout) {
     case 'hero':
-      return <Hero {...props}/>
+      return <Hero {...cleanProps}/>
     
     case 'vertical':
-      return <Vertical {...props}/> 
+      return <Vertical {...cleanProps}/> 
 
     case 'vertical-small':
-      return <VerticalSmall {...props}/> 
+      return <VerticalSmall {...cleanProps}/> 
 
     case 'horizontal':
-      return <Horizontal {...props}/>
+      return <Horizontal {...cleanProps}/>
     
     case 'phone-screenshot':
     default:
-      return <PhoneScreenshot {...props}/>
+      return <PhoneScreenshot {...cleanProps}/>
     }
 }

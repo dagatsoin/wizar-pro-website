@@ -33,7 +33,7 @@ export type ModuleNode = {
 
 export type ModuleAttributes<E extends Environment = 'gatsby'> = {
   layout: Layout
-  cta?: CTA
+  cta: CTA | null
   title: string
   titleLevel: number
   isTitleDisplayed: boolean
