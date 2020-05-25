@@ -2,7 +2,11 @@ const path = require('path')
 
 /**
  * Options:
- * - source folders
+ * - contentFolders: Array<{
+ *  name: string // the collection name
+ *  folder: string // absolute path where are stored the MD files.
+ * }>
+ * - uploadFolder: string // the location where uploaded assets are stored
  */
 module.exports = ({ useDefault = true, contentFolders, uploadFolder }) => {
   const config = {}
@@ -61,12 +65,12 @@ module.exports = ({ useDefault = true, contentFolders, uploadFolder }) => {
 
   config.plugins = [
     ...config.plugins,
-    {
+   /*  {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: ['gatsby-plugin-netlify-paths'],
       },
-    },
+    }, */
     {
       resolve: `gatsby-plugin-netlify-cms`,
     },
