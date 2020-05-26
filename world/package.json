@@ -1,0 +1,52 @@
+{
+  "name": "world",
+  "description": "The web site of Wizar for the players",
+  "version": "0.0.1",
+  "author": "Daniel Neveux <daniel.neveux@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.15.28",
+    "gatsby-image": "^2.2.23",
+    "gatsby-remark-images": "^3.1.25",
+    "gatsby-plugin-google-analytics": "^2.3.1",
+    "gatsby-theme-warfog": "0.0.2",
+    "gatsby-plugin-netlify-cms-admin": "0.0.1",
+    "gatsby-transformer-remark": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "react": "^16.10.1",
+    "react-dom": "^16.10.1",
+    "react-markdown": "^4.2.2",
+    "space-lift": "^0.8.7",
+    "typeface-roboto": "0.0.75"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "clean": "gatsby clean",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "develop": "npm run clean && gatsby develop -H 0.0.0.0",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "type-check": "node_modules/typescript/bin/tsc --noEmit",
+    "lint": "tslint --project ."
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.9",
+    "@types/react": "^16.9.4",
+    "@types/react-dom": "^16.9.1",
+    "gatsby-plugin-alias-imports": "^1.0.5",
+    "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-sitemap": "^2.2.16",
+    "gatsby-plugin-typescript": "^2.1.11",
+    "prettier": "^1.18.2",
+    "ts-node": "^8.4.1",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.6.3"
+  }
+}
