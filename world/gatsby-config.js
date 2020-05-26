@@ -11,7 +11,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms-admin',
       options: {
+        adminConfig: {
+          backend: { name: "git-gateway" },
+          publish_mode: "editorial_workflow"
+        },
         monorepoFolder: "world",
+        modulePath: path.resolve(__dirname, 'src/cms/cms.js'),
         contentFolders: [{
           name: "blog",
           path: path.resolve(__dirname, 'content/blog')
@@ -22,7 +27,43 @@ module.exports = {
           name: "pages",
           path: path.resolve(__dirname, 'content/pages')
         }],
-        uploadFolder: path.resolve(__dirname, 'static/images')
+        uploadFolder: path.resolve(__dirname, 'static/images'),
+        plugins: [
+          {
+            resolve: `gatsby-plugin-typescript`,
+            options: {
+              isTSX: true, // defaults to false
+              allExtensions: true, // defaults to false
+            },
+          },
+          {
+            // Needed for resolve alias module in Netlify cms.js
+            resolve: `gatsby-plugin-alias-imports`,
+            options: {
+              alias: {
+                "~": path.resolve(__dirname, 'src'),
+              },
+              extensions: []
+            }
+          },
+        ]
+      },
+    },
+    {
+      // Needed for resolve alias module in Netlify cms.js
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "~": path.resolve(__dirname, 'src'),
+        },
+        extensions: []
+      }
+    },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        allExtensions: true, // defaults to false
       },
     },
     {
