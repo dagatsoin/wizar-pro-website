@@ -9,7 +9,7 @@
     "gatsby-remark-images": "^3.1.25",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-theme-warfog": "0.0.2",
-    "gatsby-theme-netlifycms": "0.0.1",
+    "gatsby-plugin-netlify-cms-admin": "0.0.1",
     "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.2.19",
     "react": "^16.10.1",

@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-theme-netlifycms",
-  "description": "A Gatsby theme for Netlify CMS with monorepo support.",
+  "name": "gatsby-plugin-netlify-cms-admin",
+  "description": "A Gatsby plugin for Netlify CMS with monorepo support.",
   "version": "0.0.1",
   "author": "Daniel Neveux <daniel.neveux@gmail.com>",
   "dependencies": {

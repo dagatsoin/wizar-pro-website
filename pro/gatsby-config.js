@@ -9,7 +9,7 @@ module.exports = {
   plugins: [
     'gatsby-theme-warfog',
     {
-      resolve: 'gatsby-theme-netlifycms',
+      resolve: 'gatsby-plugin-netlify-cms-admin',
       options: {
         cmsConfigPath: path.resolve(__dirname, 'config.yml'),
         modulePath: path.resolve(__dirname, 'src/cms/cms.js'),
