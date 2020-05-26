@@ -14,12 +14,12 @@ exports.onPreInit = async function(_, {cmsConfigPath, mergeConfig}) {
 			fs.copyFileSync(path.resolve(`${__dirname}/defaultContent/modules/__placeholder__.md`), `${cwd}/content/modules/__placeholder__.md`)
 			fs.mkdirSync(`${cwd}/content/pages`)
 			fs.copyFileSync(path.resolve(`${__dirname}/defaultContent/pages/__placeholder__.md`), `${cwd}/content/pages/__placeholder__.md`)
-		}
-		if (!fs.existsSync(`${cwd}/static/images`)){
-			fs.mkdirSync(`${cwd}/static/images`)
-		}
-		if (!fs.existsSync(`${cwd}/static/images/logo.png`)) {
-			fs.copyFileSync(path.resolve(`${__dirname}/defaultContent/logo.png`), `${cwd}/static/images/logo.png`)
+			if (!fs.existsSync(`${cwd}/static/images`)){
+				fs.mkdirSync(`${cwd}/static/images`)
+			}
+			if (!fs.existsSync(`${cwd}/static/images/logo.png`)) {
+				fs.copyFileSync(path.resolve(`${__dirname}/defaultContent/logo.png`), `${cwd}/static/images/logo.png`)
+			}
 		}
 		// Copy the user CMS config to the static folder
 		if (!fs.existsSync(`${cwd}/static/admin/config.yml`)) {
