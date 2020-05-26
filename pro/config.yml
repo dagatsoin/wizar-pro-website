@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  name: test-repo
+  #branch: master # Branch to update (optional; defaults to master)
 
 publish_mode: editorial_workflow
 
@@ -40,6 +40,7 @@ collections:
         fields:
           - label: Label
             name: label
+            required: false
             widget: string
 
           - label: Palette
@@ -65,11 +66,6 @@ collections:
         min: 1
         max: 6
 
-      - label: Image
-        name: image
-        widget: imageInHeader
-        required: false
-
       - label: Featured image
         name: image
         widget: object
@@ -90,8 +86,8 @@ collections:
           - label: Header level
             name: hiddenHeaderLevel
             widget: select
-            options: ["1", "2", "3", "4", "5", "6"]
-            default: "1"
+            options: [1, 2, 3, 4, 5, 6]
+            default: 1
         
       - label: Contrast text
         name: contrastText

@@ -22,27 +22,27 @@ module.exports = ({ contentFolders, uploadFolder, modulePath, plugins }) => {
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'blog',
-          path: `${__dirname}/defaultContent/blog`,
+          path: `${process.cwd()}/content/blog`,
         },
       },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'modules',
-          path: `${__dirname}/defaultContent/modules`,
+          path: `${process.cwd()}/content/modules`,
         },
       },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
           name: 'pages',
-          path: `${__dirname}/defaultContent/pages`,
+          path: `${process.cwd()}/content/pages`,
         },
       },
       {
         resolve: 'gatsby-source-filesystem',
         options: {
-          path: `${__dirname}/static/images`,
+          path: `${process.cwd()}/static/images`,
           name: 'uploads',
         },
       },

@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: 'gatsby-theme-netlifycms',
       options: {
-        cmsConfigPath: path.resolve(__dirname, 'static/admin/config.yml'),
+        cmsConfigPath: path.resolve(__dirname, 'config.yml'),
         modulePath: path.resolve(__dirname, 'src/cms/cms.js'),
         contentFolders: [{
           name: "blog",
