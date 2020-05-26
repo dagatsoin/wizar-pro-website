@@ -1,5 +1,3 @@
-const path = require('path')
-
 /**
  * Options:
  * - contentFolders: Array<{
@@ -7,8 +5,11 @@ const path = require('path')
  *  folder: string // absolute path where are stored the MD files.
  * }>
  * - uploadFolder: string // the location where uploaded assets are stored
+ * - modulePath: string // the absolute path of the admin custom view (cms.js)
+ * - plugins: Plugin[] // An array of gatsby plugins injected into the config.
+ *   Use it when the cms.js module needs to handle alias path, typescript, ...
  */
-module.exports = ({ contentFolders, uploadFolder, cmsConfigPath }) => {
+module.exports = ({ contentFolders, uploadFolder, modulePath, plugins }) => {
   const config = {}
   if (contentFolders) {
     config.plugins = contentFolders.map(options => ({
@@ -63,9 +64,12 @@ module.exports = ({ contentFolders, uploadFolder, cmsConfigPath }) => {
 
   config.plugins = [
     ...config.plugins,
+    ...plugins,
     {
       resolve: `gatsby-plugin-netlify-cms`,
-      options: cmsConfigPath
+      options: {
+        modulePath
+      }
     },
   ]
 
