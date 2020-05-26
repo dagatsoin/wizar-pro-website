@@ -1,17 +1,15 @@
 backend:
-  name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  name: test-repo
 
 publish_mode: editorial_workflow
 
-media_folder: pro/static/images # Media files will be stored in the repo under static/images
+media_folder: static/images # Media files will be stored in the repo under static/images
 public_folder: /images # The src attribute for uploaded media will begin with /images
-monorepo_folder: pro
 
 collections:
   - name: modules
     label: Modules
-    folder: pro/content/modules
+    folder: content/modules
     create: true
     fields:
       - label: Type
@@ -106,7 +104,7 @@ collections:
 
   - name: pages
     label: Pages
-    folder: pro/content/pages
+    folder: content/pages
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
@@ -179,7 +177,7 @@ collections:
   
   - name: blog
     label: Blog
-    folder: pro/content/blog
+    folder: content/blog
     create: true
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     fields:
