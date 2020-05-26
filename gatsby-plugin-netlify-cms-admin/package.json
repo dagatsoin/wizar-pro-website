@@ -22,5 +22,8 @@
     "serve": "gatsby serve",
     "develop": "npm run clean && gatsby develop -H 0.0.0.0",
     "start": "npm run develop"
+  },
+  "devDependencies": {
+    "write-yaml": "^1.0.0"
   }
 }

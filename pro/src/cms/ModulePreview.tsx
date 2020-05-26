@@ -14,7 +14,7 @@ export function ModulePreview(props: any) {
     hiddenHeaderContent,
     hiddenHeaderLevel: hiddenHeaderContent ? props.widgetsFor('image').getIn(['data', 'hiddenHeaderLevel']) : undefined
   } : undefined
-  console.log(image)
+
   return (
     <Provider themeConfig={theme}>
       <Module

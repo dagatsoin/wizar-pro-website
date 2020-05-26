@@ -11,6 +11,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-netlify-cms-admin',
       options: {
+        adminConfig: {
+          backend: { name: "git-gateway" },
+          publish_mode: "editorial_workflow"
+        },
+        monorepoFolder: "pro",
         cmsConfigPath: path.resolve(__dirname, 'config.yml'),
         modulePath: path.resolve(__dirname, 'src/cms/cms.js'),
         contentFolders: [{
