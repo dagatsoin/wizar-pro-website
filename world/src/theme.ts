@@ -19,15 +19,15 @@ const palette: Partial<Palette> = {
     contrastText: '#fff'
   },
   text: {
-    primary: 'rgba(60, 51, 44, 1)',
-    secondary: 'rgba(60, 51, 44, 0.7)',
-    disabled: 'rgba(60, 51, 44, 0.5)',
-    hint: 'rgba(60, 51, 44, 0.5)',
+    primary: 'rgba(159, 155, 143, 1)',
+    secondary: 'rgba(159, 155, 143, 0.7)',
+    disabled: 'rgba(159, 155, 143, 0.5)',
+    hint: 'rgba(159, 155, 143, 0.5)'
   },
   background: {
     statusBar: colors.grey[300],
     appBar: colors.grey[100],
-    default: colors.grey[50],
+    default: "#302d2c",
     paper: colors.white
   },
   divider: colors.grey[300],
@@ -126,5 +126,11 @@ type WizarBusiness = {
   },
   text: {
     contrast: string
+  }
+}
+
+export function setGlobal() {
+  if (palette.background?.default) {
+    document.getElementsByTagName('body')[0].style.backgroundColor = palette.background.default
   }
 }
