@@ -1,10 +1,10 @@
 {
-  "name": "pro",
-  "description": "The web site of Wizar for the tourisme profesionnal sector",
+  "name": "world",
+  "description": "The web site of Wizar for the players",
   "version": "0.0.1",
-  "author": "Wizar Pro Web Site <daniel.neveux@gmail.com>",
+  "author": "Daniel Neveux <daniel.neveux@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.22",
+    "gatsby": "2.22",
     "gatsby-image": "^2.2.23",
     "gatsby-plugin-google-analytics": "^2.3.1",
     "gatsby-plugin-netlify-cms-admin": "0.0.1",

@@ -9,7 +9,7 @@
  * - plugins: Plugin[] // An array of gatsby plugins injected into the config.
  *   Use it when the cms.js module needs to handle alias path, typescript, ...
  */
-module.exports = ({ contentFolders, uploadFolder, modulePath, plugins }) => {
+module.exports = ({ contentFolders, uploadFolder, modulePath, plugins = [] }) => {
   const config = {}
   if (contentFolders) {
     config.plugins = contentFolders.map(options => ({

@@ -4,7 +4,8 @@ import { Option } from 'space-lift'
 import { ModuleType, Section } from '~/types'
 import { Carousel, Module, View } from '..'
 import { Title } from '../title'
-import lessStyle from './section.module.less'
+import lessLayout from './style.module.less'
+import lessShadowedStyle from './style.shadow.module.less'
 
 type Props = {
   section: Section
@@ -27,7 +28,7 @@ export default function renderSection({ section, modules }: Props) {
 
   function wrapInContainer(children: React.ReactNode) {
     return (
-      <>
+      <View className={lessShadowedStyle.container}>
         {section.title && (
           <View style={{ flex: 1, textAlign: 'center' }}>
             <Title.h2>{section.title}</Title.h2>
@@ -35,15 +36,15 @@ export default function renderSection({ section, modules }: Props) {
         )}
         <View
           key={section.modules.join()}
-          className={`${lessStyle.section} ${lessStyle[section.layout]} ${
+          className={`${lessLayout.section} ${lessLayout[section.layout]} ${
             moduleNames.length === 1 || section.layout === 'vertical'
-              ? lessStyle.noMargin
+              ? lessLayout.noMargin
               : ''
           }`}
         >
           {children}
         </View>
-      </>
+      </View>
     )
   }
 

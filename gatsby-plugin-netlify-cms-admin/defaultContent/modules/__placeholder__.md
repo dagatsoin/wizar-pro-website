@@ -11,8 +11,8 @@ elevation: 0
 image:
   hiddenHeaderContent: ""
   hiddenHeaderLevel: 1
-  src: ../../static/images/logo.png
+  src: ../../static/images/logo_color.png
 imageFirst: false
 contrastText: false
-backgroundImage: ../../static/images/logo.png
+backgroundImage: ../../static/images/logo_color.png
 ---
