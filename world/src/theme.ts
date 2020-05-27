@@ -25,10 +25,10 @@ const palette: Partial<Palette> = {
     hint: 'rgba(159, 155, 143, 0.5)'
   },
   background: {
-    statusBar: colors.grey[300],
-    appBar: colors.grey[100],
-    default: "#302d2c",
-    paper: colors.white
+    statusBar: colors.black,
+    appBar: '#211f1e',
+    default: '#38312A',
+    paper: '#4a433a'
   },
   divider: colors.grey[300],
   modifier: {
