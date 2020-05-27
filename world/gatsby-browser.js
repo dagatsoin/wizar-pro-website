@@ -6,7 +6,9 @@
 import React from 'react'
 import { Provider as ThemeProvider } from 'gatsby-theme-warfog'
 
-import theme from './src/theme'
+import theme, { setGlobal } from './src/theme'
+
+setGlobal()
 
 export function wrapRootElement({ element }) {
   return (
