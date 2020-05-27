@@ -69,7 +69,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-167419488-1",
+        trackingId: "UA-167419488-2",
       },
     },
     {
@@ -93,9 +93,9 @@ module.exports = {
       options: {
         resolveEnv: () => NODE_ENV,
         env: {
-          worldduction: {
-            policy: [{ userAgent: '*' }]
-            //policy: [{ userAgent: '*', disallow: ['/'] }],
+          production: {
+           // policy: [{ userAgent: '*' }]
+            policy: [{ userAgent: '*', disallow: ['/'] }],
           },
           'branch-deploy': {
             policy: [{ userAgent: '*', disallow: ['/'] }],
