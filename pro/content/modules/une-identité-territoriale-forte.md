@@ -9,7 +9,7 @@ titleLevel: 3
 image:
   src: /images/identite_screenshot.jpg
   hiddenHeaderContent: Valorisation du patrimoine
-  hiddenHeaderLevel: 2
+  hiddenHeaderLevel: "2"
 contrastText: false
 backgroundImage: /images/identite_territoriale.png
 imageFirst: false

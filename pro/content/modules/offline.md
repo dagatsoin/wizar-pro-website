@@ -9,7 +9,7 @@ titleLevel: 4
 image:
   hiddenHeaderContent: Wizar peut se jouer sans connexion internet. Pour des micro
     aventures près de chez soi.
-  hiddenHeaderLevel: 3
+  hiddenHeaderLevel: "3"
   src: /images/map_screenshot.jpg
 contrastText: false
 backgroundImage: /images/pixel_forest.png

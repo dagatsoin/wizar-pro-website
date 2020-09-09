@@ -5,7 +5,7 @@ title: Consommation Locale
 isTitleDisplayed: true
 image:
   hiddenHeaderContent: jeu video
-  hiddenHeaderLevel: 4
+  hiddenHeaderLevel: "4"
   src: /images/picto_coins.png
 imageFirst: true
 contrastText: false

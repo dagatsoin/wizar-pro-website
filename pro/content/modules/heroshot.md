@@ -8,7 +8,7 @@ isTitleDisplayed: true
 titleLevel: 1
 image:
   hiddenHeaderContent: Application de jeu vidéo géolocalisé pour le tourisme -  Wizar
-  hiddenHeaderLevel: 3
+  hiddenHeaderLevel: "3"
   src: /images/demo.jpg
 contrastText: true
 backgroundImage: /images/heroshot_bg.jpg

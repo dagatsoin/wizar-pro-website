@@ -84,8 +84,8 @@ collections:
           - label: Header level
             name: hiddenHeaderLevel
             widget: select
-            options: [1, 2, 3, 4, 5, 6]
-            default: 1
+            options: ["1", "2", "3", "4", "5", "6"]
+            default: ["1"]
         
       - label: Contrast text
         name: contrastText

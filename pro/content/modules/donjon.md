@@ -17,7 +17,7 @@ contrastText: false
 ### **1€/joueur ttc**
 (+ 15% au delà d'un prix de revente de 2€)
 
-### Disponible printemps 2020
+### Disponible printemps 2021
 
 #### Spécial activité payante d'intérieur
 
