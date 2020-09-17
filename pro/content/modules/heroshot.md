@@ -1,7 +1,7 @@
 ---
 layout: hero
 cta:
-  label: "Téléchargez votre mission "
+  label: Devenir territoire partenaire
   palette: primary
 title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
