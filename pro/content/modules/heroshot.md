@@ -11,7 +11,7 @@ image:
   hiddenHeaderLevel: "3"
   src: /images/demo.jpg
 contrastText: true
-backgroundImage: /images/jdp-newsletter.png
+backgroundImage: /images/heroshot_bg.jpg
 imageFirst: false
 ---
 ### Jeu vidéo géolocalisé d'exploration touristique.
