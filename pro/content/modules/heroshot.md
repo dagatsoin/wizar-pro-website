@@ -1,7 +1,7 @@
 ---
 layout: hero
 cta:
-  label: DEVENIR TERRITOIRE PARTENAIRE
+  label: "Téléchargez votre mission "
   palette: primary
 title: le tourisme dont vous êtes le héros.
 isTitleDisplayed: true
@@ -11,7 +11,7 @@ image:
   hiddenHeaderLevel: "3"
   src: /images/demo.jpg
 contrastText: true
-backgroundImage: /images/heroshot_bg.jpg
+backgroundImage: /images/jdp-newsletter.png
 imageFirst: false
 ---
 ### Jeu vidéo géolocalisé d'exploration touristique.
